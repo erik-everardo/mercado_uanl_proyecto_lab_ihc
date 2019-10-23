@@ -13,5 +13,6 @@
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.server.iis/2.2.6/build/netstandard2.0/Microsoft.AspNetCore.Server.IIS.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.server.iis/2.2.6/build/netstandard2.0/Microsoft.AspNetCore.Server.IIS.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.viewcompilation/2.2.0/build/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.mvc.razor.viewcompilation/2.2.0/build/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.app/2.2.6/build/netcoreapp2.2/Microsoft.AspNetCore.App.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.app/2.2.6/build/netcoreapp2.2/Microsoft.AspNetCore.App.targets')" />
+    <Import Project="$(NuGetPackageRoot)entityframework/6.3.0/build/EntityFramework.targets" Condition="Exists('$(NuGetPackageRoot)entityframework/6.3.0/build/EntityFramework.targets')" />
   </ImportGroup>
 </Project>

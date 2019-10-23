@@ -1,0 +1,68 @@
+@page
+@using System.Data
+@model mercado_uanl.Pages.login
+
+@{
+    Layout = "LayoutLoginSignIn";
+    ViewData["title"] = "Iniciar sesión";
+}
+<h1 class="display-3">Mercado UANL</h1>
+<h2>Iniciar sesión</h2>
+
+@if (Model.nuevaCuenta)
+{
+    <div class="alert alert-info">
+        <div class="alert-heading">Hola <strong>@Model.nombre</strong>, tu cuenta ha sido creada con éxito</div>
+        <p>Ingresa tu contraseña para continuar</p>
+    </div>
+}
+
+<form method="POST" asp-page="Index" class="w-50 mx-auto my-5">
+    <div class="form-group">
+        <div class="input-group">
+            @if (Model.nuevaCuenta)
+            {
+                <input type="text" class="form-control m-2" name="user" placeholder="E-mail" value="@Model.usuario" readonly="true"/>
+            }
+            else if(Model.UsuarioNoExiste)
+            {
+                <input type="text" class="form-control m-2 is-invalid" name="user" placeholder="E-mail"/>
+                <div class="invalid-feedback">No existe la cuenta</div>
+            }
+            else if (Model.passIncorrecto)
+            {
+                <input type="text" class="form-control m-2" name="user" placeholder="E-mail" value="@Model.usuario"/>
+            }
+            else
+            {
+                <input type="text" class="form-control m-2" name="user" placeholder="E-mail"/>
+            }
+            
+        </div>
+        <div class="input-group">
+            @if (Model.passIncorrecto)
+            {
+                <input type="password" class="form-control m-2 is-invalid" name="password" placeholder="Contraseña"/>
+                <div class="invalid-feedback">Contraseña incorrecta</div>
+            }
+            else
+            {
+                <input type="password" class="form-control m-2" name="password" placeholder="Contraseña"/>
+                <div class="invalid-feedback">Contraseña incorrecta</div>
+            }
+            
+        </div>
+    </div>
+    @if (Model.nuevaCuenta)
+    {
+        <input type="hidden" name="cuentaNueva" value="si"/>
+    }
+       
+    <div class="form-group d-flex justify-content-end">
+        <input type="submit" class="form-control btn btn-primary w-50" value="Iniciar sesión"/>
+    </div>
+</form>
+<p class="m-3">¿No tienes una cuenta? <a asp-page="signin">¡Crea una ahora!</a></p>
+<p class="m-3">Con una cuenta puedes acceder a toda la información publicitada aquí, así como publicitar tus productos.</p> 
+
+

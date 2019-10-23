@@ -1,0 +1,91 @@
+@page
+@model mercado_uanl.Pages.signin
+
+@{
+    Layout = "LayoutLoginSignIn";
+    ViewData["title"] = "Crear una cuenta";
+}
+
+<h1 class="display-3">Mercado UANL</h1>
+<h2>Crear una cuenta</h2>
+<form method="post" class="w-50 mx-auto my-5">
+    
+    <h3>Información personal</h3>
+    <div class="form-group m-2">
+        @if (Model.ErrorUsuarioExiste)
+        {
+            <input type="email" name="email" class="form-control is-invalid" placeholder="Correo electrónico" autocomplete="false" required="true"/>
+        }
+        else
+        {
+            <input type="email" name="email" class="form-control" placeholder="Correo electrónico" autocomplete="false" required="true"/>
+        }
+        <div class="invalid-feedback">El correo ya fue registrado anteriormente, será usado como nombre de usuario</div>
+    </div>
+    <div class="form-group m-2">
+        @if (Model.NombreNulo)
+        {
+            <input type="text" name="nombre" class="form-control is-invalid" placeholder="Nombre completo" autocomplete="false" required="true"/>
+        }
+        else
+        {
+            <input type="text" name="nombre" class="form-control" placeholder="Nombre completo" autocomplete="false" required="true"/>
+        }
+        <div class="invalid-feedback">Ingresa tu nombre completo, por favor.</div>
+    </div>
+    
+    <h3>Selecciona tu sexo</h3>
+    <div class="form-group form-inline m-2">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="Mujer" id="check_mujer" name="sexo" checked/>
+            <label for="check_mujer" class="form-check-label">Mujer</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="Hombre" id="check_hombre" name="sexo"/>
+            <label for="check_hombre" class="form-check-label">Hombre</label>
+        </div>
+
+    </div>
+    
+    
+    
+    <h3>Crea una contraseña</h3>
+    <div class="form-group m-2">
+        <input type="password" name="pass" class="form-control my-2" placeholder="Crea una contraseña" id="campo_pass" autocomplete="false" required="true"/>
+        <input type="password" name="pass_comprobacion"class="form-control my-2" placeholder="Escribe la contraseña de nuevo" id="campo_pass_comprobacion" autocomplete="false" required="true"/>
+    </div>
+    
+    <h3>Selecciona el o los campus donde estudias</h3>
+    <div class="form-group m-2">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" name="CiudadUniversitaria" id="chekbox_cu"/>
+            <label for="chekbox_cu" class="form-check-label">Ciudad Universitaria</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" name="Mederos" id="chekbox_mederos"/>
+            <label for="chekbox_cu" class="form-check-label">Mederos</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" name="Salud" id="chekbox_salud"/>
+            <label for="chekbox_cu" class="form-check-label">Ciencias de la Salud</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" name="Linares" id="chekbox_linares"/>
+            <label for="chekbox_linares" class="form-check-label">Linares</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" name="Sabinas" id="chekbox_sabinas"/>
+            <label for="chekbox_sabinas" class="form-check-label">Sabinas Hidalgo</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="1" name="CienciasAgropecuarias" id="chekbox_agropecuarias"/>
+            <label for="chekbox_agropecuarias" class="form-check-label">Ciencias Agropecuarias</label>
+        </div>
+        <div class="form-group m-2 d-flex">
+            <input type="submit" value="Continuar" class="btn btn-primary mx-auto"/>
+        </div>
+    </div>
+
+
+
+</form>

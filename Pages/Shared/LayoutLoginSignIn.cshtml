@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,43 +17,15 @@
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Mercado UANL</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    
-                    <ul class="nav justify-content-end">
-                        <li class="nav-item m-1"><a asp-page="login"><i class="fas fa-sign-in-alt"></i></a></li>
-                        <li class="nav-item m-1"><a asp-page="signin"><i class="fas fa-user-plus"></i></a></li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0 d-flex" action="/Buscar" method="GET">
-                        <input type="text" name="q" class="form-control flex-grow-1" placeholder="Buscar"/>
-                        <input type="submit" value="Buscar" class="btn btn-primary form-control m-1 my-2 my-sm-0"/>
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
+<body id="body_login_signin">
+<div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - Mercado UANL - <a asp-area="" asp-page="/Nosotros">Nosotros</a>
-        </div>
-    </footer>
-
-    <environment include="Development">
+<environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     </environment>
