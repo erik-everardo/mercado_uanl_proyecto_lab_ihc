@@ -59,3 +59,27 @@ body {
   height: 100%;
   width: 100%;
 }
+
+.sidebar{
+  position: fixed;
+  height: 100%;
+  z-index:100;
+  background-color: #f8f9fa;
+}
+#main-dashboard{
+  margin-left: auto!important;
+}
+
+@media (max-width: 780px) {
+  .sidebar{
+    position: fixed;
+    height: auto;
+    z-index:100;
+    background-color: #f8f9fa;
+    display: inline;
+  }
+}
+.encabezado-barra-lateral-menus{
+  font-size: 1.2em;
+  color: #10707f;
+}
