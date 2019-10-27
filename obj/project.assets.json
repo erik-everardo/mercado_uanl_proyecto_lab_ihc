@@ -5,8 +5,8 @@
       "EntityFramework/6.3.0": {
         "type": "package",
         "build": {
-          "build/EntityFramework.props": {},
-          "build/EntityFramework.targets": {}
+          "buildTransitive/EntityFramework.props": {},
+          "buildTransitive/EntityFramework.targets": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -12573,7 +12573,7 @@
         "/opt/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/home/erik/.nuget/NuGet/NuGet.Config"
+        "/home/erik/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
