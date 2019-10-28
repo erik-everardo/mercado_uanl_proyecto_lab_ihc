@@ -22,6 +22,8 @@ namespace mercado_uanl.Pages
         public string Nombre;
         public string Correo;
         public bool Sexo;
+        public int idUsuario;
+        public string password;
 
         public IndexModel(DbContextApp contexto)
         {
@@ -43,6 +45,8 @@ namespace mercado_uanl.Pages
                     Correo = usuario.Correo;
                     Sexo = usuario.Sexo;
                     InicioSesion = true;
+                    idUsuario = usuario.Id;
+                    this.password = usuario.Password;
                     return Page();
                 }
 
