@@ -19,9 +19,12 @@
 </head>
 <body>
 <nav class="navbar bg-light navbar-light sticky-top ">
-    <div class="navbar-brand">Mercado UANL</div>
-
-            <div class="dropdown dropleft">
+    <button class="navbar-toggler" type="button" onclick="desplegarSidebar()">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <form class="w-75"><input type="text" placeholder="Buscar" class="form-control"/></form>
+    <div class="dropdown dropleft">
                 <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i>
                 </button>
@@ -34,22 +37,25 @@
 </nav>
 <div class="container-fluid">
     <div class="row">
-        <aside class="col-lg-2 col-md-3 sidebar">
-            <h6 class="encabezado-barra-lateral-menus">COMPRAR</h6>
-            <ul class="nav flex-column">
+        <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
+            <div class="navbar-brand">Mercado UANL</div>
+            <ul class="nav flex-column nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Principal</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Vender un nuevo producto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Productos que vendo</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Calificaciones de mis productos</a>
+                    <a class="nav-link active my-2" href="#" id="btn-principal">Principal</a>
                 </li>
             </ul>
+
+            <h6 class="encabezado-barra-lateral-menus my-3">VENDER</h6>
+            <ul class="nav flex-column nav-pills">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="btn-vender">Vender</a>
+                </li>
+                <li class="nav-item" href="#">
+                    <a class="nav-link" href="#" id="btn-calificaciones">Calificaciones y comentarios</a>
+                </li>
+            </ul>
+            <h6 class="encabezado-barra-lateral-menus my-3">COMPRAR</h6>
         </aside>
         <main role="main" class="col-lg-10 col-md-9" id="main-dashboard">
             @RenderBody()
@@ -77,7 +83,8 @@
                 integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
         </script>
     </environment>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/dashboard.js"></script>
     <script src="https://kit.fontawesome.com/fde197fc03.js" crossorigin="anonymous"></script>
 
     @RenderSection("Scripts", required: false)

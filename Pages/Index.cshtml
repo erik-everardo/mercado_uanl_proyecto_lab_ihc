@@ -5,7 +5,113 @@
 {
     Layout = "Dashboard";
     ViewData["Title"] = "Dashboard";
-    <p>Inicio de sesion</p>
+    @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+        @functions{
+            public string GetAntiXsrfRequestToken()
+            {
+                return Xsrf.GetAndStoreTokens(HttpContext).RequestToken;
+    }
+}
+    <script>
+    var credencial = {usuario : "" + @Model.idUsuario, password : "" + @Model.password,__RequestVerificationToken:"@GetAntiXsrfRequestToken()"}
+    </script>
+    <div id="principal">
+        <h3>Principal</h3>
+        <h4>Productos recientes</h4>
+        <div class=" w-100">
+            <div class="card-columns">
+                <div class="card">
+                    <img src="img-prueba.png" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Producto ejemplo 1</h5>
+                        <p class="card-text">Descripcion aqui</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img-prueba.png" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Producto ejemplo 1</h5>
+                        <p class="card-text">Descripcion aqui</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img-prueba.png" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Producto ejemplo 1</h5>
+                        <p class="card-text">Descripcion aqui</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img-prueba.png" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Producto ejemplo 1</h5>
+                        <p class="card-text">Descripcion aqui</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img-prueba.png" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Producto ejemplo 1</h5>
+                        <p class="card-text">Descripcion aqui</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="img-prueba.png" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Producto ejemplo 1</h5>
+                        <p class="card-text">Descripcion aqui</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <h4>Acabo de publicar</h4>
+        <div class="w-100">
+
+        </div>
+    </div>
+    <div id="vender">
+        <div class="card my-4">
+            <div class="card-header">Nuevo producto para vender</div>
+            <div class="card-body">
+                <form id="formulario_publicar_producto" asp-antiforgery="true">
+                    <div class="form-group form-row">
+                        <label for="nombre_prducto_nuevo" class="col-sm-3 col-md-2">El nombre del producto</label>
+                        <input class="form-control col-sm-9 col-md-10" type="text" id="nombre_prducto_nuevo" name="Nombre"/>
+                    </div>
+                    <div class="form-group form-row">
+                        <label class="col-2">Datos del producto</label>
+                        <input type="number" id="precio_nuevo_producto" class="form-control col-2" placeholder="Precio en moneda nacional" name="precio"/>
+                        <select class="custom-select col mx-2" id="seleccionar_categoria_nuevo_producto" name="Categoria">
+                            <option selected>Seleccionar categoria</option>
+                            <option value="dulces" name="categoria">Dulces y botanas</option>
+                            <option value="comida-rapida">Comida rápida</option>
+                            <option value="postres">Postres</option>
+                        </select>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="elegir_foto_producto_nuevo"/>
+                        <label class="custom-file-label" for="elegir_foto_producto_nuevo" data-browse="Elegir">Sube una foto de tu producto</label>
+                    </div>
+                    <div class="form-group my-1">
+                        <label for="descripcion_producto_nuevo">Descripción extra del producto</label>
+                        <textarea name="Descripcion" class="form-control" rows="5" id="descripcion_producto_nuevo" placeholder="Escribe todo lo que consideres que la gente debe saber de tu producto"></textarea>
+                    </div>
+                    <input type="hidden" value="@Model.idUsuario" name="id"/>
+                    <input type="hidden" value="@Model.password" name="pass"/>
+                    <div class="form-group d-flex justify-content-end">
+                        <input id="boton_publicar_producto_nuevo" type="button" value="Publicar" class="form-control btn btn-success w-auto my-2"/>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+        <h4 class="my-4">Mis productos</h4>
+        <div class="card-columns my-3 " id="mis_productos"></div>
+    </div>
+    <div id="calificaciones">
+        <h3>Calificaciones y comentarios</h3>
+    </div>
 }
 else
 {
