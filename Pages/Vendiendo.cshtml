@@ -4,16 +4,17 @@
 @{
     Layout = null;
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
-</div>
-</body>
-</html>
+@foreach(var Producto in Model.ProductosDelUsuario)
+{
+    <div class="card">
+        <div class="card-header">@Producto.Nombre</div>
+        <img class="card-img" src="@Producto.UrlFoto"/>
+        <div class="card-body">
+            <p class="card-text">@Producto.Descripcion</p>
+            <p class="text-right"><strong>$@Producto.Precio</strong></p>
+            <button data-id="id" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+            <button data-id="id" class="btn btn-warning"><i class="far fa-eye-slash"></i></button>
+            <button data-id="id" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+        </div>
+    </div>
+}
