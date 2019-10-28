@@ -8,7 +8,9 @@ namespace mercado_uanl.Models
         public string Descripcion { get; set; }
         public string UrlFoto { get; set; }
         public float Precio { get; set; }
-        
+        public string Categoria { get; set; }
+        public bool Publico { get; set; }
+
         //array será transformado en string, usando ","
         public string PuntuacionesArray { get; set; } //el array debe ser de elementos float
     }
