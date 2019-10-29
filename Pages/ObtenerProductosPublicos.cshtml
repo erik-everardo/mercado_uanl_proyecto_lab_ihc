@@ -1,0 +1,26 @@
+@page
+@model mercado_uanl.Pages.ObtenerProductosPublicos
+
+@{
+    Layout = null;
+}
+@if (Model.Recientes & Model.ListaProductos.Count > 0)
+{
+    <h4>Productos recientes</h4>
+}
+<div class="card-columns">
+    @foreach (var producto in Model.ListaProductos)
+    {
+        <div class="card">
+            <div class="card-header">
+                @producto.Nombre
+            </div>
+            <div class="card-body">
+                <p>@producto.Descripcion</p>
+                <p>Vendido por: @Model.NombreUsuarioPorId(producto.IdUsuario)</p>
+                <p class="text-right"><strong>$@producto.Precio</strong></p>
+                <a href="#" class="stretched-link">Ver</a>
+            </div>
+        </div>
+    }
+</div>
