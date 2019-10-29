@@ -10,8 +10,8 @@
             public string GetAntiXsrfRequestToken()
             {
                 return Xsrf.GetAndStoreTokens(HttpContext).RequestToken;
-    }
-}
+            }
+        }
     <script>
     var credencial = {usuario : "" + @Model.idUsuario, password : "" + @Model.password,__RequestVerificationToken:"@GetAntiXsrfRequestToken()"}
     </script>
@@ -20,54 +20,14 @@
         <h4>Productos recientes</h4>
         <div class=" w-100">
             <div class="card-columns">
-                <div class="card">
-                    <img src="img-prueba.png" class="card-img-top"/>
-                    <div class="card-body">
-                        <h5 class="card-title">Producto ejemplo 1</h5>
-                        <p class="card-text">Descripcion aqui</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="img-prueba.png" class="card-img-top"/>
-                    <div class="card-body">
-                        <h5 class="card-title">Producto ejemplo 1</h5>
-                        <p class="card-text">Descripcion aqui</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="img-prueba.png" class="card-img-top"/>
-                    <div class="card-body">
-                        <h5 class="card-title">Producto ejemplo 1</h5>
-                        <p class="card-text">Descripcion aqui</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="img-prueba.png" class="card-img-top"/>
-                    <div class="card-body">
-                        <h5 class="card-title">Producto ejemplo 1</h5>
-                        <p class="card-text">Descripcion aqui</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="img-prueba.png" class="card-img-top"/>
-                    <div class="card-body">
-                        <h5 class="card-title">Producto ejemplo 1</h5>
-                        <p class="card-text">Descripcion aqui</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="img-prueba.png" class="card-img-top"/>
-                    <div class="card-body">
-                        <h5 class="card-title">Producto ejemplo 1</h5>
-                        <p class="card-text">Descripcion aqui</p>
-                    </div>
-                </div>
+                <!--cards productos recientes abajo-->
                 
             </div>
         </div>
-        <h4>Acabo de publicar</h4>
-        <div class="w-100">
-
+        <h4 >Acabo de publicar</h4>
+        <div class="card-columns" id="acaboDePublicar_Div">
+            <!--cards productos publicados recientemente: abajo-->
+            <button value="actualizar" onclick="obtenerProductosRecienPublicados(@Model.idUsuario,'' + @Model.password,'@GetAntiXsrfRequestToken()')"></button>
         </div>
     </div>
     <div id="vender">
@@ -106,7 +66,7 @@
                 </form>
             </div>
         </div>
-        <h4 class="my-4">Mis productos</h4>
+        <h4 class="my-4" id="iraproductos">Mis productos</h4>
         <div class="card-columns my-3 " id="mis_productos"></div>
     </div>
     <div id="calificaciones">
@@ -179,4 +139,9 @@ else
             </div>
         </div>
     </div>
+    <script>
+if(localStorage.getItem("sesion_iniciada") === "true"){
+    window.location.href = "/login";
+}
+</script>
 }
