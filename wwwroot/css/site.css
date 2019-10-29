@@ -62,9 +62,10 @@ body {
 
 .sidebar{
   position: fixed;
-  height: 100%;
+  height: calc(100% - 56px);
   z-index:100;
   background-color: #f8f9fa;
+  overflow-y: auto;
 }
 #main-dashboard{
   margin-left: auto;
