@@ -5,6 +5,7 @@ var campoPassword = document.getElementById("campo_pass");
 var campoPasswordConfirmacion = document.getElementById("campo_pass_comprobacion");
 var cardColumnsMisProductos = document.getElementById("mis_productos");
 var acaboDePublicar_Div = document.getElementById("acaboDePublicar_Div");
+var productosRecientes_Div = document.getElementById("productosRecientes_Div");
 
 $('#campo_pass_comprobacion').on('keyup',function () {
     if(campoPassword.value !== campoPasswordConfirmacion.value){
@@ -50,16 +51,24 @@ function eliminarProducto(idUsuario,password,idProducto,token){
     var aEnviar = {idProducto : idProducto,idUsuario : idUsuario, password : password,__RequestVerificationToken: token};
     $.post("/EliminarProducto",aEnviar);
     ActualizarMisProductos();
+    obtenerProductosRecienPublicados();
+    obtenerProductosPublicosRecientes();
 }
 function OcultarDesocultarProducto(idUsuario,password,idProducto,token){
     var aEnviar = {idProducto : idProducto,idUsuario : idUsuario, password : password,__RequestVerificationToken: token};
     $.post("/PausarVentaProducto",aEnviar);
     ActualizarMisProductos();
 }
-function obtenerProductosRecienPublicados(idUsuario,password,token){
-    var aEnviar = {usuario : idUsuario,password : password,recientes : "true",__RequestVerificationToken: token};
+function obtenerProductosRecienPublicados(){
+    var aEnviar = {usuario : credencial.usuario, password : "" + credencial.password, __RequestVerificationToken:credencial.__RequestVerificationToken, recientes:"true"}
+        //{usuario : idUsuario,password : password,recientes : "true",__RequestVerificationToken: token};
     $.post("/Vendiendo",aEnviar,inyectarContenidoProductosRecientes);
 }
 function inyectarContenidoProductosRecientes(resultado){
     acaboDePublicar_Div.innerHTML = resultado;
+}
+function obtenerProductosPublicosRecientes(idUsuario){
+    $.get("/ObtenerProductosPublicos",{recientes:"true", usuarioAExcluir:idUsuario},function(respuesta){
+        productosRecientes_Div.innerHTML = respuesta;
+    })
 }
