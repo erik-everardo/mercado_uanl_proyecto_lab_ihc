@@ -16,7 +16,7 @@ namespace mercado_uanl.Pages
             
         }
 
-        public void OnPost(string idProducto)
+        public void OnPost(string idProducto,string idUsuario, string password)
         {
             contexto.Productos.Remove(contexto.Productos.Find(int.Parse(idProducto)));
             contexto.SaveChanges();
