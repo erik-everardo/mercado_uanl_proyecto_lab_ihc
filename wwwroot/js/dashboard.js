@@ -24,6 +24,8 @@ $('#btn-principal').on('click',function () {
     if(linkPantallaVentas.classList.contains("active")){
         linkPantallaVentas.classList.remove("active");
     }
+    obtenerProductosPublicosRecientes(credencial.usuario);
+    obtenerProductosRecienPublicados();
 });
 $('#btn-vender').on('click',function () {
  clickEnVender(false);
