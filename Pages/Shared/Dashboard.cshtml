@@ -18,30 +18,39 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-<nav class="navbar bg-light navbar-light sticky-top ">
-    <button class="navbar-toggler" type="button" onclick="desplegarSidebar()">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <form class="w-75"><input type="text" placeholder="Buscar" class="form-control"/></form>
-    <div class="dropdown dropleft">
-                <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user"></i>
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+<nav class="navbar bg-light navbar-light sticky-top">
+   <div class="navbar-brand">Mercado UANL</div>
+    <ul class="nav">
+        <li class="nav-item">
+            <a href="#" class="nav-link"><i class="far fa-bell"></i></a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#">
+                    Perfil
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/Index">Salir</a>
             </div>
+        </li>
+    </ul>
 </nav>
 <div class="container-fluid">
     <div class="row">
         <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
-            <div class="navbar-brand">Mercado UANL</div>
+            
+            <form>
+                <input type="text" class="form-control my-2 w-100" placeholder="Buscar"/>
+                <input type="button" class="btn btn-secondary w-100" value="Buscar"/>
+                            
+            </form>
+            <hr/>
             <ul class="nav flex-column nav-pills">
                 <li class="nav-item">
-                    <a class="nav-link active my-2" href="#" id="btn-principal">Principal</a>
+                    <a class="nav-link active my-2" href="#" id="btn-principal" >Principal</a>
                 </li>
             </ul>
 
@@ -56,6 +65,23 @@
                 </li>
             </ul>
             <h6 class="encabezado-barra-lateral-menus my-3">COMPRAR</h6>
+            <ul class="nav flex-column nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="">Mejor calificado</a>
+                </li>
+                <li class="nav-item" href="#">
+                    <a class="nav-link" href="#" id="">Por categoria</a>
+                </li>
+                <li class="nav-item" href="#">
+                    <a class="nav-link" href="#" id="">Por campus</a>
+                </li>
+                <li class="nav-item" href="#">
+                    <a class="nav-link" href="#" id="">Por facultad</a>
+                </li>
+                
+                
+            </ul>
+            
         </aside>
         <main role="main" class="col-lg-10 col-md-9" id="main-dashboard">
             @RenderBody()
