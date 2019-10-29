@@ -4,6 +4,13 @@
 @{
     Layout = null;
 }
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@functions{
+    public string GetAntiXsrfRequestToken()
+    {
+        return Xsrf.GetAndStoreTokens(HttpContext).RequestToken;
+    }
+}
 @foreach(var Producto in Model.ProductosDelUsuario)
 {
     <div class="card">
@@ -13,8 +20,25 @@
             <p class="card-text">@Producto.Descripcion</p>
             <p class="text-right"><strong>$@Producto.Precio</strong></p>
             <button data-id="id" class="btn btn-primary"><i class="fas fa-edit"></i></button>
-            <button data-id="id" class="btn btn-warning"><i class="far fa-eye-slash"></i></button>
-            <button data-id="id" class="btn btn-danger"><i class="fas fa-trash"></i></button>
+            <button
+                data-id="id" class="btn btn-warning"
+                onclick="OcultarDesocultarProducto(@Producto.IdUsuario,@Model.Usuario.Password,@Producto.Id,'@GetAntiXsrfRequestToken()')">
+                
+                @if (!Producto.Publico)
+                {
+                    <i class="far fa-eye-slash"></i>
+                }
+                else
+                {
+                    <i class="fas fa-eye"></i>
+                }
+            </button>
+            <button data-id="id" class="btn btn-danger" onclick="eliminarProducto(@Producto.IdUsuario,@Model.Usuario.Password,@Producto.Id,'@GetAntiXsrfRequestToken()')"><i class="fas fa-trash"></i></button>
         </div>
+        
     </div>
+}
+@if (Model.Recientes)
+{
+    <a href="#" onclick="clickEnVender(true)">Ver todos mis productos</a>
 }

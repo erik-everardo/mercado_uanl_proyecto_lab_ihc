@@ -10,20 +10,32 @@ namespace mercado_uanl.Pages
     {
         private readonly DbContextApp contexto;
         public List<Producto> ProductosDelUsuario;
+        public Usuario Usuario;
+        public bool Recientes;
         public Vendiendo(DbContextApp contexto)
         {
             this.contexto = contexto;
         }
 
-        public IActionResult OnPost(string usuario, string password)
+        public IActionResult OnPost(string usuario, string password, string recientes="false")
         {
             //verificar usuario y password
             if (contexto.Usuarios.Find(int.Parse(usuario)).Password.Equals(password))
             {
+                Usuario = contexto.Usuarios.Find(int.Parse(usuario));
                 ProductosDelUsuario =
                     contexto.Productos.Where(producto => producto.IdUsuario.Equals(int.Parse(usuario))).ToList();
+                if (recientes.Equals("true") && ProductosDelUsuario.Count >= 3)
+                {
+                    Recientes = true;
+                    ProductosDelUsuario = ProductosDelUsuario.Take(3).ToList();
+                    ProductosDelUsuario.Reverse();
+                }else if(recientes.Equals("true") && ProductosDelUsuario.Count < 3)
+                {
+                    Recientes = true;
+                    ProductosDelUsuario.Reverse();
+                }
             }
-
             return Page();
         }
     }
