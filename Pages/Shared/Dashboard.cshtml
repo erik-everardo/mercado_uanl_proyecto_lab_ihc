@@ -29,6 +29,9 @@
                 <i class="fas fa-user"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-header" id="dropdown_nombre_usuario">
+                    
+                </div>
                 <a class="dropdown-item" href="#">
                     Perfil
                 </a>
@@ -67,6 +70,9 @@
             <h6 class="encabezado-barra-lateral-menus my-3">COMPRAR</h6>
             <ul class="nav flex-column nav-pills">
                 <li class="nav-item">
+                    <a href="#" class="nav-link">Ver todo (más reciente)</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#" id="">Mejor calificado</a>
                 </li>
                 <li class="nav-item" href="#">
@@ -78,8 +84,8 @@
                 <li class="nav-item" href="#">
                     <a class="nav-link" href="#" id="">Por facultad</a>
                 </li>
-                
-                
+
+
             </ul>
             
         </aside>
@@ -95,24 +101,25 @@
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     </environment>
-    <environment exclude="Development">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+<environment exclude="Development">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+            asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+            asp-fallback-test="window.jQuery"
+            crossorigin="anonymous"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
         </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+            asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+            crossorigin="anonymous"
+            integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o">
         </script>
-    </environment>
+</environment>
+
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="~/js/dashboard.js"></script>
     <script src="https://kit.fontawesome.com/fde197fc03.js" crossorigin="anonymous"></script>
 
-    @RenderSection("Scripts", required: false)
+    @RenderSection("Scripts", required: true)
 </body>
 </html>
