@@ -4,6 +4,7 @@
 var campoPassword = document.getElementById("campo_pass");
 var campoPasswordConfirmacion = document.getElementById("campo_pass_comprobacion");
 var cardColumnsMisProductos = document.getElementById("mis_productos");
+var acaboDePublicar_Div = document.getElementById("acaboDePublicar_Div");
 
 $('#campo_pass_comprobacion').on('keyup',function () {
     if(campoPassword.value !== campoPasswordConfirmacion.value){
@@ -43,4 +44,22 @@ function ActualizarMisProductos(){
 }
 function InyectarContenidoMisProductos(respuesta){
     cardColumnsMisProductos.innerHTML = respuesta;
+}
+
+function eliminarProducto(idUsuario,password,idProducto,token){
+    var aEnviar = {idProducto : idProducto,idUsuario : idUsuario, password : password,__RequestVerificationToken: token};
+    $.post("/EliminarProducto",aEnviar);
+    ActualizarMisProductos();
+}
+function OcultarDesocultarProducto(idUsuario,password,idProducto,token){
+    var aEnviar = {idProducto : idProducto,idUsuario : idUsuario, password : password,__RequestVerificationToken: token};
+    $.post("/PausarVentaProducto",aEnviar);
+    ActualizarMisProductos();
+}
+function obtenerProductosRecienPublicados(idUsuario,password,token){
+    var aEnviar = {usuario : idUsuario,password : password,recientes : "true",__RequestVerificationToken: token};
+    $.post("/Vendiendo",aEnviar,inyectarContenidoProductosRecientes);
+}
+function inyectarContenidoProductosRecientes(resultado){
+    acaboDePublicar_Div.innerHTML = resultado;
 }
