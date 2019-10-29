@@ -11,34 +11,46 @@
         return Xsrf.GetAndStoreTokens(HttpContext).RequestToken;
     }
 }
-@foreach(var Producto in Model.ProductosDelUsuario)
+@if (Model.Recientes && Model.ProductosDelUsuario.Count > 0)
 {
-    <div class="card">
-        <div class="card-header">@Producto.Nombre</div>
-        <img class="card-img" src="@Producto.UrlFoto"/>
-        <div class="card-body">
-            <p class="card-text">@Producto.Descripcion</p>
-            <p class="text-right"><strong>$@Producto.Precio</strong></p>
-            <button data-id="id" class="btn btn-primary"><i class="fas fa-edit"></i></button>
-            <button
-                data-id="id" class="btn btn-warning"
-                onclick="OcultarDesocultarProducto(@Producto.IdUsuario,@Model.Usuario.Password,@Producto.Id,'@GetAntiXsrfRequestToken()')">
-                
-                @if (!Producto.Publico)
-                {
-                    <i class="far fa-eye-slash"></i>
-                }
-                else
-                {
-                    <i class="fas fa-eye"></i>
-                }
-            </button>
-            <button data-id="id" class="btn btn-danger" onclick="eliminarProducto(@Producto.IdUsuario,@Model.Usuario.Password,@Producto.Id,'@GetAntiXsrfRequestToken()')"><i class="fas fa-trash"></i></button>
-        </div>
-        
-    </div>
+    <h4 >Acabo de publicar</h4>
 }
-@if (Model.Recientes)
+else if(Model.ProductosDelUsuario.Count > 0)
+{
+    <h4 id="iraproductos">Mis productos</h4> 
+}
+
+<div class="card-columns">
+  @foreach(var Producto in Model.ProductosDelUsuario)
+  {
+      <div class="card">
+          <div class="card-header">@Producto.Nombre</div>
+          <img class="card-img" src="@Producto.UrlFoto"/>
+          <div class="card-body">
+              <p class="card-text">@Producto.Descripcion</p>
+              <p class="text-right"><strong>$@Producto.Precio</strong></p>
+              <button data-id="id" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+              <button
+                  data-id="id" class="btn btn-warning"
+                  onclick="OcultarDesocultarProducto(@Producto.IdUsuario,@Model.Usuario.Password,@Producto.Id,'@GetAntiXsrfRequestToken()')">
+                  
+                  @if (!Producto.Publico)
+                  {
+                      <i class="far fa-eye-slash"></i>
+                  }
+                  else
+                  {
+                      <i class="fas fa-eye"></i>
+                  }
+              </button>
+              <button data-id="id" class="btn btn-danger" onclick="eliminarProducto(@Producto.IdUsuario,@Model.Usuario.Password,@Producto.Id,'@GetAntiXsrfRequestToken()')"><i class="fas fa-trash"></i></button>
+          </div>
+          
+      </div>
+  }  
+</div>
+
+@if (Model.Recientes & Model.ProductosDelUsuario.Count > 0)
 {
     <a href="#" onclick="clickEnVender(true)">Ver todos mis productos</a>
 }
