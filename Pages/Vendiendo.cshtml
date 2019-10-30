@@ -19,11 +19,25 @@
 @*Se asegura de que haya al menos un elemento en la lista, si no no muestra el encabezado correspondiente*@
 @if (Model.Recientes && Model.ProductosDelUsuario.Count > 0)
 {
-    <h4 >Acabo de publicar</h4>
+    <h4>Acabo de publicar</h4>
 }
 else if(Model.ProductosDelUsuario.Count > 0)
 {
     <h4 id="iraproductos">Mis productos</h4> 
+}
+else if(Model.Recientes && Model.ProductosDelUsuario.Count == 0)
+{
+    <h4>Acabo de publicar</h4>
+    <div class="alert alert-info">
+        <div class="alert-heading">No hay nada que mostrar</div>
+    </div>
+}
+else
+{
+    <h4 id="iraproductos">Mis productos</h4> 
+    <div class="alert alert-info">
+        <div class="alert-heading">No hay nada que mostrar</div>
+    </div>
 }
 @*Genera los cards*@
 <div class="card-columns">
