@@ -97,68 +97,16 @@
 else
 {
     ViewData["Title"] = "Home page";
-    <!--Carrusel-->
-    <div id="carrusel_productos_destacados" class="carousel slide " data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carrusel_productos_destacados" data-slide-to="0" class="active"></li>
-            <li data-target="#carrusel_productos_destacados" data-slide-to="1"></li>
-            <!--aqui agregar productos-->
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="img-prueba.png" class="d-block w-100" alt="nombre de producto aqui"/>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Nombre de producto 1</h5>
-                    <p>Datos de producto</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="img-prueba.png" class="d-block w-100" alt="nombre de producto aqui"/>
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Nombre de producto 2</h5>
-                    <p>Datos de producto</p>
-                </div>
-            </div>
-            <!--aqui agregar productos-->
-            <a href="#carrusel_productos_destacados" class="carousel-control-prev" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Anterior</span>
-            </a>
-            <a href="#carrusel_productos_destacados" class="carousel-control-next" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Siguiente</span>
-            </a>
-        </div>
-
-    </div>
-
-    <!--seccion de productos destacados (acordeon)-->
-    <div class="accordion" id="acordion_productos_pagina_principal">
-        <div class="card">
-            <div class="card-header" id="encabezado_c1">
-                <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#c1">Categoria 1</button>
-
-                </h2>
-            </div>
-            <div id="c1" class="collapse" aria-labelledby="Categoria 1" data-parent="#acordion_productos_pagina_principal">
-                <div class="card-body">
-                    Aqui van productos
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="encabezado_c2">
-                <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#c2">Categoria 2</button>
-                </h2>
-            </div>
-            <div id="c2" class="collapse" aria-labelledby="Categoria 2" data-parent="#acordion_productos_pagina_principal">
-                <div class="card-body">
-                    Aqui van productos
-                </div>
-            </div>
-        </div>
+    
+    <h1 class="display-3">Mercado UANL</h1>
+    <h4>La plataforma para estudiantes de la UANL que permite encontrar cosas que comprar</h4>
+    <div class="jumbotron my-4">
+        <h1 class="display-4">¿Te interesa?</h1>
+        <p class="lead">Crea una cuenta para poder disfrutar del servicio</p>
+        <hr class="my-4">
+        <p>Con una cuenta puedes buscar productos para comprar y publicar los tuyos para venderlos.</p>
+        <a class="btn btn-primary btn-lg" href="/signin" role="button">Crear cuenta</a>
+        <p class="my-3">¿Ya tienes cuenta? <a href="/login">Inicia sesión</a></p>
     </div>
     <script>
 if(localStorage.getItem("sesion_iniciada") === "true"){
