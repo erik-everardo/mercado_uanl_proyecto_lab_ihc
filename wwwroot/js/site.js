@@ -58,6 +58,7 @@ function OcultarDesocultarProducto(idUsuario,password,idProducto,token){
     var aEnviar = {idProducto : idProducto,idUsuario : idUsuario, password : password,__RequestVerificationToken: token};
     $.post("/PausarVentaProducto",aEnviar);
     ActualizarMisProductos();
+    obtenerProductosRecienPublicados();
 }
 function obtenerProductosRecienPublicados(){
     var aEnviar = {usuario : credencial.usuario, password : "" + credencial.password, __RequestVerificationToken:credencial.__RequestVerificationToken, recientes:"true"}
