@@ -21,7 +21,7 @@ namespace mercado_uanl.Pages
 
             if (!usuarioAExcluir.Equals(""))
             {
-                ListaProductos = contexto.Productos.Where(producto => producto.IdUsuario != int.Parse(usuarioAExcluir)).ToList();
+                ListaProductos = contexto.Productos.Where(producto => producto.IdUsuario != int.Parse(usuarioAExcluir) && producto.Publico).ToList();
             }
             else
             {
