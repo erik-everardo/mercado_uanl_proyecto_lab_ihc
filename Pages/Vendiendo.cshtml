@@ -4,6 +4,10 @@
 @{
     Layout = null;
 }
+@*Esta pagina regresa los productos que vende el usuario en forma de cards*@
+@*Recibe obligatoriamente usuario (id) y password. Opcionalmente recibe un parametro que indica si quiere los reciente*@
+@*Querer los recientes quiere decir que regresa hasta los ultimos tres publicados. Esto se pide para ponerlo en la*@
+@*pantalla "Principal"*@
 @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
 @functions{
     public string GetAntiXsrfRequestToken()
@@ -11,6 +15,8 @@
         return Xsrf.GetAndStoreTokens(HttpContext).RequestToken;
     }
 }
+@*Genera el encabezado correspondiente, dependiendo si es para los <<recientes>> o <<todos mis productos>>*@
+@*Se asegura de que haya al menos un elemento en la lista, si no no muestra el encabezado correspondiente*@
 @if (Model.Recientes && Model.ProductosDelUsuario.Count > 0)
 {
     <h4 >Acabo de publicar</h4>
@@ -19,7 +25,7 @@ else if(Model.ProductosDelUsuario.Count > 0)
 {
     <h4 id="iraproductos">Mis productos</h4> 
 }
-
+@*Genera los cards*@
 <div class="card-columns">
   @foreach(var Producto in Model.ProductosDelUsuario)
   {
@@ -45,11 +51,11 @@ else if(Model.ProductosDelUsuario.Count > 0)
               </button>
               <button data-id="id" class="btn btn-danger" onclick="eliminarProducto(@Producto.IdUsuario,@Model.Usuario.Password,@Producto.Id,'@GetAntiXsrfRequestToken()')"><i class="fas fa-trash"></i></button>
           </div>
-          
       </div>
   }  
 </div>
 
+@*Muestra link solo si hay al menos un producto que mostrar y son los recientes*@
 @if (Model.Recientes & Model.ProductosDelUsuario.Count > 0)
 {
     <a href="#" onclick="clickEnVender(true)">Ver todos mis productos</a>
