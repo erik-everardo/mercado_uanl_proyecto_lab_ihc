@@ -67,16 +67,22 @@ body {
   background-color: #f8f9fa;
   overflow-y: auto;
 }
+#boton_movil_mostrar_barra{
+  display: none;
+}
 #main-dashboard{
   margin-left: auto;
 }
 
 @media (max-width: 780px) {
   .sidebar{
-    height: auto;
+    height: calc(100% - 56px);
     z-index:100;
     background-color: #f8f9fa;
     display: none;
+  }
+  #boton_movil_mostrar_barra{
+    display:block;
   }
 }
 .encabezado-barra-lateral-menus{

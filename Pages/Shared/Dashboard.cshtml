@@ -17,9 +17,12 @@
     </environment>
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body onresize="cambioDeDimensiones();">
 <nav class="navbar bg-light navbar-light sticky-top">
-   <div class="navbar-brand">Mercado UANL</div>
+    <button class="navbar-toggler" type="button" id="boton_movil_mostrar_barra">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="navbar-brand">Mercado UANL</div>
     <ul class="nav">
         <li class="nav-item">
             <a href="#" class="nav-link"><i class="far fa-bell"></i></a>
@@ -30,7 +33,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <div class="dropdown-header" id="dropdown_nombre_usuario">
-                    
+
                 </div>
                 <a class="dropdown-item" href="#">
                     Perfil

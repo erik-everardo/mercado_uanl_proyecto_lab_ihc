@@ -68,13 +68,25 @@ function clickEnVender(desdeRecienPublicados){
     
     ActualizarMisProductos();
 }
+var movilBarraVisible = false;
 
-function desplegarSidebar(){
-    if(sidebar.style.display === "block"){
-        sidebar.style.display = "none";
-        main.style.marginLeft = "0";
-    }else{
+$('#boton_movil_mostrar_barra').on('click',function(){
+
+   
+   if(!movilBarraVisible){
+       sidebar.style.display = "block";
+       sidebar.classList.add("p-3");
+       sidebar.classList.add("w-auto");
+       movilBarraVisible = true;
+   }else{
+       sidebar.style.display = "none";
+       movilBarraVisible = false;
+   }
+});
+function cambioDeDimensiones(){
+    if(screen.availWidth > 780){
         sidebar.style.display = "block";
-        main.style.marginLeft = "auto";
+    }else{
+        sidebar.style.display = "none";
     }
 }
