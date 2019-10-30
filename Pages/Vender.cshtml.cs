@@ -23,6 +23,7 @@ namespace mercado_uanl.Pages
             ProductoNuevo.Precio = float.Parse(precio);
             ProductoNuevo.UrlFoto = urlImagen;
             ProductoNuevo.IdUsuario = int.Parse(id);
+            ProductoNuevo.Publico = true;
 
             if (contexto.Usuarios.Find(int.Parse(id)).Password.Equals(pass))
             {
