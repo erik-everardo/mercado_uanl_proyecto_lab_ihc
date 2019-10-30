@@ -99,7 +99,13 @@ $('#btn-ver-todo').on('click',function(){
    clickEnVerTodo(); 
 });
 $('#btn-por-categorias').on('click',function () {
-    
+    clickEnPorCategorias();
+});
+$('#btn-mejor-calificado').on('click',function(){
+    clickEnMejorCalificado();
+});
+$('#btn-por-facultad').on('click',function(){
+    clickEnPorFacultad();
 });
 
 function clickEnVender(desdeRecienPublicados){
@@ -170,23 +176,61 @@ function clickEnVerTodo(){
     if(linkPantallaPorFacultad.classList.contains("active")){
         linkPantallaPorFacultad.classList.remove("active");
     }
+    if(linkPantallaMejorCalificado.classList.contains("active")){
+        linkPantallaMejorCalificado.classList.remove("active");
+    }
 }
-
-//pendiente
 function clickEnPorCategorias(){
     //aparecer capa "Por categorias" y desaparecer las otras
     pantallaPrincipalDiv.style.display = "none";
     pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
-    pantallaVerTodo.style.display = "block";
+    pantallaVerTodo.style.display = "none";
     pantallaMejorCalificado.style.display = "none";
+    pantallaPorCategoria.style.display = "block";
+    pantallaPorCampus.style.display = "none";
+    pantallaPorFacultad.style.display = "none";
+
+    //colocar el link como active
+    if(!linkPantallaPorCategoria.classList.contains("active")){
+        linkPantallaPorCategoria.classList.add("active");
+    }
+    if(linkPantallaPrincipal.classList.contains("active")){
+        linkPantallaPrincipal.classList.remove("active");
+    }
+    if(linkPantallaVentas.classList.contains("active")){
+        linkPantallaVentas.classList.remove("active");
+    }
+    if(linkPantallaCalificaciones.classList.contains("active")){
+        linkPantallaCalificaciones.classList.remove("active");
+    }
+    if(linkPantallaPorCampus.classList.contains("active")){
+        linkPantallaPorCampus.classList.remove("active");
+    }
+    if(linkPantallaMejorCalificado.classList.contains("active")){
+        linkPantallaMejorCalificado.classList.remove("active");
+    }
+    if(linkPantallaPorFacultad.classList.contains("active")){
+        linkPantallaPorFacultad.classList.remove("active");
+    }
+    if(linkPantallaVerTodo.classList.contains("active")){
+        linkPantallaVerTodo.classList.remove("active");
+    }
+}
+function clickEnMejorCalificado(){
+    //aparecer capa "Mejor calificado" y desaparecer las otras
+    pantallaPrincipalDiv.style.display = "none";
+    pantallaCalificacionesDiv.style.display = "none";
+    pantallaVentasDiv.style.display = "none";
+    pantallaVerTodo.style.display = "none";
+    pantallaMejorCalificado.style.display = "block";
     pantallaPorCategoria.style.display = "none";
     pantallaPorCampus.style.display = "none";
     pantallaPorFacultad.style.display = "none";
 
     //colocar el link como active
-    if(!linkPantallaVerTodo.classList.contains("active")){
-        linkPantallaVerTodo.classList.add("active");
+    if(!linkPantallaMejorCalificado.classList.contains("active")){
+        linkPantallaMejorCalificado.classList.add("active");
     }
     if(linkPantallaPrincipal.classList.contains("active")){
         linkPantallaPrincipal.classList.remove("active");
@@ -206,6 +250,48 @@ function clickEnPorCategorias(){
     if(linkPantallaPorFacultad.classList.contains("active")){
         linkPantallaPorFacultad.classList.remove("active");
     }
+    if(linkPantallaVerTodo.classList.contains("active")){
+        linkPantallaVerTodo.classList.remove("active");
+    }
+}
+function clickEnPorFacultad(){
+    pantallaPrincipalDiv.style.display = "none";
+    pantallaCalificacionesDiv.style.display = "none";
+    pantallaVentasDiv.style.display = "none";
+    pantallaVerTodo.style.display = "none";
+    pantallaMejorCalificado.style.display = "none";
+    pantallaPorCategoria.style.display = "none";
+    pantallaPorCampus.style.display = "none";
+    pantallaPorFacultad.style.display = "block";
+
+    //colocar el link como active
+    if(!linkPantallaPorFacultad.classList.contains("active")){
+        linkPantallaPorFacultad.classList.add("active");
+    }
+    if(linkPantallaPrincipal.classList.contains("active")){
+        linkPantallaPrincipal.classList.remove("active");
+    }
+    if(linkPantallaVentas.classList.contains("active")){
+        linkPantallaVentas.classList.remove("active");
+    }
+    if(linkPantallaCalificaciones.classList.contains("active")){
+        linkPantallaCalificaciones.classList.remove("active");
+    }
+    if(linkPantallaPorCampus.classList.contains("active")){
+        linkPantallaPorCampus.classList.remove("active");
+    }
+    if(linkPantallaPorCategoria.classList.contains("active")){
+        linkPantallaPorCategoria.classList.remove("active");
+    }
+    if(linkPantallaVerTodo.classList.contains("active")){
+        linkPantallaVerTodo.classList.remove("active");
+    }
+    if(linkPantallaMejorCalificado.classList.contains("active")){
+        linkPantallaMejorCalificado.classList.remove("active");
+    }
+}
+function clickEnPorCompus(){
+    
 }
 
 $('#boton_movil_mostrar_barra').on('click',function(){
