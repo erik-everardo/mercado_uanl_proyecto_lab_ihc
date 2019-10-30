@@ -34,7 +34,7 @@ else if(Model.ProductosDelUsuario.Count > 0)
                   data-id="id" class="btn btn-warning"
                   onclick="OcultarDesocultarProducto(@Producto.IdUsuario,@Model.Usuario.Password,@Producto.Id,'@GetAntiXsrfRequestToken()')">
                   
-                  @if (!Producto.Publico)
+                  @if (Producto.Publico)
                   {
                       <i class="far fa-eye-slash"></i>
                   }
