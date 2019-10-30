@@ -13,8 +13,10 @@
             }
         }
     <script>
-    var credencial = {usuario : "" + @Model.idUsuario, password : "" + @Model.password,__RequestVerificationToken:"@GetAntiXsrfRequestToken()"}
+        var credencial = {usuario : "" + @Model.idUsuario, password : "" + @Model.password,__RequestVerificationToken:"@GetAntiXsrfRequestToken()"}
     </script>
+    @*Estos divs son las pantallas principales, donde va el contenido. aparecen al dar clic en los botones*@
+    @*de la barra izquierda*@
     <div id="principal">
         <h3>Principal</h3>
         <div id="productosRecientes_Div">
@@ -94,21 +96,18 @@
     <div id="por_facultad">
         
     </div>
-@section Scripts{
+    @*Estas funciones de JS se ejecutan al cargar la pagina*@
+    @section Scripts{
         <script>
             obtenerProductosRecienPublicados();
             obtenerProductosPublicosRecientes(@Model.idUsuario);
             document.getElementById("dropdown_nombre_usuario").innerHTML = "@Model.Nombre";
         </script>
-        
-
     }
 }
-
 else
 {
     ViewData["Title"] = "Home page";
-    
     <h1 class="display-3">Mercado UANL</h1>
     <h4>La plataforma para estudiantes de la UANL que permite encontrar cosas que comprar</h4>
     <div class="jumbotron my-4">
@@ -119,9 +118,10 @@ else
         <a class="btn btn-primary btn-lg" href="/signin" role="button">Crear cuenta</a>
         <p class="my-3">¿Ya tienes cuenta? <a href="/login">Inicia sesión</a></p>
     </div>
+    @*Esto se ejecuta al cargar la pagina de inicio (sin haber iniciado sesion)*@
     <script>
-if(localStorage.getItem("sesion_iniciada") === "true"){
-    window.location.href = "/login";
-}
-</script>
+        if(localStorage.getItem("sesion_iniciada") === "true"){
+            window.location.href = "/login";
+        }
+    </script>
 }
