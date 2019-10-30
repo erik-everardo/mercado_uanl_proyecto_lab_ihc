@@ -91,13 +91,6 @@ body {
 }
 
 /*divs dashboard*/
-#principal{
-  display:block;
-
-}
-#vender{
-  display:none;
-}
-#calificaciones{
+#principal,#vender,#calificaciones,#ver_todo,#mejor_calificado,#por_categoria,#por_campus,#por_facultad{
   display: none;
 }

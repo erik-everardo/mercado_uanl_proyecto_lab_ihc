@@ -17,16 +17,12 @@
     </script>
     <div id="principal">
         <h3>Principal</h3>
-        
-        <div class=" w-100">
-            <div id="productosRecientes_Div">
+        <div id="productosRecientes_Div">
                 <!--cards productos recientes abajo-->
                 <div class="spinner-border text-primary" role="status">
                   <span class="sr-only">Cargando...</span>
                 </div>
             </div>
-        </div>
-        
         <div id="acaboDePublicar_Div">
             <!--cards productos publicados recientemente: abajo-->
             <div class="spinner-border text-primary" role="status">
@@ -83,7 +79,22 @@
     <div id="calificaciones">
         <h3>Calificaciones y comentarios</h3>
     </div>
-    @section Scripts{
+    <div id="ver_todo">
+        
+    </div>
+    <div id="mejor_calificado">
+        
+    </div>
+    <div id="por_categoria">
+        
+    </div>
+    <div id="por_campus">
+        
+    </div>
+    <div id="por_facultad">
+        
+    </div>
+@section Scripts{
         <script>
             obtenerProductosRecienPublicados();
             obtenerProductosPublicosRecientes(@Model.idUsuario);
