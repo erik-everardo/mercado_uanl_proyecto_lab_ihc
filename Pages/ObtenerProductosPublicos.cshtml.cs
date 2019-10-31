@@ -23,11 +23,7 @@ namespace mercado_uanl.Pages
             {
                 ListaProductos = contexto.Productos.Where(producto => producto.IdUsuario != int.Parse(usuarioAExcluir) && producto.Publico).ToList();
             }
-            else
-            {
-                ListaProductos = contexto.Productos.ToList();
-            }
-            
+
             if (recientes == "true")
             {
                 Recientes = true;
@@ -35,9 +31,12 @@ namespace mercado_uanl.Pages
                 ListaProductos.Reverse();
                 return Page();
             }
-
-            ListaProductos.Reverse();
-            return Page();
+            else
+            {
+                ListaProductos.Reverse();
+                return Page();
+            }
+            
         }
 
         public string NombreUsuarioPorId(int id)
