@@ -19,7 +19,15 @@
                 <p>@producto.Descripcion</p>
                 <p>Vendido por: @Model.NombreUsuarioPorId(producto.IdUsuario)</p>
                 <p class="text-right"><strong>$@producto.Precio</strong></p>
-                <a href="#" class="stretched-link">Ver</a>
+                
+                @if (Model.Recientes)
+                {
+                    <a href="#" onclick="obtenerInfoProducto(@producto.Id,1)" class="stretched-link">Ver</a>
+                }
+                else
+                {
+                    <a href="#" onclick="obtenerInfoProducto(@producto.Id,2)" class="stretched-link">Ver</a>
+                }
             </div>
         </div>
     }
