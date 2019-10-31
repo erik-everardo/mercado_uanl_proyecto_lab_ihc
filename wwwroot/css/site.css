@@ -91,6 +91,13 @@ body {
 }
 
 /*divs dashboard*/
-#principal,#vender,#calificaciones,#ver_todo,#mejor_calificado,#por_categoria,#por_campus,#por_facultad{
+#vender,#calificaciones,#ver_todo,#mejor_calificado,#por_categoria,#por_campus,#por_facultad,#info-producto{
   display: none;
+}
+#principal{
+  display:block;
+}
+.descripcion-producto-preformateado{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1em;
 }
