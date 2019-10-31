@@ -1,0 +1,32 @@
+@page
+@model mercado_uanl.Pages.MostrarInfoProducto
+
+@{
+    Layout = null;
+}
+
+@if (Model.DesdePrincipal)
+{
+    <button class="btn btn-primary my-2" onclick="clickEnPrincipal();"><i class="fas fa-arrow-left"></i></button>
+}
+@if (Model.DesdeVerTodo)
+{
+    <button class="btn btn-primary my-2" onclick="clickEnVerTodo();"><i class="fas fa-arrow-left"></i></button>
+}
+
+<div class="card">
+    <div class="card-header text-center">
+        @Model.producto.Nombre
+    </div>
+    <div class="card-body">
+        <pre class="descripcion-producto-preformateado card-text">@Model.producto.Descripcion</pre>
+        Vendedor: @Model.ObtenerVendedorPorId(Model.producto.IdUsuario)
+    </div>
+    <div class="card-footer text-muted">
+        <p>Precio: <strong>$@Model.producto.Precio</strong></p>
+        <p>Contacto del vendedor: (proximamente)</p>
+        <p>Evaluación: (proximamente)</p>
+    </div>
+</div>
+<h4 class="my-4">Imagen del producto</h4>
+<img src="img-prueba.png" width="80%"/>
