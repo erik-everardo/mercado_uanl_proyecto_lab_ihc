@@ -7,6 +7,7 @@ var pantallaMejorCalificado = document.getElementById("mejor_calificado");
 var pantallaPorCategoria = document.getElementById("por_categoria");
 var pantallaPorCampus = document.getElementById("por_campus");
 var pantallaPorFacultad = document.getElementById("por_facultad");
+var pantallaInfoProducto = document.getElementById("info-producto");
 var linkPantallaPrincipal = document.getElementById("btn-principal");
 var linkPantallaVentas = document.getElementById("btn-vender");
 var linkPantallaCalificaciones = document.getElementById("btn-calificaciones");
@@ -23,40 +24,7 @@ var movilBarraVisible = false;
 
 //eventos
 $('#btn-principal').on('click',function () {
-    //aparecer capa "principal" y desaparecer las otras
-    pantallaPrincipalDiv.style.display = "block";
-    pantallaCalificacionesDiv.style.display = "none";
-    pantallaVentasDiv.style.display = "none";
-    pantallaVerTodo.style.display = "none";
-    pantallaMejorCalificado.style.display = "none";
-    pantallaPorCategoria.style.display = "none";
-    pantallaPorCampus.style.display = "none";
-    pantallaPorFacultad.style.display = "none";
-
-    //colocar el link como active
-    if(!linkPantallaPrincipal.classList.contains("active")){
-        linkPantallaPrincipal.classList.add("active");
-    }
-    if(linkPantallaCalificaciones.classList.contains("active")){
-        linkPantallaCalificaciones.classList.remove("active");
-    }
-    if(linkPantallaVentas.classList.contains("active")){
-        linkPantallaVentas.classList.remove("active");
-    }
-    if(linkPantallaVerTodo.classList.contains("active")){
-        linkPantallaVerTodo.classList.remove("active");
-    }
-    if(linkPantallaPorCampus.classList.contains("active")){
-        linkPantallaPorCampus.classList.remove("active");
-    }
-    if(linkPantallaPorCategoria.classList.contains("active")){
-        linkPantallaPorCategoria.classList.remove("active");
-    }
-    if(linkPantallaPorFacultad.classList.contains("active")){
-        linkPantallaPorFacultad.classList.remove("active");
-    }
-    obtenerProductosPublicosRecientes(credencial.usuario);
-    obtenerProductosRecienPublicados();
+    clickEnPrincipal();
 });
 $('#btn-vender').on('click',function () {
     clickEnVender(false);
@@ -71,6 +39,7 @@ $('#btn-calificaciones').on('click',function () {
     pantallaPorCategoria.style.display = "none";
     pantallaPorCampus.style.display = "none";
     pantallaPorFacultad.style.display = "none";
+    pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaCalificaciones.classList.contains("active")){
@@ -107,7 +76,46 @@ $('#btn-mejor-calificado').on('click',function(){
 $('#btn-por-facultad').on('click',function(){
     clickEnPorFacultad();
 });
+$('#btn-por-campus').on('click',function(){
+    clickEnPorCompus();
+})
+function clickEnPrincipal(){
+    //aparecer capa "principal" y desaparecer las otras
+    pantallaPrincipalDiv.style.display = "block";
+    pantallaCalificacionesDiv.style.display = "none";
+    pantallaVentasDiv.style.display = "none";
+    pantallaVerTodo.style.display = "none";
+    pantallaMejorCalificado.style.display = "none";
+    pantallaPorCategoria.style.display = "none";
+    pantallaPorCampus.style.display = "none";
+    pantallaPorFacultad.style.display = "none";
+    pantallaInfoProducto.style.display = "none";
 
+    //colocar el link como active
+    if(!linkPantallaPrincipal.classList.contains("active")){
+        linkPantallaPrincipal.classList.add("active");
+    }
+    if(linkPantallaCalificaciones.classList.contains("active")){
+        linkPantallaCalificaciones.classList.remove("active");
+    }
+    if(linkPantallaVentas.classList.contains("active")){
+        linkPantallaVentas.classList.remove("active");
+    }
+    if(linkPantallaVerTodo.classList.contains("active")){
+        linkPantallaVerTodo.classList.remove("active");
+    }
+    if(linkPantallaPorCampus.classList.contains("active")){
+        linkPantallaPorCampus.classList.remove("active");
+    }
+    if(linkPantallaPorCategoria.classList.contains("active")){
+        linkPantallaPorCategoria.classList.remove("active");
+    }
+    if(linkPantallaPorFacultad.classList.contains("active")){
+        linkPantallaPorFacultad.classList.remove("active");
+    }
+    obtenerProductosPublicosRecientes(credencial.usuario,1);
+    obtenerProductosRecienPublicados();
+}
 function clickEnVender(desdeRecienPublicados){
     //aparecer capa "Ventas" y desaparecer las otras
     pantallaPrincipalDiv.style.display = "none";
@@ -118,6 +126,7 @@ function clickEnVender(desdeRecienPublicados){
     pantallaPorCategoria.style.display = "none";
     pantallaPorCampus.style.display = "none";
     pantallaPorFacultad.style.display = "none";
+    pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaVentas.classList.contains("active")){
@@ -153,6 +162,7 @@ function clickEnVerTodo(){
     pantallaPorCategoria.style.display = "none";
     pantallaPorCampus.style.display = "none";
     pantallaPorFacultad.style.display = "none";
+    pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaVerTodo.classList.contains("active")){
@@ -179,6 +189,7 @@ function clickEnVerTodo(){
     if(linkPantallaMejorCalificado.classList.contains("active")){
         linkPantallaMejorCalificado.classList.remove("active");
     }
+    obtenerProductosPublicosRecientes(credencial.usuario,2);
 }
 function clickEnPorCategorias(){
     //aparecer capa "Por categorias" y desaparecer las otras
@@ -190,6 +201,7 @@ function clickEnPorCategorias(){
     pantallaPorCategoria.style.display = "block";
     pantallaPorCampus.style.display = "none";
     pantallaPorFacultad.style.display = "none";
+    pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPorCategoria.classList.contains("active")){
@@ -227,6 +239,7 @@ function clickEnMejorCalificado(){
     pantallaPorCategoria.style.display = "none";
     pantallaPorCampus.style.display = "none";
     pantallaPorFacultad.style.display = "none";
+    pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaMejorCalificado.classList.contains("active")){
@@ -263,6 +276,7 @@ function clickEnPorFacultad(){
     pantallaPorCategoria.style.display = "none";
     pantallaPorCampus.style.display = "none";
     pantallaPorFacultad.style.display = "block";
+    pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPorFacultad.classList.contains("active")){
@@ -291,7 +305,41 @@ function clickEnPorFacultad(){
     }
 }
 function clickEnPorCompus(){
-    
+    pantallaPrincipalDiv.style.display = "none";
+    pantallaCalificacionesDiv.style.display = "none";
+    pantallaVentasDiv.style.display = "none";
+    pantallaVerTodo.style.display = "none";
+    pantallaMejorCalificado.style.display = "none";
+    pantallaPorCategoria.style.display = "none";
+    pantallaPorCampus.style.display = "block";
+    pantallaPorFacultad.style.display = "none";
+    pantallaInfoProducto.style.display = "none";
+
+    //colocar el link como active
+    if(!linkPantallaPorCampus.classList.contains("active")){
+        linkPantallaPorCampus.classList.add("active");
+    }
+    if(linkPantallaPrincipal.classList.contains("active")){
+        linkPantallaPrincipal.classList.remove("active");
+    }
+    if(linkPantallaVentas.classList.contains("active")){
+        linkPantallaVentas.classList.remove("active");
+    }
+    if(linkPantallaCalificaciones.classList.contains("active")){
+        linkPantallaCalificaciones.classList.remove("active");
+    }
+    if(linkPantallaPorFacultad.classList.contains("active")){
+        linkPantallaPorFacultad.classList.remove("active");
+    }
+    if(linkPantallaPorCategoria.classList.contains("active")){
+        linkPantallaPorCategoria.classList.remove("active");
+    }
+    if(linkPantallaVerTodo.classList.contains("active")){
+        linkPantallaVerTodo.classList.remove("active");
+    }
+    if(linkPantallaMejorCalificado.classList.contains("active")){
+        linkPantallaMejorCalificado.classList.remove("active");
+    }
 }
 
 $('#boton_movil_mostrar_barra').on('click',function(){
@@ -312,4 +360,15 @@ function cambioDeDimensiones(){
     }else{
         sidebar.style.display = "none";
     }
+}
+function mostrarInfoProducto(){
+    pantallaPrincipalDiv.style.display = "none";
+    pantallaCalificacionesDiv.style.display = "none";
+    pantallaVentasDiv.style.display = "none";
+    pantallaVerTodo.style.display = "none";
+    pantallaMejorCalificado.style.display = "none";
+    pantallaPorCategoria.style.display = "none";
+    pantallaPorCampus.style.display = "none";
+    pantallaPorFacultad.style.display = "none";
+    pantallaInfoProducto.style.display = "block";
 }
