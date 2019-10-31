@@ -22,20 +22,20 @@
         <div class="input-group">
             @if (Model.nuevaCuenta)
             {
-                <input type="text" class="form-control m-2" name="user" placeholder="E-mail" value="@Model.usuario" readonly="true"/>
+                <input type="email" class="form-control m-2" name="user" placeholder="E-mail" value="@Model.usuario" readonly="true"/>
             }
             else if(Model.UsuarioNoExiste)
             {
-                <input type="text" class="form-control m-2 is-invalid" name="user" placeholder="E-mail"/>
+                <input type="email" class="form-control m-2 is-invalid" name="user" placeholder="E-mail"/>
                 <div class="invalid-feedback">No existe la cuenta</div>
             }
             else if (Model.passIncorrecto)
             {
-                <input type="text" class="form-control m-2" name="user" placeholder="E-mail" value="@Model.usuario"/>
+                <input type="email" class="form-control m-2" name="user" placeholder="E-mail" value="@Model.usuario"/>
             }
             else
             {
-                <input type="text" class="form-control m-2" name="user" placeholder="E-mail"/>
+                <input type="email" class="form-control m-2" name="user" placeholder="E-mail"/>
             }
             
         </div>
