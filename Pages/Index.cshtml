@@ -37,7 +37,7 @@
             <div class="card">
                 <div class="card-header" id="encabezado_c1">
                     <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#form">Nuevo producto para vender</button>
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#form"><span class="badge badge-primary"><i class="fas fa-plus"></i></span> Nuevo producto para vender</button>
                     </h2>
                 </div>
                 <div id="form" class="collapse" data-parent="#vender_producto_form_acordeon">
@@ -45,7 +45,7 @@
                         <form id="formulario_publicar_producto" asp-antiforgery="true">
                             <div class="form-group form-row">
                                 <label for="nombre_prducto_nuevo" class="col-sm-3 col-md-2">El nombre del producto</label>
-                                <input class="form-control col-sm-9 col-md-10" type="text" id="nombre_prducto_nuevo" name="Nombre"/>
+                                <input class="form-control col-sm-9 col-md-10" type="text" id="nombre_prducto_nuevo" name="Nombre" required="true"/>
                             </div>
                             <div class="form-group form-row">
                                 <label class="col-2">Datos del producto</label>
@@ -58,8 +58,8 @@
                                 </select>
                             </div>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="elegir_foto_producto_nuevo"/>
-                                <label class="custom-file-label" for="elegir_foto_producto_nuevo" data-browse="Elegir">Sube una foto de tu producto</label>
+                                <input type="file" class="custom-file-input" id="elegir_foto_producto_nuevo" disabled/>
+                                <label class="custom-file-label" for="elegir_foto_producto_nuevo" data-browse="Elegir">Sube una foto de tu producto (Proximamente)</label>
                             </div>
                             <div class="form-group my-1">
                                 <label for="descripcion_producto_nuevo">Descripción extra del producto</label>
@@ -96,11 +96,12 @@
     <div id="por_facultad">
         
     </div>
+    <div id="info-producto"></div>
     @*Estas funciones de JS se ejecutan al cargar la pagina*@
     @section Scripts{
         <script>
             obtenerProductosRecienPublicados();
-            obtenerProductosPublicosRecientes(@Model.idUsuario);
+            obtenerProductosPublicosRecientes(@Model.idUsuario,1);
             document.getElementById("dropdown_nombre_usuario").innerHTML = "@Model.Nombre";
         </script>
     }
