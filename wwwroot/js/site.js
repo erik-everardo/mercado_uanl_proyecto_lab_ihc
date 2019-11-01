@@ -93,14 +93,17 @@ function obtenerInfoProducto(idProducto,desde){
     switch (desde) {
         case 1: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdePrincipal:"true"},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto();
         });break;
         case 2: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeVerTodo:"true"},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto();
         });break;
         default: $.get("/MostrarInfoProducto",{idProducto:idProducto},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto();s
         });break;
     }
     
-    mostrarInfoProducto();
+    
 }
