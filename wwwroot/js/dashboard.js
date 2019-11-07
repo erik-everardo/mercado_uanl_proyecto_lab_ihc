@@ -3,10 +3,6 @@ var pantallaPrincipalDiv = document.getElementById("principal");
 var pantallaVentasDiv = document.getElementById("vender");
 var pantallaCalificacionesDiv = document.getElementById("calificaciones");
 var pantallaVerTodo = document.getElementById("ver_todo");
-var pantallaMejorCalificado = document.getElementById("mejor_calificado");
-var pantallaPorCategoria = document.getElementById("por_categoria");
-var pantallaPorCampus = document.getElementById("por_campus");
-var pantallaPorFacultad = document.getElementById("por_facultad");
 var pantallaInfoProducto = document.getElementById("info-producto");
 var linkPantallaPrincipal = document.getElementById("btn-principal");
 var linkPantallaVentas = document.getElementById("btn-vender");
@@ -35,10 +31,7 @@ $('#btn-calificaciones').on('click',function () {
     pantallaCalificacionesDiv.style.display = "block";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
-    pantallaMejorCalificado.style.display = "none";
-    pantallaPorCategoria.style.display = "none";
-    pantallaPorCampus.style.display = "none";
-    pantallaPorFacultad.style.display = "none";
+    
     pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
@@ -85,10 +78,6 @@ function clickEnPrincipal(){
     pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
-    pantallaMejorCalificado.style.display = "none";
-    pantallaPorCategoria.style.display = "none";
-    pantallaPorCampus.style.display = "none";
-    pantallaPorFacultad.style.display = "none";
     pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
@@ -122,10 +111,6 @@ function clickEnVender(desdeRecienPublicados){
     pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "block";
     pantallaVerTodo.style.display = "none";
-    pantallaMejorCalificado.style.display = "none";
-    pantallaPorCategoria.style.display = "none";
-    pantallaPorCampus.style.display = "none";
-    pantallaPorFacultad.style.display = "none";
     pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
@@ -158,10 +143,6 @@ function clickEnVerTodo(){
     pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "block";
-    pantallaMejorCalificado.style.display = "none";
-    pantallaPorCategoria.style.display = "none";
-    pantallaPorCampus.style.display = "none";
-    pantallaPorFacultad.style.display = "none";
     pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
@@ -197,10 +178,6 @@ function clickEnPorCategorias(){
     pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
-    pantallaMejorCalificado.style.display = "none";
-    pantallaPorCategoria.style.display = "block";
-    pantallaPorCampus.style.display = "none";
-    pantallaPorFacultad.style.display = "none";
     pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
@@ -235,10 +212,6 @@ function clickEnMejorCalificado(){
     pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
-    pantallaMejorCalificado.style.display = "block";
-    pantallaPorCategoria.style.display = "none";
-    pantallaPorCampus.style.display = "none";
-    pantallaPorFacultad.style.display = "none";
     pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
@@ -272,10 +245,6 @@ function clickEnPorFacultad(){
     pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
-    pantallaMejorCalificado.style.display = "none";
-    pantallaPorCategoria.style.display = "none";
-    pantallaPorCampus.style.display = "none";
-    pantallaPorFacultad.style.display = "block";
     pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
@@ -309,10 +278,6 @@ function clickEnPorCompus(){
     pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
-    pantallaMejorCalificado.style.display = "none";
-    pantallaPorCategoria.style.display = "none";
-    pantallaPorCampus.style.display = "block";
-    pantallaPorFacultad.style.display = "none";
     pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
@@ -366,9 +331,5 @@ function mostrarInfoProducto(){
     pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
-    pantallaMejorCalificado.style.display = "none";
-    pantallaPorCategoria.style.display = "none";
-    pantallaPorCampus.style.display = "none";
-    pantallaPorFacultad.style.display = "none";
     pantallaInfoProducto.style.display = "block";
 }
