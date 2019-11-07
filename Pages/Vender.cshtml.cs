@@ -14,7 +14,7 @@ namespace mercado_uanl.Pages
         }
 
         public bool ExistioError = false;
-        public IActionResult OnPost(string id,string pass,string Nombre,string Descripcion,string Categoria, string precio, string urlImagen="")
+        public IActionResult OnPost(string id,string pass,string Nombre,string Categoria, string precio, string urlImagen="",string Descripcion="")
         {
             var ProductoNuevo = new Producto();
             ProductoNuevo.Nombre = Nombre;
