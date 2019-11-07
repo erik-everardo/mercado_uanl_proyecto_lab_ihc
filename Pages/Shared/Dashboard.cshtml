@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>@ViewData["Title"]</title>
+    <title>@ViewData["Title"] - Mercado UANL</title>
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     </environment>
@@ -49,7 +49,12 @@
         <aside class="col-lg-2 col-md-3 sidebar" id="sidebar">
             
             <form>
-                <input type="text" class="form-control my-2 w-100" placeholder="Buscar" disabled="true"/>
+                <div class="input-group my-1">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-search"></i></div>
+                    </div>
+                    <input type="text" class="form-control"/>
+                </div>
                 <input type="button" class="btn btn-secondary w-100" value="Buscar" disabled="true"/>
                             
             </form>
