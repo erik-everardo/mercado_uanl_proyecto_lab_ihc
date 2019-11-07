@@ -25,7 +25,7 @@ $('#campo_pass_comprobacion').on('keyup',function () {
     }
 });
 
-$('#boton_publicar_producto_nuevo').on('click',function () {
+$('#formulario_publicar_producto').on('submit',function () {
     var DatosAEnviar = $('#formulario_publicar_producto').serialize();
     $.post("/Vender",DatosAEnviar,VerSiErrorAlPublicar);
     document.getElementById("formulario_publicar_producto").reset();
