@@ -49,12 +49,14 @@
                             </div>
                             <h4>Datos del producto</h4>
                             <div class="form-group form-row">
-                                <input type="number" id="precio_nuevo_producto" class="form-control col-3" placeholder="Precio en moneda nacional" name="precio"/>
-                                <select class="custom-select col mx-2" id="seleccionar_categoria_nuevo_producto" name="Categoria">
-                                    <option selected>Seleccionar categoria</option>
+                                <input type="number" id="precio_nuevo_producto" class="form-control col-3" placeholder="Precio en moneda nacional" name="precio" required="true"/>
+                                <select class="custom-select col mx-2" id="seleccionar_categoria_nuevo_producto" name="Categoria" required="true">
+                                    <option disabled="true" selected="true">Selecciona una categoria</option>
                                     <option value="dulces" name="categoria">Dulces y botanas</option>
                                     <option value="comida-rapida">Comida rápida</option>
                                     <option value="postres">Postres</option>
+                                    <option value="electronica">Electrónica</option>
+                                    <option vaue="accesorios-movil">Accesorios de celular</option>
                                 </select>
                             </div>
                             <h4>Carga una foto de tu producto (proximamente)</h4>
@@ -70,7 +72,7 @@
                             <input type="hidden" value="@Model.idUsuario" name="id"/>
                             <input type="hidden" value="@Model.password" name="pass"/>
                             <div class="form-group d-flex justify-content-end">
-                                <input id="boton_publicar_producto_nuevo" type="button" value="Publicar" class="form-control btn btn-success w-auto my-2"/>
+                                <input id="boton_publicar_producto_nuevo" type="submit" value="Publicar" class="form-control btn btn-success w-auto my-2"/>
                             </div>
                         
                         </form>
@@ -86,18 +88,6 @@
     <div id="ver_todo">
         
     </div>
-    <div id="mejor_calificado">
-        
-    </div>
-    <div id="por_categoria">
-        
-    </div>
-    <div id="por_campus">
-        
-    </div>
-    <div id="por_facultad">
-        
-    </div>
     <div id="info-producto"></div>
     @*Estas funciones de JS se ejecutan al cargar la pagina*@
     @section Scripts{
@@ -110,7 +100,7 @@
 }
 else
 {
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Inicio";
     <h1 class="display-3">Mercado UANL</h1>
     <h4>La plataforma para estudiantes de la UANL que permite encontrar cosas que comprar</h4>
     <div class="jumbotron my-4">
