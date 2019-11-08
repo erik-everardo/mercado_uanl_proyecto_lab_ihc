@@ -1,10 +1,6 @@
 @page
 @model Vender
-
 @{
     Layout = null;
 }
-@if (Model.ExistioError)
-{
-    Html.Raw("error");
-}
+@Html.Raw(Model.Id)
