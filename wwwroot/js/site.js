@@ -30,6 +30,7 @@ $('#formulario_publicar_producto').on('submit',function () {
     $.post("/Vender",DatosAEnviar,VerSiErrorAlPublicar);
     document.getElementById("formulario_publicar_producto").reset();
     $('#form').collapse('hide');
+    return false;
 });
 function VerSiErrorAlPublicar(respuesta){
     if(respuesta === "error"){
