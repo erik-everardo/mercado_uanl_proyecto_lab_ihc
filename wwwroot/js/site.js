@@ -63,7 +63,7 @@ function OcultarDesocultarProducto(idUsuario,password,idProducto,token){
     obtenerProductosRecienPublicados();
 }
 function obtenerProductosRecienPublicados(){
-    var aEnviar = {usuario : credencial.usuario, password : "" + credencial.password, __RequestVerificationToken:credencial.__RequestVerificationToken, recientes:"true"}
+    var aEnviar = {usuario : credencial.usuario, password : "" + credencial.password, __RequestVerificationToken:credencial.__RequestVerificationToken, recientes:"true"};
         //{usuario : idUsuario,password : password,recientes : "true",__RequestVerificationToken: token};
     $.post("/Vendiendo",aEnviar,inyectarContenidoProductosRecientes);
 }
@@ -101,7 +101,7 @@ function obtenerInfoProducto(idProducto,desde){
         });break;
         default: $.get("/MostrarInfoProducto",{idProducto:idProducto},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
-            mostrarInfoProducto();s
+            mostrarInfoProducto();
         });break;
     }
     
