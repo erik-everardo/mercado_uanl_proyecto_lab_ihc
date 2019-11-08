@@ -25,15 +25,17 @@ namespace mercado_uanl.Pages
                 Usuario = contexto.Usuarios.Find(int.Parse(usuario));
                 ProductosDelUsuario =
                     contexto.Productos.Where(producto => producto.IdUsuario.Equals(int.Parse(usuario))).ToList();
+                ProductosDelUsuario.Reverse();
                 if (recientes.Equals("true") && ProductosDelUsuario.Count >= 3)
                 {
                     Recientes = true;
                     ProductosDelUsuario = ProductosDelUsuario.Take(3).ToList();
-                    ProductosDelUsuario.Reverse();
-                }else if(recientes.Equals("true") && ProductosDelUsuario.Count < 3)
+
+                }
+                else if(recientes.Equals("true") && ProductosDelUsuario.Count < 3)
                 {
                     Recientes = true;
-                    ProductosDelUsuario.Reverse();
+                    
                 }
             }
             return Page();
