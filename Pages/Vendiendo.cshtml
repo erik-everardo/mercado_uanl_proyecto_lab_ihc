@@ -19,41 +19,46 @@
 @*Se asegura de que haya al menos un elemento en la lista, si no no muestra el encabezado correspondiente*@
 @if (Model.Recientes && Model.ProductosDelUsuario.Count > 0)
 {
-    <h4>Acabo de publicar</h4>
+    <h4 class="my-2">Acabo de publicar</h4>
 }
 else if(Model.ProductosDelUsuario.Count > 0)
 {
-    <h4 id="iraproductos">Mis productos</h4> 
+    <h4 class="my-2" id="iraproductos">Mis productos</h4> 
 }
 else if(Model.Recientes && Model.ProductosDelUsuario.Count == 0)
 {
-    <h4>Acabo de publicar</h4>
+    <h4 class="my-2" >Acabo de publicar</h4>
     <div class="alert alert-info">
         <div class="alert-heading">No hay nada que mostrar</div>
     </div>
 }
 else
 {
-    <h4 id="iraproductos">Mis productos</h4> 
+    <h4 class="my-2" id="iraproductos">Mis productos</h4> 
     <div class="alert alert-info">
         <div class="alert-heading">No hay nada que mostrar</div>
     </div>
 }
 @*Genera los cards*@
-<div class="card-deck">
+<div class="list-group">
   @foreach(var Producto in Model.ProductosDelUsuario)
   {
-      <div class="card">
-          <div class="card-header">@Producto.Nombre</div>
-          <img class="card-img" src="@Producto.UrlFoto"/>
-          <div class="card-body">
-              <p class="card-text">@Producto.Descripcion</p>
-              <p class="text-right"><strong>$@Producto.Precio</strong></p>
-              <button data-id="id" class="btn btn-primary" disabled><i class="fas fa-edit"></i></button>
+      <div href="#" class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-5">@Producto.Nombre</h5>
+              <p><strong>$@Producto.Precio</strong></p>
+          </div>
+          <div class="contenedor_imagen">
+              <img class="imagen-producto" src="img-prueba-vertical.jpg"/>
+          </div>
+          
+              
+          <div class="d-flex w-100 justify-content-end">
+              <button data-id="id" class="btn btn-primary mx-1" disabled><i class="fas fa-edit"></i></button>
               <button
                   data-id="id" class="btn btn-warning"
                   onclick="OcultarDesocultarProducto(@Producto.IdUsuario,@Model.Usuario.Password,@Producto.Id,'@GetAntiXsrfRequestToken()')">
-                  
+                                                       
                   @if (Producto.Publico)
                   {
                       <i class="far fa-eye-slash"></i>
@@ -63,7 +68,7 @@ else
                       <i class="fas fa-eye"></i>
                   }
               </button>
-              <button data-id="id" class="btn btn-danger" onclick="eliminarProducto(@Producto.IdUsuario,@Model.Usuario.Password,@Producto.Id,'@GetAntiXsrfRequestToken()')"><i class="fas fa-trash"></i></button>
+              <button data-id="id" class="btn btn-danger mx-1" onclick="eliminarProducto(@Producto.IdUsuario,@Model.Usuario.Password,@Producto.Id,'@GetAntiXsrfRequestToken()')"><i class="fas fa-trash"></i></button>
           </div>
       </div>
   }  

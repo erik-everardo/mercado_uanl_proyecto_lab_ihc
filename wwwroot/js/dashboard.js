@@ -4,6 +4,7 @@ var pantallaVentasDiv = document.getElementById("vender");
 var pantallaCalificacionesDiv = document.getElementById("calificaciones");
 var pantallaVerTodo = document.getElementById("ver_todo");
 var pantallaInfoProducto = document.getElementById("info-producto");
+var pantallaMisProductos = document.getElementById("mis_productos");
 var linkPantallaPrincipal = document.getElementById("btn-principal");
 var linkPantallaVentas = document.getElementById("btn-vender");
 var linkPantallaCalificaciones = document.getElementById("btn-calificaciones");
@@ -12,6 +13,7 @@ var linkPantallaMejorCalificado = document.getElementById("btn-mejor-calificado"
 var linkPantallaPorCategoria = document.getElementById("btn-por-categorias");
 var linkPantallaPorCampus = document.getElementById("btn-por-campus");
 var linkPantallaPorFacultad = document.getElementById("btn-por-facultad");
+var linkPantallaMisProductos = document.getElementById("btn-mis-productos");
 var sidebar = document.getElementById("sidebar");
 var main = document.getElementById("main-dashboard");
 
@@ -71,7 +73,10 @@ $('#btn-por-facultad').on('click',function(){
 });
 $('#btn-por-campus').on('click',function(){
     clickEnPorCompus();
-})
+});
+$('#btn-mis-productos').on('click',function () {
+    clickEnMisProductos();
+});
 function clickEnPrincipal(){
     //aparecer capa "principal" y desaparecer las otras
     pantallaPrincipalDiv.style.display = "block";
@@ -79,6 +84,7 @@ function clickEnPrincipal(){
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
+    pantallaMisProductos.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPrincipal.classList.contains("active")){
@@ -102,6 +108,9 @@ function clickEnPrincipal(){
     if(linkPantallaPorFacultad.classList.contains("active")){
         linkPantallaPorFacultad.classList.remove("active");
     }
+    if(linkPantallaMisProductos.classList.contains("active")){
+        linkPantallaMisProductos.classList.remove("active");
+    }
     obtenerProductosPublicosRecientes(credencial.usuario,1);
     obtenerProductosRecienPublicados();
 }
@@ -112,6 +121,7 @@ function clickEnVender(desdeRecienPublicados){
     pantallaVentasDiv.style.display = "block";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
+    pantallaMisProductos.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaVentas.classList.contains("active")){
@@ -135,7 +145,10 @@ function clickEnVender(desdeRecienPublicados){
     if(linkPantallaPorFacultad.classList.contains("active")){
         linkPantallaPorFacultad.classList.remove("active");
     }
-    ActualizarMisProductos();
+    if(linkPantallaMisProductos.classList.contains("active")){
+        linkPantallaMisProductos.classList.remove("active");
+    }
+    
 }
 function clickEnVerTodo(){
     //aparecer capa "Ver_todo" y desaparecer las otras
@@ -144,6 +157,7 @@ function clickEnVerTodo(){
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "block";
     pantallaInfoProducto.style.display = "none";
+    pantallaMisProductos.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaVerTodo.classList.contains("active")){
@@ -170,6 +184,9 @@ function clickEnVerTodo(){
     if(linkPantallaMejorCalificado.classList.contains("active")){
         linkPantallaMejorCalificado.classList.remove("active");
     }
+    if(linkPantallaMisProductos.classList.contains("active")){
+        linkPantallaMisProductos.classList.remove("active");
+    }
     obtenerProductosPublicosRecientes(credencial.usuario,2);
 }
 function clickEnPorCategorias(){
@@ -179,6 +196,7 @@ function clickEnPorCategorias(){
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
+    pantallaMisProductos.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPorCategoria.classList.contains("active")){
@@ -205,6 +223,9 @@ function clickEnPorCategorias(){
     if(linkPantallaVerTodo.classList.contains("active")){
         linkPantallaVerTodo.classList.remove("active");
     }
+    if(linkPantallaMisProductos.classList.contains("active")){
+        linkPantallaMisProductos.classList.remove("active");
+    }
 }
 function clickEnMejorCalificado(){
     //aparecer capa "Mejor calificado" y desaparecer las otras
@@ -213,6 +234,7 @@ function clickEnMejorCalificado(){
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
+    pantallaMisProductos.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaMejorCalificado.classList.contains("active")){
@@ -239,6 +261,9 @@ function clickEnMejorCalificado(){
     if(linkPantallaVerTodo.classList.contains("active")){
         linkPantallaVerTodo.classList.remove("active");
     }
+    if(linkPantallaMisProductos.classList.contains("active")){
+        linkPantallaMisProductos.classList.remove("active");
+    }
 }
 function clickEnPorFacultad(){
     pantallaPrincipalDiv.style.display = "none";
@@ -246,6 +271,7 @@ function clickEnPorFacultad(){
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
+    pantallaMisProductos.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPorFacultad.classList.contains("active")){
@@ -272,6 +298,9 @@ function clickEnPorFacultad(){
     if(linkPantallaMejorCalificado.classList.contains("active")){
         linkPantallaMejorCalificado.classList.remove("active");
     }
+    if(linkPantallaMisProductos.classList.contains("active")){
+        linkPantallaMisProductos.classList.remove("active");
+    }
 }
 function clickEnPorCompus(){
     pantallaPrincipalDiv.style.display = "none";
@@ -279,6 +308,7 @@ function clickEnPorCompus(){
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
+    pantallaMisProductos.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPorCampus.classList.contains("active")){
@@ -305,6 +335,48 @@ function clickEnPorCompus(){
     if(linkPantallaMejorCalificado.classList.contains("active")){
         linkPantallaMejorCalificado.classList.remove("active");
     }
+    if(linkPantallaMisProductos.classList.contains("active")){
+        linkPantallaMisProductos.classList.remove("active");
+    }
+}
+function clickEnMisProductos(){
+    //aparecer capa "mis productos" y desaparecer las otras
+    pantallaPrincipalDiv.style.display = "none";
+    pantallaCalificacionesDiv.style.display = "none";
+    pantallaVentasDiv.style.display = "none";
+    pantallaVerTodo.style.display = "none";
+    pantallaInfoProducto.style.display = "none";
+    pantallaMisProductos.style.display = "block";
+
+    //colocar el link como active
+    if(!linkPantallaMisProductos.classList.contains("active")){
+        linkPantallaMisProductos.classList.add("active");
+    }
+    if(linkPantallaPrincipal.classList.contains("active")){
+        linkPantallaPrincipal.classList.remove("active");
+    }
+    if(linkPantallaVentas.classList.contains("active")){
+        linkPantallaVentas.classList.remove("active");
+    }
+    if(linkPantallaCalificaciones.classList.contains("active")){
+        linkPantallaCalificaciones.classList.remove("active");
+    }
+    if(linkPantallaPorCampus.classList.contains("active")){
+        linkPantallaPorCampus.classList.remove("active");
+    }
+    if(linkPantallaPorCategoria.classList.contains("active")){
+        linkPantallaPorCategoria.classList.remove("active");
+    }
+    if(linkPantallaPorFacultad.classList.contains("active")){
+        linkPantallaPorFacultad.classList.remove("active");
+    }
+    if(linkPantallaVerTodo.classList.contains("active")){
+        linkPantallaVerTodo.classList.remove("active");
+    }
+    if(linkPantallaMejorCalificado.classList.contains("active")){
+        linkPantallaMejorCalificado.classList.add("active");
+    }
+    ActualizarMisProductos();
 }
 
 $('#boton_movil_mostrar_barra').on('click',function(){

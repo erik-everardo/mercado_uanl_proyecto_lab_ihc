@@ -18,13 +18,14 @@
     @*Estos divs son las pantallas principales, donde va el contenido. aparecen al dar clic en los botones*@
     @*de la barra izquierda*@
     <div id="principal">
-        <h3>Principal</h3>
+        <h3 class="my-2">Principal</h3><hr/>
         <div id="productosRecientes_Div">
-                <!--cards productos recientes abajo-->
-                <div class="spinner-border text-primary" role="status">
-                  <span class="sr-only">Cargando...</span>
-                </div>
+            <!--cards productos recientes abajo-->
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Cargando...</span>
             </div>
+        </div>
+        <hr/>
         <div id="acaboDePublicar_Div">
             <!--cards productos publicados recientemente: abajo-->
             <div class="spinner-border text-primary" role="status">
@@ -33,59 +34,48 @@
         </div>
     </div>
     <div id="vender">
-        <div class="accordion" id="vender_producto_form_acordeon">
-            <div class="card">
-                <div class="card-header" id="encabezado_c1">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#form"><span class="badge badge-primary"><i class="fas fa-plus"></i></span> Nuevo producto para vender</button>
-                    </h2>
-                </div>
-                <div id="form" class="collapse" data-parent="#vender_producto_form_acordeon">
-                    <div class="card-body">
-                        <form id="formulario_publicar_producto" asp-antiforgery="true">
-                            <div class="form-group">
-                                <h4>Nombre del producto</h4>
-                                <input class="form-control" type="text" id="nombre_prducto_nuevo" name="Nombre" required="true"/>
-                            </div>
-                            <h4>Datos del producto</h4>
-                            <div class="form-group form-row">
-                                <input type="number" id="precio_nuevo_producto" class="form-control col-3" placeholder="Precio en moneda nacional" name="precio" required="true"/>
-                                <select class="custom-select col mx-2" id="seleccionar_categoria_nuevo_producto" name="Categoria" required="true">
-                                    <option disabled="true" selected="true">Selecciona una categoria</option>
-                                    <option value="dulces" name="categoria">Dulces y botanas</option>
-                                    <option value="comida-rapida">Comida rápida</option>
-                                    <option value="postres">Postres</option>
-                                    <option value="electronica">Electrónica</option>
-                                    <option vaue="accesorios-movil">Accesorios de celular</option>
-                                </select>
-                            </div>
-                            <h4>Carga una foto de tu producto (proximamente)</h4>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="elegir_foto_producto_nuevo" disabled/>
-                                <label class="custom-file-label" for="elegir_foto_producto_nuevo" data-browse="Elegir">Elegir un archivo</label>
-                            </div>
-                            
-                            <div class="form-group my-4">
-                                <h4>Descripción extra del producto</h4>
-                                <textarea name="Descripcion" class="form-control" rows="5" id="descripcion_producto_nuevo" placeholder="Escribe todo lo que consideres que la gente debe saber de tu producto"></textarea>
-                            </div>
-                            <input type="hidden" value="@Model.idUsuario" name="id"/>
-                            <input type="hidden" value="@Model.password" name="pass"/>
-                            <div class="form-group d-flex justify-content-end">
-                                <input id="boton_publicar_producto_nuevo" type="submit" value="Publicar" class="form-control btn btn-success w-auto my-2"/>
-                            </div>
-                        
-                        </form>
-                    </div>
-                </div>
+        <form enctype="multipart/form-data" id="form_foto"></form>
+        <form id="formulario_publicar_producto" asp-antiforgery="true">
+            <div class="form-group">
+                <h4>Nombre del producto</h4>
+                <input class="form-control" type="text" id="nombre_prducto_nuevo" name="Nombre" required="true"/>
             </div>
-        </div>
-        <div class="my-3 " id="mis_productos"></div>
+            <h4>Datos del producto</h4>
+            <div class="form-group form-row">
+                <input type="number" id="precio_nuevo_producto" class="form-control col-3" placeholder="Precio en moneda nacional" name="precio" required="true"/>
+                <select class="custom-select col mx-2" id="seleccionar_categoria_nuevo_producto" name="Categoria" required="true">
+                    <option disabled="true" selected="true">Selecciona una categoria</option>
+                    <option value="dulces" name="categoria">Dulces y botanas</option>
+                    <option value="comida-rapida">Comida rápida</option>
+                    <option value="postres">Postres</option>
+                    <option value="electronica">Electrónica</option>
+                    <option vaue="accesorios-movil">Accesorios de celular</option>
+                </select>
+            </div>
+            <h4>Carga una foto de tu producto (proximamente)</h4>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="elegir_foto_producto_nuevo" name="foto" form="form_foto"/>
+                <label class="custom-file-label" for="elegir_foto_producto_nuevo" data-browse="Elegir">Elegir un archivo</label>
+            </div>
+
+            <div class="form-group my-4">
+                <h4>Descripción extra del producto</h4>
+                <textarea name="Descripcion" class="form-control" rows="5" id="descripcion_producto_nuevo" placeholder="Escribe todo lo que consideres que la gente debe saber de tu producto"></textarea>
+            </div>
+            <input type="hidden" value="@Model.idUsuario" name="id"/>
+            <input type="hidden" value="@Model.password" name="pass"/>
+            <div class="form-group d-flex justify-content-end">
+                <input id="boton_publicar_producto_nuevo" type="submit" value="Publicar" class="form-control btn btn-success w-auto my-2"/>
+            </div>
+
+        </form>
+
     </div>
+    <div class="my-3 " id="mis_productos"></div>
     <div id="calificaciones">
         <h3>Calificaciones y comentarios</h3>
     </div>
-    <div id="ver_todo">
+    <div id="ver_todo" class="">
         
     </div>
     <div id="info-producto"></div>

@@ -6,32 +6,49 @@
 }
 @if (Model.Recientes & Model.ListaProductos.Count > 0)
 {
-    <h4>Productos recientes</h4>
+    <h4 class="my-2">Productos recientes</h4>
 }
-<div class="card-deck">
+else if (Model.ListaProductos.Count > 0)
+{
+    <h4 class="my-2">Todos los productos</h4>
+}
+<div class="list-group">
     @foreach (var producto in Model.ListaProductos)
     {
-        <div class="card">
-            <div class="card-header">
-                @producto.Nombre
-            </div>
-            <div class="card-body">
-                <p>@producto.Descripcion</p>
-                <p>Vendido por: @Model.NombreUsuarioPorId(producto.IdUsuario)</p>
-                <p class="text-right"><strong>$@producto.Precio</strong></p>
+        @if (Model.Recientes)
+        {
+            <a href="#"
+               onclick="obtenerInfoProducto(@producto.Id,1)"
+               class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-5">@producto.Nombre</h5>
+                    <p><strong>$@producto.Precio</strong></p>
+                </div>
                 
-                
-            </div>
-            <div class="card-footer">
-                @if (Model.Recientes)
-                                {
-                                    <a href="#" onclick="obtenerInfoProducto(@producto.Id,1)" class="stretched-link">Ver</a>
-                                }
-                                else
-                                {
-                                    <a href="#" onclick="obtenerInfoProducto(@producto.Id,2)" class="stretched-link">Ver</a>
-                                }
-            </div>
-        </div>
+                <div class="d-flex w-100 justify-content-start">
+                    <div class="contenedor_imagen">
+                        <img class="imagen-producto" src="img-prueba-vertical.jpg"/>
+                    </div>
+                    Vendedor: @Model.NombreUsuarioPorId(producto.IdUsuario)
+                </div>
+            </a>
+        }
+        else
+        {
+            <a href="#"
+               onclick="obtenerInfoProducto(@producto.Id,2)"
+               class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-5">@producto.Nombre</h5>
+                    <p><strong>$@producto.Precio</strong></p>
+                </div>
+                <div class="d-flex w-100 justify-content-start">
+                                    <div class="contenedor_imagen">
+                                        <img class="imagen-producto" src="img-prueba-vertical.jpg"/>
+                                    </div>
+                                    Vendedor: @Model.NombreUsuarioPorId(producto.IdUsuario)
+                                </div>
+            </a>
+        }  
     }
 </div>
