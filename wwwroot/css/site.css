@@ -117,3 +117,6 @@ body {
   margin:auto;
   width: 200px;
 }
+#subiendo_archivo_spinner{
+  display: none;
+}

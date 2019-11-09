@@ -34,7 +34,6 @@
         </div>
     </div>
     <div id="vender">
-        <form enctype="multipart/form-data" id="form_foto"></form>
         <form id="formulario_publicar_producto" asp-antiforgery="true">
             <div class="form-group">
                 <h4>Nombre del producto</h4>
@@ -52,11 +51,9 @@
                     <option vaue="accesorios-movil">Accesorios de celular</option>
                 </select>
             </div>
-            <h4>Carga una foto de tu producto (proximamente)</h4>
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="elegir_foto_producto_nuevo" name="foto" form="form_foto" accept="image/*"/>
-                <label class="custom-file-label" for="elegir_foto_producto_nuevo" data-browse="Elegir">Elegir un archivo</label>
-            </div>
+            <h4>Carga una foto de tu producto</h4>
+            <input type="file" id="elegir_foto_producto_nuevo" name="foto" accept="image/*"/>
+
 
             <div class="form-group my-4">
                 <h4>Descripción extra del producto</h4>
@@ -65,7 +62,8 @@
             <input type="hidden" value="@Model.idUsuario" name="id"/>
             <input type="hidden" value="@Model.password" name="pass"/>
             <div class="form-group d-flex justify-content-end">
-                <input id="boton_publicar_producto_nuevo" type="submit" value="Publicar" class="form-control btn btn-success w-auto my-2"/>
+                <div class="spinner-border my-2 mx-1" id="subiendo_archivo_spinner" role="status" aria-hidden="true"></div>
+                <button id="boton_publicar_producto_nuevo" type="submit" class="form-control btn btn-success w-auto my-2">Publicar</button>
             </div>
 
         </form>

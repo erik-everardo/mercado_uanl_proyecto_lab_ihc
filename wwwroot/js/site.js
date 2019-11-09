@@ -7,6 +7,8 @@ var cardColumnsMisProductos = document.getElementById("mis_productos");
 var acaboDePublicar_Div = document.getElementById("acaboDePublicar_Div");
 var productosRecientes_Div = document.getElementById("productosRecientes_Div");
 
+var spinner = document.getElementById("subiendo_archivo_spinner");
+
 var inputFile = document.querySelector("#elegir_foto_producto_nuevo");
 
 $('#campo_pass_comprobacion').on('keyup',function () {
@@ -31,7 +33,7 @@ $('#formulario_publicar_producto').on('submit',function () {
     var DatosAEnviar = $('#formulario_publicar_producto').serialize();
     
     $.post("/Vender",DatosAEnviar,VerSiErrorAlPublicar);
-    document.getElementById("formulario_publicar_producto").reset();
+    
     return false;
 });
 function subirFoto(id_producto){
@@ -39,13 +41,16 @@ function subirFoto(id_producto){
         var formData = new FormData();
         formData.append("archivo",inputFile.files[0]);
         formData.append("accion","producto");
+        spinner.style.display = "block";
         fetch("https://fotos-mercado-uanl.azurewebsites.net/guardar.php", {
             method: 'POST',
             body: formData
         }).then(function(r){
             return r.text();
         }).then(function(nombre_archivo){
-           actualizarURLFoto(nombre_archivo,id_producto); 
+           actualizarURLFoto(nombre_archivo,id_producto);
+           spinner.style.display = "none";
+           document.getElementById("formulario_publicar_producto").reset();
         });
     }
 }
@@ -62,12 +67,14 @@ function actualizarURLFoto(name,id_producto){
     };
     $.post("/ActualizarInfoProducto",aEnviar);
     console.log(ruta_completa_foto);
+    
 }
 function VerSiErrorAlPublicar(respuesta){
     if(respuesta === "error"){
         alert("Hubo un error");
     }else{
         subirFoto(respuesta);
+        
         ActualizarMisProductos();
         
     }
