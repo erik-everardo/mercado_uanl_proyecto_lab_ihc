@@ -165,9 +165,6 @@ function clickEnVerTodo(){
     if(linkPantallaPorCategoria.classList.contains("active")){
         linkPantallaPorCategoria.classList.remove("active");
     }
-    if(linkPantallaPorFacultad.classList.contains("active")){
-        linkPantallaPorFacultad.classList.remove("active");
-    }
     if(linkPantallaMejorCalificado.classList.contains("active")){
         linkPantallaMejorCalificado.classList.remove("active");
     }
@@ -176,12 +173,14 @@ function clickEnVerTodo(){
     }
     obtenerProductosPublicosRecientes(credencial.usuario,2);
 }
-function clickEnPorCategorias(){
+function clickEnPorCategorias(cat){
+    //llamo a obtener productos de categoria cat
+    obtenerProductoPorCategoria(cat);
     //aparecer capa "Por categorias" y desaparecer las otras
     pantallaPrincipalDiv.style.display = "none";
     pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
-    pantallaVerTodo.style.display = "none";
+    pantallaVerTodo.style.display = "block";
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
 

@@ -8,9 +8,17 @@
 {
     <h4 class="my-2">Productos recientes</h4>
 }
-else if (Model.ListaProductos.Count > 0)
+else if (Model.ListaProductos.Count > 0 && !Model.porCategoria)
 {
     <h4 class="my-2">Todos los productos</h4>
+}
+else if (Model.porCategoria)
+{
+    <h4 class="my-2">@Model.stringsCategorias[Model.categoria-1]</h4>
+    if (!(Model.ListaProductos.Count > 0))
+    {
+        <div class="alert-info alert">¡No hay productos de esta categoria!</div>
+    }                                                            
 }
 <div class="list-group">
     @foreach (var producto in Model.ListaProductos)
@@ -35,6 +43,7 @@ else if (Model.ListaProductos.Count > 0)
         }
         else
         {
+            @*cuando se piden todos los productos*@
             <a href="#"
                onclick="obtenerInfoProducto(@producto.Id,2)"
                class="list-group-item list-group-item-action">
@@ -43,12 +52,13 @@ else if (Model.ListaProductos.Count > 0)
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
                 <div class="d-flex w-100 justify-content-start">
-                                    <div class="contenedor_imagen">
-                                        <img class="imagen-producto" src="@producto.UrlFoto"/>
-                                    </div>
-                                    Vendedor: @Model.NombreUsuarioPorId(producto.IdUsuario)
-                                </div>
+                    <div class="contenedor_imagen">
+                        <img class="imagen-producto" src="@producto.UrlFoto"/>
+                    </div>
+                    Vendedor: @Model.NombreUsuarioPorId(producto.IdUsuario)
+                </div>
             </a>
+            
         }  
     }
 </div>

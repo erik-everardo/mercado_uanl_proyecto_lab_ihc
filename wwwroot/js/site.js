@@ -143,6 +143,15 @@ function obtenerInfoProducto(idProducto,desde){
             mostrarInfoProducto();
         });break;
     }
-    
-    
+}
+
+function obtenerProductoPorCategoria(num_cat){
+    var aEnviar = {
+        por:num_cat,usuarioAExcluir:credencial.usuario
+    };
+    $.get("/ObtenerProductosPublicos",aEnviar,function (respuesta){
+        //que hacer con la respuesta
+        //poner respuesta en div de categorias
+        pantallaVerTodo.innerHTML = respuesta;
+    });
 }
