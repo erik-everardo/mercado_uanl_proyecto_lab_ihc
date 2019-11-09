@@ -12,7 +12,6 @@ var linkPantallaVerTodo = document.getElementById("btn-ver-todo");
 var linkPantallaMejorCalificado = document.getElementById("btn-mejor-calificado");
 var linkPantallaPorCategoria = document.getElementById("btn-por-categorias");
 var linkPantallaPorCampus = document.getElementById("btn-por-campus");
-var linkPantallaPorFacultad = document.getElementById("btn-por-facultad");
 var linkPantallaMisProductos = document.getElementById("btn-mis-productos");
 var sidebar = document.getElementById("sidebar");
 var main = document.getElementById("main-dashboard");
@@ -55,15 +54,9 @@ $('#btn-calificaciones').on('click',function () {
     if(linkPantallaPorCategoria.classList.contains("active")){
         linkPantallaPorCategoria.classList.remove("active");
     }
-    if(linkPantallaPorFacultad.classList.contains("active")){
-        linkPantallaPorFacultad.classList.remove("active");
-    }
 });
 $('#btn-ver-todo').on('click',function(){
    clickEnVerTodo(); 
-});
-$('#btn-por-categorias').on('click',function () {
-    clickEnPorCategorias();
 });
 $('#btn-mejor-calificado').on('click',function(){
     clickEnMejorCalificado();
@@ -105,9 +98,6 @@ function clickEnPrincipal(){
     if(linkPantallaPorCategoria.classList.contains("active")){
         linkPantallaPorCategoria.classList.remove("active");
     }
-    if(linkPantallaPorFacultad.classList.contains("active")){
-        linkPantallaPorFacultad.classList.remove("active");
-    }
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
     }
@@ -141,9 +131,6 @@ function clickEnVender(desdeRecienPublicados){
     }
     if(linkPantallaPorCategoria.classList.contains("active")){
         linkPantallaPorCategoria.classList.remove("active");
-    }
-    if(linkPantallaPorFacultad.classList.contains("active")){
-        linkPantallaPorFacultad.classList.remove("active");
     }
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
@@ -217,9 +204,6 @@ function clickEnPorCategorias(){
     if(linkPantallaMejorCalificado.classList.contains("active")){
         linkPantallaMejorCalificado.classList.remove("active");
     }
-    if(linkPantallaPorFacultad.classList.contains("active")){
-        linkPantallaPorFacultad.classList.remove("active");
-    }
     if(linkPantallaVerTodo.classList.contains("active")){
         linkPantallaVerTodo.classList.remove("active");
     }
@@ -255,48 +239,8 @@ function clickEnMejorCalificado(){
     if(linkPantallaPorCategoria.classList.contains("active")){
         linkPantallaPorCategoria.classList.remove("active");
     }
-    if(linkPantallaPorFacultad.classList.contains("active")){
-        linkPantallaPorFacultad.classList.remove("active");
-    }
     if(linkPantallaVerTodo.classList.contains("active")){
         linkPantallaVerTodo.classList.remove("active");
-    }
-    if(linkPantallaMisProductos.classList.contains("active")){
-        linkPantallaMisProductos.classList.remove("active");
-    }
-}
-function clickEnPorFacultad(){
-    pantallaPrincipalDiv.style.display = "none";
-    pantallaCalificacionesDiv.style.display = "none";
-    pantallaVentasDiv.style.display = "none";
-    pantallaVerTodo.style.display = "none";
-    pantallaInfoProducto.style.display = "none";
-    pantallaMisProductos.style.display = "none";
-
-    //colocar el link como active
-    if(!linkPantallaPorFacultad.classList.contains("active")){
-        linkPantallaPorFacultad.classList.add("active");
-    }
-    if(linkPantallaPrincipal.classList.contains("active")){
-        linkPantallaPrincipal.classList.remove("active");
-    }
-    if(linkPantallaVentas.classList.contains("active")){
-        linkPantallaVentas.classList.remove("active");
-    }
-    if(linkPantallaCalificaciones.classList.contains("active")){
-        linkPantallaCalificaciones.classList.remove("active");
-    }
-    if(linkPantallaPorCampus.classList.contains("active")){
-        linkPantallaPorCampus.classList.remove("active");
-    }
-    if(linkPantallaPorCategoria.classList.contains("active")){
-        linkPantallaPorCategoria.classList.remove("active");
-    }
-    if(linkPantallaVerTodo.classList.contains("active")){
-        linkPantallaVerTodo.classList.remove("active");
-    }
-    if(linkPantallaMejorCalificado.classList.contains("active")){
-        linkPantallaMejorCalificado.classList.remove("active");
     }
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
@@ -322,9 +266,6 @@ function clickEnPorCompus(){
     }
     if(linkPantallaCalificaciones.classList.contains("active")){
         linkPantallaCalificaciones.classList.remove("active");
-    }
-    if(linkPantallaPorFacultad.classList.contains("active")){
-        linkPantallaPorFacultad.classList.remove("active");
     }
     if(linkPantallaPorCategoria.classList.contains("active")){
         linkPantallaPorCategoria.classList.remove("active");
@@ -366,9 +307,6 @@ function clickEnMisProductos(){
     }
     if(linkPantallaPorCategoria.classList.contains("active")){
         linkPantallaPorCategoria.classList.remove("active");
-    }
-    if(linkPantallaPorFacultad.classList.contains("active")){
-        linkPantallaPorFacultad.classList.remove("active");
     }
     if(linkPantallaVerTodo.classList.contains("active")){
         linkPantallaVerTodo.classList.remove("active");
