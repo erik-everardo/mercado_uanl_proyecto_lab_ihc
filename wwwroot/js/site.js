@@ -92,7 +92,6 @@ function InyectarContenidoMisProductos(respuesta){
 function eliminarProducto(idUsuario,password,idProducto,token){
     var aEnviar = {idProducto : idProducto,idUsuario : idUsuario, password : password,__RequestVerificationToken: token};
     $.post("/EliminarProducto",aEnviar);
-    ActualizarMisProductos();
     obtenerProductosRecienPublicados();
     obtenerProductosPublicosRecientes();
 }
