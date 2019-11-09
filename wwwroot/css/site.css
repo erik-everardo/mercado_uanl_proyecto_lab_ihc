@@ -120,3 +120,6 @@ body {
 #subiendo_archivo_spinner{
   display: none;
 }
+.nav-item > .subelemento{
+  margin-left: 8px;
+}
