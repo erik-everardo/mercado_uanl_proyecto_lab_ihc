@@ -89,11 +89,14 @@ function InyectarContenidoMisProductos(respuesta){
     cardColumnsMisProductos.innerHTML = respuesta;
 }
 
-function eliminarProducto(idUsuario,password,idProducto,token){
+function eliminarProducto(idUsuario,password,idProducto,token,desde){
     var aEnviar = {idProducto : idProducto,idUsuario : idUsuario, password : password,__RequestVerificationToken: token};
-    $.post("/EliminarProducto",aEnviar);
-    obtenerProductosRecienPublicados();
-    obtenerProductosPublicosRecientes();
+    $.post("/EliminarProducto",aEnviar, function(){
+        obtenerProductosPublicosRecientes(idUsuario,desde);
+        obtenerProductosRecienPublicados();
+        ActualizarMisProductos();
+    });
+    
 }
 function OcultarDesocultarProducto(idUsuario,password,idProducto,token){
     var aEnviar = {idProducto : idProducto,idUsuario : idUsuario, password : password,__RequestVerificationToken: token};
