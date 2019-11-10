@@ -328,13 +328,6 @@ $('#boton_movil_mostrar_barra').on('click',function(){
     }
 });
 //para ocultar o desocultar barra lateral en caso de cambio de tamaño de pantalla
-function cambioDeDimensiones(){
-    if(screen.availWidth > 780){
-        sidebar.style.display = "block";
-    }else{
-        sidebar.style.display = "none";
-    }
-}
 function mostrarInfoProducto(){
     pantallaPrincipalDiv.style.display = "none";
     pantallaCalificacionesDiv.style.display = "none";
