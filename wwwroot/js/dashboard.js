@@ -61,12 +61,6 @@ $('#btn-ver-todo').on('click',function(){
 $('#btn-mejor-calificado').on('click',function(){
     clickEnMejorCalificado();
 });
-$('#btn-por-facultad').on('click',function(){
-    clickEnPorFacultad();
-});
-$('#btn-por-campus').on('click',function(){
-    clickEnPorCompus();
-});
 $('#btn-mis-productos').on('click',function () {
     clickEnMisProductos();
 });
@@ -245,11 +239,12 @@ function clickEnMejorCalificado(){
         linkPantallaMisProductos.classList.remove("active");
     }
 }
-function clickEnPorCompus(){
+function clickEnPorCompus(num_campus){
+    obtenerProductosPorCampus(num_campus);
     pantallaPrincipalDiv.style.display = "none";
     pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
-    pantallaVerTodo.style.display = "none";
+    pantallaVerTodo.style.display = "block";
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
 
@@ -278,6 +273,7 @@ function clickEnPorCompus(){
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
     }
+    
 }
 function clickEnMisProductos(){
     //aparecer capa "mis productos" y desaparecer las otras
