@@ -92,7 +92,6 @@ function InyectarContenidoMisProductos(respuesta){
 function eliminarProducto(idUsuario,password,idProducto,token,desde){
     var aEnviar = {idProducto : idProducto,idUsuario : idUsuario, password : password,__RequestVerificationToken: token};
     $.post("/EliminarProducto",aEnviar, function(){
-        obtenerProductosPublicosRecientes(idUsuario,desde);
         obtenerProductosRecienPublicados();
         ActualizarMisProductos();
     });
@@ -100,9 +99,11 @@ function eliminarProducto(idUsuario,password,idProducto,token,desde){
 }
 function OcultarDesocultarProducto(idUsuario,password,idProducto,token){
     var aEnviar = {idProducto : idProducto,idUsuario : idUsuario, password : password,__RequestVerificationToken: token};
-    $.post("/PausarVentaProducto",aEnviar);
-    ActualizarMisProductos();
-    obtenerProductosRecienPublicados();
+    $.post("/PausarVentaProducto",aEnviar,function () {
+        ActualizarMisProductos();
+        obtenerProductosRecienPublicados();
+    });
+    
 }
 function obtenerProductosRecienPublicados(){
     var aEnviar = {usuario : credencial.usuario, password : "" + credencial.password, __RequestVerificationToken:credencial.__RequestVerificationToken, recientes:"true"};
