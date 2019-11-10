@@ -147,11 +147,19 @@ function obtenerInfoProducto(idProducto,desde){
 
 function obtenerProductoPorCategoria(num_cat){
     var aEnviar = {
-        por:num_cat,usuarioAExcluir:credencial.usuario
+        valor:num_cat,usuarioAExcluir:credencial.usuario,accion:1
     };
     $.get("/ObtenerProductosPublicos",aEnviar,function (respuesta){
         //que hacer con la respuesta
         //poner respuesta en div de categorias
         pantallaVerTodo.innerHTML = respuesta;
+    });
+}
+function obtenerProductosPorCampus(num_campus) {
+    var aEnviar = {
+        valor:num_campus,usuarioAExcluir:credencial.usuario,accion:2
+    }
+    $.get("/ObtenerProductosPublicos",aEnviar,function (respuesta) {
+       pantallaVerTodo.innerHTML = respuesta; 
     });
 }
