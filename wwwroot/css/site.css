@@ -74,9 +74,9 @@ body {
   margin-left: auto;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 576px) {
   .sidebar{
-    height: calc(100% - 56px);
+    height: calc(100% - 49.25px);
     z-index:100;
     background-color: #f8f9fa;
     display: none;
