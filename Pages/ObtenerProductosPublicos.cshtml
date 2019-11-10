@@ -8,17 +8,21 @@
 {
     <h4 class="my-2">Productos recientes</h4>
 }
-else if (Model.ListaProductos.Count > 0 && !Model.porCategoria)
+else if (Model.ListaProductos.Count > 0 && !Model.porCategoria && !Model.porCampus)
 {
     <h4 class="my-2">Todos los productos</h4>
 }
 else if (Model.porCategoria)
 {
-    <h4 class="my-2">@Model.stringsCategorias[Model.categoria-1]</h4>
+    <h4 class="my-2">@Model.stringsCategorias[Model.valor-1]</h4>
     if (!(Model.ListaProductos.Count > 0))
     {
         <div class="alert-info alert">¡No hay productos de esta categoria!</div>
     }                                                            
+}
+else if (Model.porCampus)
+{
+    <h4 class="my-2">@Model.stringsCampus[Model.valor-1]</h4>
 }
 <div class="list-group">
     @foreach (var producto in Model.ListaProductos)
