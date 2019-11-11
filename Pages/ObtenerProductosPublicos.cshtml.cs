@@ -31,6 +31,9 @@ namespace mercado_uanl.Pages
                 "Ciudad Universitaria","Mederos","Ciencias de la Salud","Linares","Sabinas Hidalgo",
                 "Ciencias Agropecuarias"
             };
+            this.porCampus = false;
+            this.porCategoria = false;
+            this.Recientes = false;
         }
 
         //cuando accion="" se entiende que se quieren todos los productos
@@ -50,11 +53,10 @@ namespace mercado_uanl.Pages
             
             
             //por categoria
-            else if(!valor.Equals("") && accion=="1")
+            else if(accion=="1")
             {
                 ListaProductos = new List<Producto>();
                 porCategoria = true;
-                porCategoria = false;
                 this.valor = int.Parse(valor);
                 switch (valor)
                 {
@@ -99,7 +101,6 @@ namespace mercado_uanl.Pages
             else if (valor != "" && accion == "2")
             {
                 porCampus = true;
-                porCategoria = false;
                 this.valor = int.Parse(valor);
                 ListaProductos = new List<Producto>();
                 switch (valor)
