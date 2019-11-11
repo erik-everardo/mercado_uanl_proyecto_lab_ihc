@@ -12,7 +12,7 @@ else if (Model.ListaProductos.Count > 0 && !Model.porCategoria && !Model.porCamp
 {
     <h4 class="my-2">Todos los productos</h4>
 }
-else if (Model.porCategoria)
+else if (Model.porCategoria )
 {
     <h4 class="my-2">@Model.stringsCategorias[Model.valor-1]</h4>
     if (!(Model.ListaProductos.Count > 0))
@@ -31,6 +31,114 @@ else if (Model.porCampus)
         {
             <a href="#"
                onclick="obtenerInfoProducto(@producto.Id,1)"
+               class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-5">@producto.Nombre</h5>
+                    <p><strong>$@producto.Precio</strong></p>
+                </div>
+                
+                <div class="d-flex w-100 justify-content-start">
+                    <div class="contenedor_imagen">
+                        <img class="imagen-producto" src="@producto.UrlFoto"/>
+                    </div>
+                    Vendedor: @Model.NombreUsuarioPorId(producto.IdUsuario)
+                </div>
+            </a>
+        }
+        else if (Model.porCampus && Model.valor==1) //desde CU
+        {
+            <a href="#"
+               onclick="obtenerInfoProducto(@producto.Id,4)"
+               class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-5">@producto.Nombre</h5>
+                    <p><strong>$@producto.Precio</strong></p>
+                </div>
+                
+                <div class="d-flex w-100 justify-content-start">
+                    <div class="contenedor_imagen">
+                        <img class="imagen-producto" src="@producto.UrlFoto"/>
+                    </div>
+                    Vendedor: @Model.NombreUsuarioPorId(producto.IdUsuario)
+                </div>
+            </a>
+        }
+        else if (Model.porCampus && Model.valor == 2) //desde Mederos
+        {
+            <a href="#"
+               onclick="obtenerInfoProducto(@producto.Id,5)"
+               class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-5">@producto.Nombre</h5>
+                    <p><strong>$@producto.Precio</strong></p>
+                </div>
+                
+                <div class="d-flex w-100 justify-content-start">
+                    <div class="contenedor_imagen">
+                        <img class="imagen-producto" src="@producto.UrlFoto"/>
+                    </div>
+                    Vendedor: @Model.NombreUsuarioPorId(producto.IdUsuario)
+                </div>
+            </a>
+        }
+        else if (Model.porCampus && Model.valor == 3) //desde Ciencias de la Salud
+        {
+            <a href="#"
+               onclick="obtenerInfoProducto(@producto.Id,6)"
+               class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-5">@producto.Nombre</h5>
+                    <p><strong>$@producto.Precio</strong></p>
+                </div>
+                
+                <div class="d-flex w-100 justify-content-start">
+                    <div class="contenedor_imagen">
+                        <img class="imagen-producto" src="@producto.UrlFoto"/>
+                    </div>
+                    Vendedor: @Model.NombreUsuarioPorId(producto.IdUsuario)
+                </div>
+            </a>
+        }
+        else if (Model.porCampus && Model.valor == 4) // desde Linares
+        {
+            <a href="#"
+               onclick="obtenerInfoProducto(@producto.Id,7)"
+               class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-5">@producto.Nombre</h5>
+                    <p><strong>$@producto.Precio</strong></p>
+                </div>
+                
+                <div class="d-flex w-100 justify-content-start">
+                    <div class="contenedor_imagen">
+                        <img class="imagen-producto" src="@producto.UrlFoto"/>
+                    </div>
+                    Vendedor: @Model.NombreUsuarioPorId(producto.IdUsuario)
+                </div>
+            </a>
+        }
+        else if (Model.porCampus && Model.valor == 5) // desde Sabinas Hidalgo
+        {
+            <a href="#"
+               onclick="obtenerInfoProducto(@producto.Id,8)"
+               class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-5">@producto.Nombre</h5>
+                    <p><strong>$@producto.Precio</strong></p>
+                </div>
+                
+                <div class="d-flex w-100 justify-content-start">
+                    <div class="contenedor_imagen">
+                        <img class="imagen-producto" src="@producto.UrlFoto"/>
+                    </div>
+                    Vendedor: @Model.NombreUsuarioPorId(producto.IdUsuario)
+                </div>
+            </a>
+        }
+        else if (Model.porCampus && Model.valor == 6) //desde Ciencias Agropecuarias
+        {
+            <a href="#"
+               onclick="obtenerInfoProducto(@producto.Id,9)"
                class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-5">@producto.Nombre</h5>
