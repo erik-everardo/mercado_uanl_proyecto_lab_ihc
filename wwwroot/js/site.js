@@ -132,6 +132,13 @@ function obtenerInfoProducto(idProducto,desde){
     //parametro "desde":
     //1=>Principal
     //2=>MostrarTodo
+    //3=>Busqueda
+    //4=>CU
+    //5=>Mederos
+    //6=>Ciencias de la Salud
+    //7=>Linares
+    //8=>Sabinas Hidalgo
+    //9=>Ciencias Agropecuarias
     //Agregar mas aqui
     switch (desde) {
         case 1: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdePrincipal:"true"},function(respuesta){
@@ -142,6 +149,35 @@ function obtenerInfoProducto(idProducto,desde){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto();
         });break;
+        case 3: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeBusqueda:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 4: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeCU:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 5: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeMederos:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 6: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeSalud:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 7:$.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeLinares:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 8: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeSH:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 9: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeAgro:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        //agregar aqui mas casos: desde pantallas de por calificacion y categoria
         default: $.get("/MostrarInfoProducto",{idProducto:idProducto},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto();
@@ -162,7 +198,7 @@ function obtenerProductoPorCategoria(num_cat){
 function obtenerProductosPorCampus(num_campus) {
     var aEnviar = {
         valor:num_campus,usuarioAExcluir:credencial.usuario,accion:2
-    }
+    };
     $.get("/ObtenerProductosPublicos",aEnviar,function (respuesta) {
        pantallaVerTodo.innerHTML = respuesta; 
     });
@@ -174,13 +210,7 @@ $('#btn-buscar').on('click',function(){
 
 function buscar(query){
     $.get("/Buscar",{q:query},function(resultado){
-        pantallaPrincipalDiv.style.display = "none";
-        pantallaCalificacionesDiv.style.display = "none";
-        pantallaVentasDiv.style.display = "none";
-        pantallaVerTodo.style.display = "none";
-        pantallaInfoProducto.style.display = "none";
-        pantallaMisProductos.style.display = "none";
-        pantallaResultadosBusqueda.style.display = "block";
+        mostrarPantallaBusqueda();
         
         pantallaResultadosBusqueda.innerHTML = "<h4>Resultados para " + '&quot;'+ query + '&quot;</h4>'+ resultado;
     });
