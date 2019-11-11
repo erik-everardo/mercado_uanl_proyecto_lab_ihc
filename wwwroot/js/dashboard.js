@@ -339,3 +339,12 @@ function mostrarInfoProducto(){
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "block";
 }
+function mostrarPantallaBusqueda(){
+    pantallaPrincipalDiv.style.display = "none";
+    pantallaCalificacionesDiv.style.display = "none";
+    pantallaVentasDiv.style.display = "none";
+    pantallaVerTodo.style.display = "none";
+    pantallaInfoProducto.style.display = "none";
+    pantallaMisProductos.style.display = "none";
+    pantallaResultadosBusqueda.style.display = "block";
+}
