@@ -338,6 +338,7 @@ function mostrarInfoProducto(){
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "block";
+    pantallaResultadosBusqueda.style.display = "none";
 }
 function mostrarPantallaBusqueda(){
     pantallaPrincipalDiv.style.display = "none";
