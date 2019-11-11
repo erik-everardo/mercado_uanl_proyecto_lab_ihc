@@ -167,3 +167,21 @@ function obtenerProductosPorCampus(num_campus) {
        pantallaVerTodo.innerHTML = respuesta; 
     });
 }
+
+$('#btn-buscar').on('click',function(){
+    buscar($('#cuadro-busqueda').val());
+});
+
+function buscar(query){
+    $.get("/Buscar",{q:query},function(resultado){
+        pantallaPrincipalDiv.style.display = "none";
+        pantallaCalificacionesDiv.style.display = "none";
+        pantallaVentasDiv.style.display = "none";
+        pantallaVerTodo.style.display = "none";
+        pantallaInfoProducto.style.display = "none";
+        pantallaMisProductos.style.display = "none";
+        pantallaResultadosBusqueda.style.display = "block";
+        
+        pantallaResultadosBusqueda.innerHTML = "<h4>Resultados para " + '&quot;'+ query + '&quot;</h4>'+ resultado;
+    });
+}

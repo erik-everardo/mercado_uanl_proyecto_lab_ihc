@@ -4,16 +4,17 @@
 @{
     Layout = null;
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    Se busca "@Model.q"
-</div>
-</body>
-</html>
+@foreach (var producto in Model.productosEncontrados)
+{
+    <div class="resultado_busqueda">
+        <a href="#">@producto.Nombre</a>
+        <p>@if (producto.Descripcion.Length > 45)
+           {
+               @producto.Descripcion.Remove(45) @Html.Raw("...")
+           }
+           else
+           {
+               @producto.Descripcion
+           }
+    </div>
+}

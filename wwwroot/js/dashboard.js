@@ -5,6 +5,7 @@ var pantallaCalificacionesDiv = document.getElementById("calificaciones");
 var pantallaVerTodo = document.getElementById("ver_todo");
 var pantallaInfoProducto = document.getElementById("info-producto");
 var pantallaMisProductos = document.getElementById("mis_productos");
+var pantallaResultadosBusqueda = document.getElementById("div-resultados-busqueda");
 var linkPantallaPrincipal = document.getElementById("btn-principal");
 var linkPantallaVentas = document.getElementById("btn-vender");
 var linkPantallaCalificaciones = document.getElementById("btn-calificaciones");
@@ -32,6 +33,7 @@ $('#btn-calificaciones').on('click',function () {
     pantallaCalificacionesDiv.style.display = "block";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
+    pantallaResultadosBusqueda.style.display = "none";
     
     pantallaInfoProducto.style.display = "none";
 
@@ -72,6 +74,7 @@ function clickEnPrincipal(){
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
+    pantallaResultadosBusqueda.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPrincipal.classList.contains("active")){
@@ -106,6 +109,7 @@ function clickEnVender(desdeRecienPublicados){
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
+    pantallaResultadosBusqueda.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaVentas.classList.contains("active")){
@@ -139,6 +143,7 @@ function clickEnVerTodo(){
     pantallaVerTodo.style.display = "block";
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
+    pantallaResultadosBusqueda.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaVerTodo.classList.contains("active")){
@@ -177,6 +182,7 @@ function clickEnPorCategorias(cat){
     pantallaVerTodo.style.display = "block";
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
+    pantallaResultadosBusqueda.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPorCategoria.classList.contains("active")){
@@ -247,6 +253,7 @@ function clickEnPorCompus(num_campus){
     pantallaVerTodo.style.display = "block";
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
+    pantallaResultadosBusqueda.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPorCampus.classList.contains("active")){
@@ -283,6 +290,7 @@ function clickEnMisProductos(){
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "block";
+    pantallaResultadosBusqueda.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaMisProductos.classList.contains("active")){
