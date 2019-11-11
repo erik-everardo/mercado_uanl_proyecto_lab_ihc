@@ -13,6 +13,34 @@
 {
     <button class="btn btn-primary my-2" onclick="clickEnVerTodo();"><i class="fas fa-arrow-left"></i></button>
 }
+@if (Model.DesdeBusqueda)
+{
+    <button class="btn btn-primary my-2" onclick="mostrarPantallaBusqueda();"><i class="fas fa-arrow-left"></i> Volver a búsqueda</button>
+}
+@if (Model.DesdeCU)
+{
+    <button class="btn btn-primary my-2" onclick="clickEnPorCompus(1);"><i class="fas fa-arrow-left"></i></button>
+}
+@if (Model.DesdeMederos)
+{
+    <button class="btn btn-primary my-2" onclick="clickEnPorCompus(2);"><i class="fas fa-arrow-left"></i></button>
+}
+@if (Model.DesdeSalud)
+{
+    <button class="btn btn-primary my-2" onclick="clickEnPorCompus(3);"><i class="fas fa-arrow-left"></i></button>
+}
+@if (Model.DesdeLinares)
+{
+    <button class="btn btn-primary my-2" onclick="clickEnPorCompus(4);"><i class="fas fa-arrow-left"></i></button>
+}
+@if (Model.DesdeSH)
+{
+    <button class="btn btn-primary my-2" onclick="clickEnPorCompus(5);"><i class="fas fa-arrow-left"></i></button>
+}
+@if (Model.DesdeAgro)
+{
+    <button class="btn btn-primary my-2" onclick="clickEnPorCompus(6);"><i class="fas fa-arrow-left"></i></button>
+}
 
 <div class="card">
     <div class="card-header text-center">
