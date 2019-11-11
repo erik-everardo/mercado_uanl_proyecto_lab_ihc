@@ -7,7 +7,8 @@ namespace mercado_uanl.Pages
     {
         private readonly DbContextApp contexto;
         public Producto producto;
-        public bool DesdePrincipal, DesdeVerTodo, DesdeBusqueda, DesdeCU,DesdeMederos,DesdeSalud,DesdeLinares,DesdeSH,DesdeAgro;
+        public bool DesdePrincipal, DesdeVerTodo, DesdeBusqueda, DesdeCU,DesdeMederos,DesdeSalud,DesdeLinares,DesdeSH,
+            DesdeAgro,desdeDulces,desdeComidaRapida,desdePostres,desdeElectronica,desdeAccesorios,desdeElectrodomesticos, desdeLibros;
 
         public MostrarInfoProducto(DbContextApp contexto)
         {
@@ -24,7 +25,14 @@ namespace mercado_uanl.Pages
             string DesdeSalud = "false",
             string DesdeLinares = "false",
             string DesdeSH = "false",
-            string DesdeAgro = "false"
+            string DesdeAgro = "false",
+            string DesdeDulces = "false",
+            string DesdeComidaRapida = "false",
+            string DesdePostres = "false",
+            string DesdeElectronica = "false",
+            string DesdeAccesorios = "false",
+            string DesdeElectrodomesticos ="false",
+            string DesdeLibros = "false"
             )
         {
             this.DesdePrincipal = DesdePrincipal == "true";
@@ -36,6 +44,13 @@ namespace mercado_uanl.Pages
             this.DesdeLinares = DesdeLinares == "true";
             this.DesdeSH = DesdeSH == "true";
             this.DesdeAgro = DesdeAgro == "true";
+            this.desdeDulces = DesdeDulces == "true";
+            this.desdeComidaRapida = DesdeComidaRapida == "true";
+            this.desdePostres = DesdePostres == "true";
+            this.desdeElectronica = DesdeElectronica == "true";
+            this.desdeAccesorios = DesdeAccesorios == "true";
+            this.desdeElectrodomesticos = DesdeElectrodomesticos == "true";
+            this.desdeLibros = DesdeLibros == "true";
             
             producto = contexto.Productos.Find(int.Parse(idProducto));
         }

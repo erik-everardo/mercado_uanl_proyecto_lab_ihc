@@ -139,7 +139,13 @@ function obtenerInfoProducto(idProducto,desde){
     //7=>Linares
     //8=>Sabinas Hidalgo
     //9=>Ciencias Agropecuarias
-    //Agregar mas aqui
+    //10=>Dulces
+    //11=>Comida rapida
+    //12=>Postres
+    //13=>Electronica y computacion
+    //14=>Accesorios de celular
+    //15=>Electrodomesticos
+    //16=>Libros y material escolar
     switch (desde) {
         case 1: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdePrincipal:"true"},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
@@ -174,6 +180,34 @@ function obtenerInfoProducto(idProducto,desde){
             mostrarInfoProducto()
         });break;
         case 9: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeAgro:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 10: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeDulces:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 11: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeComidaRapida:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 12: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdePostres:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 13: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeElectronica:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 14: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeAccesorios:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 15: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeElectrodomesticos:"true"},function(respuesta){
+            pantallaInfoProducto.innerHTML = respuesta;
+            mostrarInfoProducto()
+        });break;
+        case 16: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeLibros:"true"},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
