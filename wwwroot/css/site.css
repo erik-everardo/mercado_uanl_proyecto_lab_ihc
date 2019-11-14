@@ -108,6 +108,15 @@ body {
   margin:5px;
   position: relative;
 }
+.contenedor_imagen::before{
+  content:"Seleccionar imagen";
+  z-index:200;
+  color:white;
+  margin-top: 200px;
+}
+.contenedor_imagen:hover{
+  opacity: 0.5;
+}
 .contenedor_imagen > .imagen-producto{
   position:absolute;
   left: -100%;
