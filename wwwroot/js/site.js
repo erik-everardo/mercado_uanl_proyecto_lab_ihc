@@ -249,3 +249,24 @@ function buscar(query){
         pantallaResultadosBusqueda.innerHTML = "<h4>Resultados para " + '&quot;'+ query + '&quot;</h4>'+ resultado;
     });
 }
+
+function actualizarInfoProducto(id_producto,nuevoNombre,nuevoPrecio,nuevaDescripcion,nuevaCategoria){
+    var nombre = document.getElementById(nuevoNombre);
+    var precio = document.getElementById(nuevoPrecio);
+    var descripcion = document.getElementById(nuevaDescripcion);
+    var categoria = document.getElementById(nuevaCategoria);
+    var aEnviar = {
+        id_producto:id_producto,
+        id_usuario:credencial.usuario,
+        password:credencial.password,
+        nombre:nombre.value,
+        descripcion:descripcion.value,
+        categoria:categoria.value,
+        precio:precio.value,
+        __RequestVerificationToken:credencial.__RequestVerificationToken
+        //terminar: modificacion de foto
+    };
+    $.post("/ActualizarInfoProducto",aEnviar,function(){
+       console.log("info actualizada"); 
+    });  
+}
