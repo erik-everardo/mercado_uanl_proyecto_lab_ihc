@@ -44,6 +44,8 @@ namespace mercado_uanl.Pages
                     producto.Nombre = nombre;
                     producto.Categoria = categoria;
                     producto.Precio = float.Parse(precio);
+                    contexto.Productos.Update(producto);
+                    contexto.SaveChanges();
                 }
             }
             
