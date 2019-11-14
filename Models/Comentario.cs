@@ -8,6 +8,7 @@ namespace mercado_uanl.Models
         public int Id { get; set; }
         public int IdProducto { get; set; }
         public string Contenido { get; set; }
+        public int NumeroEstrellas { get; set; }
         public DateTime FechaPublicacion { get; set; }
     }
 }
