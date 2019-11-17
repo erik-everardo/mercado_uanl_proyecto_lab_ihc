@@ -11,9 +11,7 @@ namespace mercado_uanl.Models
         
         //un array se transforma en string, usando un separador ","
         public string CampusArray { get; set; } //el array debe ser de elementos bool
-        public string ServiciosDeMensajeriaArray { get; set; } //el array debe ser de elementos bool
-        public string PuntuacionesArray { get; set; } //el array debe ser de elementos float
-        
         public bool ConfiguraCuentaPrimeraVez { get; set; }
+        public string UrlImagen { get; set; }
     }
 }
