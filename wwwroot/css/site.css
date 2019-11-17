@@ -133,3 +133,9 @@ body {
   margin-left: 8px;
   color:#10707f;
 }
+.grupo{
+  border-radius: 20px;
+  background-color: #f8f9fa;
+  margin:20px;
+  padding:10px;
+}
