@@ -16,6 +16,7 @@ var linkPantallaPorCampus = document.getElementById("btn-por-campus");
 var linkPantallaMisProductos = document.getElementById("btn-mis-productos");
 var sidebar = document.getElementById("sidebar");
 var main = document.getElementById("main-dashboard");
+var pantallaPerfil = document.getElementById("div-perfil");
 
 //estados
 var movilBarraVisible = false;
@@ -34,7 +35,7 @@ $('#btn-calificaciones').on('click',function () {
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
-    
+    pantallaPerfil.style.display = "none";
     pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
@@ -75,6 +76,7 @@ function clickEnPrincipal(){
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
+    pantallaPerfil.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPrincipal.classList.contains("active")){
@@ -110,6 +112,7 @@ function clickEnVender(desdeRecienPublicados){
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
+    pantallaPerfil.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaVentas.classList.contains("active")){
@@ -144,6 +147,7 @@ function clickEnVerTodo(){
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
+    pantallaPerfil.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaVerTodo.classList.contains("active")){
@@ -183,6 +187,7 @@ function clickEnPorCategorias(cat){
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
+    pantallaPerfil.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPorCategoria.classList.contains("active")){
@@ -218,6 +223,7 @@ function clickEnMejorCalificado(){
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
+    pantallaPerfil.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaMejorCalificado.classList.contains("active")){
@@ -254,6 +260,7 @@ function clickEnPorCompus(num_campus){
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
+    pantallaPerfil.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPorCampus.classList.contains("active")){
@@ -291,6 +298,7 @@ function clickEnMisProductos(){
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "block";
     pantallaResultadosBusqueda.style.display = "none";
+    pantallaPerfil.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaMisProductos.classList.contains("active")){
@@ -339,6 +347,7 @@ function mostrarInfoProducto(){
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "block";
     pantallaResultadosBusqueda.style.display = "none";
+    pantallaPerfil.style.display = "none";
 }
 function mostrarPantallaBusqueda(){
     pantallaPrincipalDiv.style.display = "none";
@@ -347,5 +356,17 @@ function mostrarPantallaBusqueda(){
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
     pantallaMisProductos.style.display = "none";
+    pantallaPerfil.style.display = "none";
     pantallaResultadosBusqueda.style.display = "block";
+}
+function mostrarPantallaPerfil(id){
+    pantallaPrincipalDiv.style.display = "none";
+    pantallaCalificacionesDiv.style.display = "none";
+    pantallaVentasDiv.style.display = "none";
+    pantallaVerTodo.style.display = "none";
+    pantallaInfoProducto.style.display = "none";
+    pantallaMisProductos.style.display = "none";
+    pantallaResultadosBusqueda.style.display = "none";
+    pantallaPerfil.style.display = "block";
+    obtenerPerfil(id);
 }

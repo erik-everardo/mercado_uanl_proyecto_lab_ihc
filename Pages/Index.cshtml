@@ -17,6 +17,16 @@
     </script>
     @*Estos divs son las pantallas principales, donde va el contenido. aparecen al dar clic en los botones*@
     @*de la barra izquierda*@
+    
+    @if (!Model.PrimeraConfiguracion)
+    {
+        <div class="alert alert-info alert-dismissible" role="alert" id="alerta-actualizar-info-contacto">
+            ¿Piensas vender cosas? <a href="#" class="alert-link">Actualiza tu información de contacto</a>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
     <div id="principal">
         <h3 class="my-2">Principal</h3><hr/>
         <div id="productosRecientes_Div">
@@ -80,6 +90,7 @@
         
     </div>
     <div id="div-resultados-busqueda"></div>
+    <div id="div-perfil"></div>                                 
     @*Estas funciones de JS se ejecutan al cargar la pagina*@
     @section Scripts{
         <script>
