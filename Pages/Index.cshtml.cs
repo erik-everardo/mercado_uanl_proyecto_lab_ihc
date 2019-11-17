@@ -21,7 +21,7 @@ namespace mercado_uanl.Pages
         public string[] campus = null;
         public string Nombre;
         public string Correo;
-        public bool Sexo;
+        public bool Sexo, PrimeraConfiguracion;
         public int idUsuario;
         public string password;
 
@@ -47,6 +47,7 @@ namespace mercado_uanl.Pages
                     InicioSesion = true;
                     idUsuario = usuario.Id;
                     this.password = usuario.Password;
+                    PrimeraConfiguracion = usuario.ConfiguraCuentaPrimeraVez;
                     return Page();
                 }
 
