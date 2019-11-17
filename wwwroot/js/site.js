@@ -270,3 +270,31 @@ function actualizarInfoProducto(id_producto,nuevoNombre,nuevoPrecio,nuevaDescrip
        console.log("info actualizada"); 
     });  
 }
+$('#alerta-actualizar-info-contacto').on('closed.bs.alert', function () {
+    //ya no preguntar
+    var Enviar = {Accion:"ConfigurarContacto",
+        IdUsuario:credencial.usuario,
+        __RequestVerificationToken:credencial.__RequestVerificationToken};
+    $.post("/ModificarPerfil",Enviar);
+});
+
+function obtenerPerfil(id){
+    var Enviar = {id:credencial.usuario}
+    $.get("/Perfil",Enviar, function(res){
+       pantallaPerfil.innerHTML = res; 
+    });
+}
+function agregarContacto(){
+    var row = document.createElement("tr");
+    var columna1 = document.createElement("th");
+    var columna2 = document.createElement("th");
+    var columna3 = document.createElement("th");
+    columna1.innerText = $('#select_contacto option:selected').text()
+    columna2.innerText = $('#campo_dato_contacto').val();
+    columna3.innerHTML = "<button class='btn btn-primary'>Eliminar</button>";
+    row.append(columna1);
+    row.append(columna2);
+    row.append(columna3);
+    $('#tabla-contactos').append(row);
+    console.log("agregar");
+}
