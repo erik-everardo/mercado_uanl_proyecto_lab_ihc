@@ -1,0 +1,31 @@
+@page
+@model mercado_uanl.Pages.Perfil
+
+@{
+    Layout = null;
+}
+<div class="grupo">
+    <h4>@Model.usuario.NombreCompleto</h4>
+    <p>@Model.usuario.Correo</p> 
+</div>
+<div class="grupo">
+    <label for="Presentacion_Usuario">Presentación</label>
+    <textarea class="form-control" id="Presentacion_Usuario">@Model.usuario.MensajePersonal</textarea>
+    <div class="d-flex w-100 justify-content-end"><button class="btn btn-primary my-2"><i class="fas fa-save"></i></button></div>
+</div>
+<div class="grupo">
+    <h4>Servicios de mensajeria instantánea</h4>
+    <small>Agrega aquí tus contactos para que la gente pueda ponerse en contacto contigo</small>
+    <table class="table" id="tabla-contactos">
+    </table>
+    <div class="form-group d-flex w-100">
+        <select class="custom-select w-auto" id="select_contacto">
+            <option value="cel">Numero de celular</option>
+            <option value="wh">WhatsApp</option>
+            <option value="teleg">Telegram</option>
+            <option value="fbm">Facebook Messenger</option>
+        </select>
+        <input type="text" class="mx-2 form-control" id="campo_dato_contacto"/>
+        <button class="btn btn-primary" id="agregar_contacto_boton" onclick="agregarContacto()">+</button>
+    </div>
+</div>
