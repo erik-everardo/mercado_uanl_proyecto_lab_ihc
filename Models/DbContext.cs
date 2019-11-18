@@ -14,5 +14,6 @@ namespace mercado_uanl.Models
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<ComentarioVendedor> ComentariosVendedor { get; set; }
         public DbSet<ServicioDeMensajeria> ServiciosDeMensajeria { get; set; }
+        public DbSet<Notificacion> Notificaciones { get; set; }
     }
 }
