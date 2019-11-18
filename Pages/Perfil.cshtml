@@ -5,14 +5,42 @@
     Layout = null;
 }
 <div class="grupo">
+    
+    @if (Model.usuario.UrlImagen == null)
+    {
+        <img src="imgs/user.png" height="130px">
+    }
+    else
+    {
+        <img src="@Model.usuario.UrlImagen" height="130px"/>
+    }
     <h4>@Model.usuario.NombreCompleto</h4>
-    <p>@Model.usuario.Correo</p> 
+    <p>@Model.usuario.Correo</p>
 </div>
 <div class="grupo">
     <h4>Mensaje de presentación</h4>
     <textarea class="form-control" id="Presentacion_Usuario">@Model.usuario.MensajePersonal</textarea>
     <div class="d-flex w-100 justify-content-end">
         <button title="Guardar" class="btn btn-primary my-2" onclick="guardarDescripcionUsuario(credencial.usuario,$('#Presentacion_Usuario').val())"><i class="fas fa-save"></i></button>
+    </div>
+</div>
+<div class="grupo">
+    <h4>Contraseña de tu cuenta</h4>
+    <small>Cambia tu contraseña</small>
+    <fieldset>
+        <input type="password" class="form-control my-2" placeholder="Tu contraseña actual"/>
+        <input type="password" class="form-control my-2" placeholder="Nueva contraseña"/>
+        <input type="password" class="form-control my-2" placeholder="Confirma contraseña"/>
+    </fieldset>
+    <div class="d-flex w-100 justify-content-end">
+        <button class="btn btn-primary">Cambiar contraseña</button>
+    </div>
+</div>
+<div class="grupo">
+    <h4>Tu foto de perfil</h4>
+    <small>Sube una foto para tu cuenta</small>
+    <div class="form-group">
+        <input type="file"/>
     </div>
 </div>
 <div class="grupo">
