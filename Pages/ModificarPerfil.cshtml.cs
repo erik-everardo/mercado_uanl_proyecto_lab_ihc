@@ -21,7 +21,8 @@ namespace mercado_uanl.Pages
             string Accion ="ActualizarTodo",
             string IdServicioMensajeria="",
             string DatoServicioMesajeria="",
-            string Descripcion = "")
+            string Descripcion = "",
+            string URL="")
         {
             usuario = contexto.Usuarios.Find(int.Parse(IdUsuario));
             switch (Accion)
@@ -47,6 +48,11 @@ namespace mercado_uanl.Pages
                     break;
                 case "GuardarMensaje":
                     usuario.MensajePersonal = Descripcion;
+                    contexto.Usuarios.Update(usuario);
+                    contexto.SaveChanges();
+                    break;
+                case "img":
+                    usuario.UrlImagen = URL;
                     contexto.Usuarios.Update(usuario);
                     contexto.SaveChanges();
                     break;

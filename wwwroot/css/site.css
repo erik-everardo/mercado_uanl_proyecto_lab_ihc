@@ -139,3 +139,9 @@ body {
   margin:20px;
   padding:10px;
 }
+#div-perfil{
+  display: none;
+}
+#spinner_subiendo_foto_perfil{
+  display: none;
+}

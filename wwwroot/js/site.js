@@ -10,6 +10,12 @@ var productosRecientes_Div = document.getElementById("productosRecientes_Div");
 var spinner = document.getElementById("subiendo_archivo_spinner");
 
 var inputFile = document.querySelector("#elegir_foto_producto_nuevo");
+var inputFilePerfil;
+
+var campoPasswordCambiar;
+var campoPasswordCambiarConfirm;
+var btnSubirFoto;
+var spinnerSubiendoFotoPerfil;
 
 $('#campo_pass_comprobacion').on('keyup',function () {
     if(campoPassword.value !== campoPasswordConfirmacion.value){
@@ -68,6 +74,17 @@ function actualizarURLFoto(name,id_producto){
     $.post("/ActualizarInfoProducto",aEnviar);
     console.log(ruta_completa_foto);
     
+}
+function actualizarURLFotoPerfil(name, id_usuario){
+    var ruta_completa_foto = "https://fotos-mercado-uanl.azurewebsites.net/img_perfil/" + name;
+    var aEnviar = {
+        IdUsuario:id_usuario,
+        Accion:"img",
+        URL:ruta_completa_foto,
+        __RequestVerificationToken:credencial.__RequestVerificationToken
+    };
+    $.post("/ModificarPerfil",aEnviar);
+    console.log(ruta_completa_foto);
 }
 function VerSiErrorAlPublicar(respuesta){
     if(respuesta === "error"){
@@ -279,9 +296,38 @@ $('#alerta-actualizar-info-contacto').on('closed.bs.alert', function () {
 });
 
 function obtenerPerfil(id){
-    var Enviar = {id:credencial.usuario}
+    var Enviar = {id:credencial.usuario};
     $.get("/Perfil",Enviar, function(res){
-       pantallaPerfil.innerHTML = res; 
+       pantallaPerfil.innerHTML = res;
+        campoPasswordCambiar = document.getElementById("campo_password_nueva_cambiar");
+        campoPasswordCambiarConfirm = document.getElementById("campo_password_nueva_cambiar_verificar");
+        inputFilePerfil = document.querySelector("#form_subir_foto_usuario");
+        btnSubirFoto = document.querySelector("#btn_subir_foto");
+        spinnerSubiendoFotoPerfil = document.querySelector("#spinner_subiendo_foto_perfil");
+        btnSubirFoto.addEventListener("click",function(){
+            subirFotoPerfil(credencial.usuario);
+            spinnerSubiendoFotoPerfil.style.display = "block";
+        });
+        $('#campo_password_nueva_cambiar_verificar').on('keyup',function () {
+
+            if(campoPasswordCambiar.value !== campoPasswordCambiarConfirm.value){
+                if(!campoPasswordCambiar.classList.contains("is-invalid")){
+                    campoPasswordCambiar.classList.add("is-invalid");
+                }
+                if(!campoPasswordCambiarConfirm.classList.contains("is-invalid")){
+                    campoPasswordCambiarConfirm.classList.add("is-invalid");
+                }
+            }else{
+                if(campoPasswordCambiar.classList.contains("is-invalid")){
+                    campoPasswordCambiar.classList.remove("is-invalid");
+                }
+                if(campoPasswordCambiarConfirm.classList.contains("is-invalid")){
+                    campoPasswordCambiarConfirm.classList.remove("is-invalid");
+                }
+                $('#btn_cambiar_password').prop("disabled",false);
+                
+            }
+        });
     });
 }
 function agregarContacto(){
@@ -329,4 +375,43 @@ function eliminarContacto(elementoDOM,id){
         idContacto:id,
         __RequestVerificationToken:credencial.__RequestVerificationToken
     });
+}
+
+function cambiarPassword(idUsuario,passwordActual,nuevaPassword){
+    var AEnviar = {
+        idUsuario:idUsuario,
+        passwordActual:passwordActual,
+        passwordNueva:nuevaPassword,
+        __RequestVerificationToken:credencial.__RequestVerificationToken
+    };
+    $.post("/CambiarPassword",AEnviar,function(respuesta){
+       if(respuesta === "mal"){
+           alert("Comprueba tu contraseña");
+       }else{
+           alert("Contraseña actualizada");
+           $('#campo_password_nueva_cambiar').val("");
+           $('#campo_password_cambiar').val("");
+           $('#campo_password_nueva_cambiar_verificar').val("");
+       }
+    });
+}
+
+
+function subirFotoPerfil(id_usuario){
+    if(inputFilePerfil.files.length > 0){
+        var formData = new FormData();
+        formData.append("archivo",inputFilePerfil.files[0]);
+        formData.append("accion","perfil");
+        //spinner.style.display = "block";
+        fetch("https://fotos-mercado-uanl.azurewebsites.net/guardar.php", {
+            method: 'POST',
+            body: formData
+        }).then(function(r){
+            return r.text();
+        }).then(function(nombre_archivo){
+            actualizarURLFotoPerfil(nombre_archivo,id_usuario);
+            spinnerSubiendoFotoPerfil.style.display = "none";
+            obtenerPerfil(credencial.usuario);
+        });
+    }
 }
