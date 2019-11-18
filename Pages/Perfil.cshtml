@@ -1,9 +1,11 @@
 @page
+@using System.Collections.Specialized
 @model mercado_uanl.Pages.Perfil
 
 @{
     Layout = null;
 }
+<h3>Mi perfil</h3>
 <div class="grupo">
     
     @if (Model.usuario.UrlImagen == null)
@@ -19,6 +21,7 @@
 </div>
 <div class="grupo">
     <h4>Mensaje de presentación</h4>
+    <small>Escribe un mensaje público para tus posibles compradores</small>
     <textarea class="form-control" id="Presentacion_Usuario">@Model.usuario.MensajePersonal</textarea>
     <div class="d-flex w-100 justify-content-end">
         <button title="Guardar" class="btn btn-primary my-2" onclick="guardarDescripcionUsuario(credencial.usuario,$('#Presentacion_Usuario').val())"><i class="fas fa-save"></i></button>
@@ -28,19 +31,27 @@
     <h4>Contraseña de tu cuenta</h4>
     <small>Cambia tu contraseña</small>
     <fieldset>
-        <input type="password" class="form-control my-2" placeholder="Tu contraseña actual"/>
-        <input type="password" class="form-control my-2" placeholder="Nueva contraseña"/>
-        <input type="password" class="form-control my-2" placeholder="Confirma contraseña"/>
+        <input type="password" id="campo_password_cambiar" class="form-control my-2" placeholder="Tu contraseña actual"/>
+        <input type="password" id="campo_password_nueva_cambiar" class="form-control my-2" placeholder="Nueva contraseña"/>
+        <input type="password" id="campo_password_nueva_cambiar_verificar" class="form-control my-2" placeholder="Confirma contraseña"/>
     </fieldset>
     <div class="d-flex w-100 justify-content-end">
-        <button class="btn btn-primary">Cambiar contraseña</button>
+        <button id="btn_cambiar_password" class="btn btn-primary"onclick="cambiarPassword(credencial.usuario,$('#campo_password_cambiar').val(),$('#campo_password_nueva_cambiar').val())" disabled="disabled">
+            Cambiar contraseña
+        </button>
     </div>
 </div>
 <div class="grupo">
     <h4>Tu foto de perfil</h4>
     <small>Sube una foto para tu cuenta</small>
     <div class="form-group">
-        <input type="file"/>
+        <input type="file" id="form_subir_foto_usuario" class="w-100" accept="image/*"/>
+        <div class="d-flex w-100 my-2 justify-content-end">
+            <div class="spinner-border text-primary mx-2" id="spinner_subiendo_foto_perfil" role="status">
+              <span class="sr-only">Cargando...</span>
+            </div>
+            <button id="btn_subir_foto" class="btn btn-primary" title="Subir imagen"><i class="fas fa-upload"></i></button>
+        </div>
     </div>
 </div>
 <div class="grupo">
@@ -50,23 +61,23 @@
         @foreach (var servicioMsj in Model.servicios)
         {
             <tr>
-               @switch (servicioMsj.Servicio)
-               {
-                   case 1:
-                       <td>Número de celular</td>
-                       break;
-                   case 2:
-                       <td>WhatsApp</td>
-                       break;
-                   case 3:
-                       <td>Telegram</td>
-                       break;
-                   case 4:
-                       <td>Facebook Messenger</td>
-                       break;
-               }
-               <td>@servicioMsj.Dato</td>
-               <td><button class="btn btn-danger" onclick="eliminarContacto(this,@servicioMsj.Id)">Eliminar</button></td>
+                @switch (servicioMsj.Servicio)
+                {
+                    case 1:
+                        <td>Número de celular</td>
+                        break;
+                    case 2:
+                        <td>WhatsApp</td>
+                        break;
+                    case 3:
+                        <td>Telegram</td>
+                        break;
+                    case 4:
+                        <td>Facebook Messenger</td>
+                        break;
+                }
+                <td>@servicioMsj.Dato</td>
+                <td><button class="btn btn-danger" onclick="eliminarContacto(this,@servicioMsj.Id)">Eliminar</button></td>
             </tr>
             
         }
@@ -79,6 +90,6 @@
             <option value="fbm">Facebook Messenger</option>
         </select>
         <input type="text" class="mx-2 form-control" id="campo_dato_contacto"/>
-        <button title="Agregar" class="btn btn-primary" id="agregar_contacto_boton" onclick="agregarContacto()">+</button>
+        <button title="Agregar" class="btn btn-primary" id="agregar_contacto_boton" onclick="agregarContacto()"><i class="fas fa-plus"></i></button>
     </div>
 </div>
