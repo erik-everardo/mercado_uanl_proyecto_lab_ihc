@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using mercado_uanl.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -15,9 +17,12 @@ namespace mercado_uanl.Pages
         }
 
         public Usuario usuario;
+        public List<ServicioDeMensajeria> servicios;
         public IActionResult OnGet(string id)
         {
             usuario = contexto.Usuarios.Find(int.Parse(id));
+            servicios = contexto.ServiciosDeMensajeria
+                .Where(serv => serv.IdUsuario.Equals(int.Parse(id))).ToList();
             return Page();
         }
     }
