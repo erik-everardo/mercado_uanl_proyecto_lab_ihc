@@ -97,6 +97,8 @@
             obtenerProductosRecienPublicados();
             obtenerProductosPublicosRecientes(@Model.idUsuario,1);
             document.getElementById("dropdown_nombre_usuario").innerHTML = "@Model.Nombre";
+            
+            obtenerPerfil(credencial.usuario);
         </script>
     }
 }
