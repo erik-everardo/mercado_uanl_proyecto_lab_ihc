@@ -286,15 +286,47 @@ function obtenerPerfil(id){
 }
 function agregarContacto(){
     var row = document.createElement("tr");
-    var columna1 = document.createElement("th");
-    var columna2 = document.createElement("th");
-    var columna3 = document.createElement("th");
-    columna1.innerText = $('#select_contacto option:selected').text()
-    columna2.innerText = $('#campo_dato_contacto').val();
-    columna3.innerHTML = "<button class='btn btn-primary'>Eliminar</button>";
-    row.append(columna1);
-    row.append(columna2);
-    row.append(columna3);
-    $('#tabla-contactos').append(row);
+    var columna1 = document.createElement("td");
+    var columna2 = document.createElement("td");
+    var columna3 = document.createElement("td");
+
+    var aEnviar = {
+        idUsuario:credencial.usuario,
+        claveServ:$('#select_contacto').val(),
+        dato: $('#campo_dato_contacto').val(),
+        __RequestVerificationToken:credencial.__RequestVerificationToken
+    };
+    $.post("/AgregarContactoMsj",aEnviar, function (respuesta) {
+        var stringOnClick = "eliminarContacto(" + "this," + respuesta + ")";
+        columna1.innerText = $('#select_contacto option:selected').text();
+        columna2.innerText = $('#campo_dato_contacto').val();
+        columna3.innerHTML = "<button class='btn btn-danger' onclick='" + stringOnClick + "'>Eliminar</button>";
+        row.append(columna1);
+        row.append(columna2);
+        row.append(columna3);
+        $('#tabla-contactos').append(row);
+    });
+    
+
+    
+
     console.log("agregar");
+}
+function guardarDescripcionUsuario(idUsuario,descripcion){
+    var aEnviar = {
+        Accion:"GuardarMensaje",
+        Descripcion:descripcion,
+        IdUsuario: credencial.usuario,
+        __RequestVerificationToken:credencial.__RequestVerificationToken
+    };
+    $.post("/ModificarPerfil",aEnviar);
+}
+function eliminarContacto(elementoDOM,id){
+    console.log(elementoDOM);
+    elementoDOM.parentElement.parentElement.remove();
+    $.post("/EliminarContacto",{
+        idUsuario:credencial.usuario,
+        idContacto:id,
+        __RequestVerificationToken:credencial.__RequestVerificationToken
+    });
 }
