@@ -4,7 +4,7 @@
 @if (Model.InicioSesion)
 {
     Layout = "Dashboard";
-    ViewData["Title"] = "Dashboard";
+    ViewData["Title"] = Model.Nombre;
     @inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
         @functions{
             public string GetAntiXsrfRequestToken()
