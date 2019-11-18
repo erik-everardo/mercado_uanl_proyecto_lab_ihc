@@ -296,7 +296,7 @@ $('#alerta-actualizar-info-contacto').on('closed.bs.alert', function () {
 });
 
 function obtenerPerfil(id){
-    var Enviar = {id:credencial.usuario};
+    var Enviar = {id:id};
     $.get("/Perfil",Enviar, function(res){
        pantallaPerfil.innerHTML = res;
         campoPasswordCambiar = document.getElementById("campo_password_nueva_cambiar");
@@ -411,7 +411,7 @@ function subirFotoPerfil(id_usuario){
         }).then(function(nombre_archivo){
             actualizarURLFotoPerfil(nombre_archivo,id_usuario);
             spinnerSubiendoFotoPerfil.style.display = "none";
-            obtenerPerfil(credencial.usuario);
+            setTimeout(function(){obtenerPerfil(credencial.usuario)},2000);
         });
     }
 }
