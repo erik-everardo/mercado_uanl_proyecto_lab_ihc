@@ -9,12 +9,9 @@ namespace mercado_uanl.Pages
     {
         private readonly DbContextApp contexto;
         public Usuario usuario;
-        public bool VerPerfil;
-
         public ModificarPerfil(DbContextApp contexto)
         {
             this.contexto = contexto;
-            VerPerfil = false;
         }
         public IActionResult OnPost(string IdUsuario,
             string Nombre = "", 
@@ -23,7 +20,8 @@ namespace mercado_uanl.Pages
             string Sexo = "",
             string Accion ="ActualizarTodo",
             string IdServicioMensajeria="",
-            string DatoServicioMesajeria="")
+            string DatoServicioMesajeria="",
+            string Descripcion = "")
         {
             usuario = contexto.Usuarios.Find(int.Parse(IdUsuario));
             switch (Accion)
@@ -38,16 +36,19 @@ namespace mercado_uanl.Pages
                     contexto.SaveChanges();
                     break;
                 case "AgregarContacto":
-                    contexto.ServiciosDeMensajeria.Add(new ServicioDeMensajeria()
+                    var contacto = new ServicioDeMensajeria()
                     {
                         IdUsuario = usuario.Id,
                         Servicio = int.Parse(IdServicioMensajeria),
                         Dato = DatoServicioMesajeria
-                    });
+                    };
+                    contexto.ServiciosDeMensajeria.Add(contacto);
                     contexto.SaveChanges();
                     break;
-                case "VerPerfilPropio":
-                    VerPerfil = true;
+                case "GuardarMensaje":
+                    usuario.MensajePersonal = Descripcion;
+                    contexto.Usuarios.Update(usuario);
+                    contexto.SaveChanges();
                     break;
             }
 
