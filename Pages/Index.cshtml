@@ -13,7 +13,7 @@
             }
         }
     <script>
-        var credencial = {usuario : "" + @Model.idUsuario, password : "" + @Model.password,__RequestVerificationToken:"@GetAntiXsrfRequestToken()"}
+        var credencial = {usuario : "@Model.idUsuario", password : "@Model.password",__RequestVerificationToken:"@GetAntiXsrfRequestToken()"}
     </script>
     @*Estos divs son las pantallas principales, donde va el contenido. aparecen al dar clic en los botones*@
     @*de la barra izquierda*@
