@@ -70,19 +70,79 @@
     <button class="btn btn-primary my-2" onclick="clickEnPorCategorias(7);"><i class="fas fa-arrow-left"></i></button>
 }
 
-<div class="card">
-    <div class="card-header text-center">
-        @Model.producto.Nombre
+
+    <div class="grupo">
+        
+        <div class="d-flex w-100 justify-content-between">
+            <h4>@Model.producto.Nombre</h4>
+            <h5>Precio: <strong>$@Model.producto.Precio</strong></h5>
+        </div>
+        <h5>Vendedor: @Model.ObtenerVendedorPorId(Model.producto.IdUsuario)</h5>
     </div>
-    <div class="card-body">
-        <pre class="descripcion-producto-preformateado card-text">@Model.producto.Descripcion</pre>
-        Vendedor: @Model.ObtenerVendedorPorId(Model.producto.IdUsuario)
+<div class="grupo">
+    <h4>Descripción</h4>
+    <pre class="descripcion-producto-preformateado card-text">@Model.producto.Descripcion</pre>
+</div>
+<div class="grupo">
+    <h4>Contactar al vendedor</h4>
+    <table class="table">
+        @foreach (var serv in Model.ObtenerServiciosDeMensajeria(@Model.producto.IdUsuario))
+        {
+            <tr>
+                <td>
+                    @switch (serv.Servicio)
+                    {
+                        case 1: @Html.Raw("Número de celular");
+                            break;
+                        case 2: @Html.Raw("WhatsApp");
+                            break;
+                        case 3: @Html.Raw("Telegram");
+                            break;
+                        case 4: @Html.Raw("Facebook Messenger");
+                            break;
+                    }
+                </td>
+                <td>@serv.Dato</td>
+            </tr>
+        }
+    </table>
+</div>
+<div class="grupo">
+    <h4>Evaluación</h4>
+    <div>Promedio: @Model.ObtenerPromedioCalificaciones(Model.ObtenerComentariosProducto(Model.producto.Id)) estrellas</div>
+    <a href="javascript:obtenerComentarios(@Model.producto.Id)">Ver comentarios</a>
+    <div id="espacio_comentarios"></div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-5 grupo">
+        <h4 class="my-4">Imagen del producto</h4>
+        <img src="@Model.producto.UrlFoto" class="w-100"/>
     </div>
-    <div class="card-footer text-muted">
-        <p>Precio: <strong>$@Model.producto.Precio</strong></p>
-        <p>Contacto del vendedor: (proximamente)</p>
-        <p>Evaluación: (proximamente)</p>
+    
+    <div class="col grupo">
+        <h4 class="my-4">Opinar</h4>
+        <div class="form-group">
+            <div id="estrellas" class="my-2">
+                <i title="1 estrella" class="fas fa-star" onclick="opinar(@Model.producto.Id,1, this.parentNode)"></i>
+                <i title="2 estrellas" class="fas fa-star" onclick="opinar(@Model.producto.Id,2, this.parentNode)"></i>
+                <i title="3 estrellas" class="fas fa-star" onclick="opinar(@Model.producto.Id,3, this.parentNode)"></i>
+                <i title="4 estrellas" class="fas fa-star" onclick="opinar(@Model.producto.Id, 4, this.parentNode)"></i>
+                <i title="5 estrellas" class="fas fa-star" onclick="opinar(@Model.producto.Id, 5,this.parentNode)"></i>
+                @if (Model.VerYaOpino(Model.producto.IdUsuario,Model.producto.Id))
+                {
+                    <i id="numero_estrellas">@Model.ObtenerOpinionUsuario(@Model.producto.IdUsuario,@Model.producto.Id).NumeroEstrellas</i>
+                }
+                else
+                {
+                    <i id="numero_estrellas"></i>
+                }
+                
+            </div>
+            <textarea class="form-control" rows="10" placeholder="Opinión" id="texto_comentario"></textarea>
+            <div class="d-flex w-100 justify-content-end my-2">
+                <button class="btn btn-primary" id="btn_opinar" onclick="subirComentario(_idProducto,numEstrellas,$('#texto_comentario').val());">Opinar</button>
+            </div>
+        </div>
     </div>
 </div>
-<h4 class="my-4">Imagen del producto</h4>
-<img src="@Model.producto.UrlFoto" width="80%"/>

@@ -1,0 +1,16 @@
+@page
+@model mercado_uanl.Pages.MostrarComentarios
+@{
+    Layout = null;
+}
+   @if (Model.comentarios.Count < 1)
+    {
+        <div class="alert alert-info">No hay comentarios</div>
+    }
+@foreach (var comentario in Model.comentarios)
+{
+    <div class="comentario">
+        <a class="auto_comentario" href="#">@Model.ObtenerNombreUsuarioPorId(Model.ObtenerIdUsuarioPorIdProducto(comentario.IdProducto))</a>
+        <pre class="descripcion-producto-preformateado">@comentario.Contenido</pre>
+    </div>
+}

@@ -1,5 +1,8 @@
+using System.Collections.Generic;
+using System.Linq;
 using mercado_uanl.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace mercado_uanl.Pages
 {
@@ -59,5 +62,44 @@ namespace mercado_uanl.Pages
         {
             return contexto.Usuarios.Find(id).NombreCompleto;
         }
+
+        public List<ServicioDeMensajeria> ObtenerServiciosDeMensajeria(int IdUsuario)
+        {
+            return contexto.ServiciosDeMensajeria.Where(serv => serv.IdUsuario.Equals(IdUsuario)).ToList();
+        }
+
+        public bool VerYaOpino(int idUsuario,int idProducto)
+        {
+            return contexto.Comentarios.Any(com => com.IdProducto.Equals(idProducto) && com.IdUsuario.Equals(idUsuario));
+        }
+
+        public Comentario ObtenerOpinionUsuario(int id, int idProducto)
+        {
+            return contexto.Comentarios.Single(com => com.IdUsuario.Equals(id) && com.IdProducto.Equals(idProducto));
+        }
+        public List<Comentario> ObtenerComentariosProducto(int IdProducto)
+        {
+            return contexto.Comentarios.Where(com => com.IdProducto.Equals(IdProducto)).ToList();
+        }
+        public float ObtenerPromedioCalificaciones(List<Comentario> comentarios)
+        {
+            int suma = 0;
+
+            foreach (var comentario in comentarios)
+            {
+                suma += comentario.NumeroEstrellas;
+            }
+
+            if (comentarios.Count > 0)
+            {
+                return suma / comentarios.Count;
+            }
+            else
+            {
+                return 0.0f;
+            }
+            
+        }
     }
+    
 }

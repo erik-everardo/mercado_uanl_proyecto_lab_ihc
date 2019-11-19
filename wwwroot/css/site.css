@@ -145,3 +145,12 @@ body {
 #spinner_subiendo_foto_perfil{
   display: none;
 }
+#estrellas > i{
+  cursor: pointer;
+}
+#estrellas > i:hover{
+  font-size: larger;
+}
+#numero_estrellas{
+  margin-left: 6px;
+}

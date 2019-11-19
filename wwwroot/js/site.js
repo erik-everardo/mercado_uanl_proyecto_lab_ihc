@@ -415,3 +415,28 @@ function subirFotoPerfil(id_usuario){
         });
     }
 }
+var numEstrellas;
+var _idProducto;
+function opinar(idProducto,estrellas,padreEstrella){
+    var textoEstrellas = padreEstrella.lastElementChild;
+    textoEstrellas.innerText = estrellas.toString();
+    numEstrellas = estrellas;
+    _idProducto = idProducto;
+}
+function subirComentario(idProducto,estrellas,texto){
+    //post a pagina "CalificarProducto
+    var aEnviar = {
+        idProducto:idProducto,
+        estrellas:estrellas,
+        opinion:texto,
+        __RequestVerificationToken:credencial.__RequestVerificationToken
+    }
+    $.post("/CalificarProducto",aEnviar);
+}
+var espacioComentarios;
+function obtenerComentarios(idProducto){
+    $.get("/MostrarComentarios",{idProducto:idProducto}, function(res){
+        espacioComentarios = document.getElementById("espacio_comentarios");
+        espacioComentarios.innerHTML = res;
+    });
+}
