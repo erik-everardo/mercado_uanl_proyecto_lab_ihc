@@ -1,14 +1,12 @@
 //referencias
 var pantallaPrincipalDiv = document.getElementById("principal");
 var pantallaVentasDiv = document.getElementById("vender");
-var pantallaCalificacionesDiv = document.getElementById("calificaciones");
 var pantallaVerTodo = document.getElementById("ver_todo");
 var pantallaInfoProducto = document.getElementById("info-producto");
 var pantallaMisProductos = document.getElementById("mis_productos");
 var pantallaResultadosBusqueda = document.getElementById("div-resultados-busqueda");
 var linkPantallaPrincipal = document.getElementById("btn-principal");
 var linkPantallaVentas = document.getElementById("btn-vender");
-var linkPantallaCalificaciones = document.getElementById("btn-calificaciones");
 var linkPantallaVerTodo = document.getElementById("btn-ver-todo");
 var linkPantallaMejorCalificado = document.getElementById("btn-mejor-calificado");
 var linkPantallaPorCategoria = document.getElementById("btn-por-categorias");
@@ -31,7 +29,6 @@ $('#btn-vender').on('click',function () {
 $('#btn-calificaciones').on('click',function () {
     //aparecer capa "Ver_todo" y desaparecer las otras
     pantallaPrincipalDiv.style.display = "none";
-    pantallaCalificacionesDiv.style.display = "block";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
@@ -39,9 +36,6 @@ $('#btn-calificaciones').on('click',function () {
     pantallaInfoProducto.style.display = "none";
 
     //colocar el link como active
-    if(!linkPantallaCalificaciones.classList.contains("active")){
-        linkPantallaCalificaciones.classList.add("active");
-    }
     if(linkPantallaPrincipal.classList.contains("active")){
         linkPantallaPrincipal.classList.remove("active");
     }
@@ -61,16 +55,12 @@ $('#btn-calificaciones').on('click',function () {
 $('#btn-ver-todo').on('click',function(){
    clickEnVerTodo(); 
 });
-$('#btn-mejor-calificado').on('click',function(){
-    clickEnMejorCalificado();
-});
 $('#btn-mis-productos').on('click',function () {
     clickEnMisProductos();
 });
 function clickEnPrincipal(){
     //aparecer capa "principal" y desaparecer las otras
     pantallaPrincipalDiv.style.display = "block";
-    pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
@@ -81,9 +71,6 @@ function clickEnPrincipal(){
     //colocar el link como active
     if(!linkPantallaPrincipal.classList.contains("active")){
         linkPantallaPrincipal.classList.add("active");
-    }
-    if(linkPantallaCalificaciones.classList.contains("active")){
-        linkPantallaCalificaciones.classList.remove("active");
     }
     if(linkPantallaVentas.classList.contains("active")){
         linkPantallaVentas.classList.remove("active");
@@ -106,7 +93,6 @@ function clickEnPrincipal(){
 function clickEnVender(desdeRecienPublicados){
     //aparecer capa "Ventas" y desaparecer las otras
     pantallaPrincipalDiv.style.display = "none";
-    pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "block";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
@@ -124,9 +110,6 @@ function clickEnVender(desdeRecienPublicados){
     if(linkPantallaVerTodo.classList.contains("active")){
         linkPantallaVerTodo.classList.remove("active");
     }
-    if(linkPantallaCalificaciones.classList.contains("active")){
-        linkPantallaCalificaciones.classList.remove("active");
-    }
     if(linkPantallaPorCampus.classList.contains("active")){
         linkPantallaPorCampus.classList.remove("active");
     }
@@ -141,7 +124,6 @@ function clickEnVender(desdeRecienPublicados){
 function clickEnVerTodo(){
     //aparecer capa "Ver_todo" y desaparecer las otras
     pantallaPrincipalDiv.style.display = "none";
-    pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "block";
     pantallaInfoProducto.style.display = "none";
@@ -159,17 +141,11 @@ function clickEnVerTodo(){
     if(linkPantallaVentas.classList.contains("active")){
         linkPantallaVentas.classList.remove("active");
     }
-    if(linkPantallaCalificaciones.classList.contains("active")){
-        linkPantallaCalificaciones.classList.remove("active");
-    }
     if(linkPantallaPorCampus.classList.contains("active")){
         linkPantallaPorCampus.classList.remove("active");
     }
     if(linkPantallaPorCategoria.classList.contains("active")){
         linkPantallaPorCategoria.classList.remove("active");
-    }
-    if(linkPantallaMejorCalificado.classList.contains("active")){
-        linkPantallaMejorCalificado.classList.remove("active");
     }
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
@@ -181,7 +157,6 @@ function clickEnPorCategorias(cat){
     obtenerProductoPorCategoria(cat);
     //aparecer capa "Por categorias" y desaparecer las otras
     pantallaPrincipalDiv.style.display = "none";
-    pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "block";
     pantallaInfoProducto.style.display = "none";
@@ -199,50 +174,8 @@ function clickEnPorCategorias(cat){
     if(linkPantallaVentas.classList.contains("active")){
         linkPantallaVentas.classList.remove("active");
     }
-    if(linkPantallaCalificaciones.classList.contains("active")){
-        linkPantallaCalificaciones.classList.remove("active");
-    }
     if(linkPantallaPorCampus.classList.contains("active")){
         linkPantallaPorCampus.classList.remove("active");
-    }
-    if(linkPantallaMejorCalificado.classList.contains("active")){
-        linkPantallaMejorCalificado.classList.remove("active");
-    }
-    if(linkPantallaVerTodo.classList.contains("active")){
-        linkPantallaVerTodo.classList.remove("active");
-    }
-    if(linkPantallaMisProductos.classList.contains("active")){
-        linkPantallaMisProductos.classList.remove("active");
-    }
-}
-function clickEnMejorCalificado(){
-    //aparecer capa "Mejor calificado" y desaparecer las otras
-    pantallaPrincipalDiv.style.display = "none";
-    pantallaCalificacionesDiv.style.display = "none";
-    pantallaVentasDiv.style.display = "none";
-    pantallaVerTodo.style.display = "none";
-    pantallaInfoProducto.style.display = "none";
-    pantallaMisProductos.style.display = "none";
-    pantallaPerfil.style.display = "none";
-
-    //colocar el link como active
-    if(!linkPantallaMejorCalificado.classList.contains("active")){
-        linkPantallaMejorCalificado.classList.add("active");
-    }
-    if(linkPantallaPrincipal.classList.contains("active")){
-        linkPantallaPrincipal.classList.remove("active");
-    }
-    if(linkPantallaVentas.classList.contains("active")){
-        linkPantallaVentas.classList.remove("active");
-    }
-    if(linkPantallaCalificaciones.classList.contains("active")){
-        linkPantallaCalificaciones.classList.remove("active");
-    }
-    if(linkPantallaPorCampus.classList.contains("active")){
-        linkPantallaPorCampus.classList.remove("active");
-    }
-    if(linkPantallaPorCategoria.classList.contains("active")){
-        linkPantallaPorCategoria.classList.remove("active");
     }
     if(linkPantallaVerTodo.classList.contains("active")){
         linkPantallaVerTodo.classList.remove("active");
@@ -254,7 +187,6 @@ function clickEnMejorCalificado(){
 function clickEnPorCompus(num_campus){
     obtenerProductosPorCampus(num_campus);
     pantallaPrincipalDiv.style.display = "none";
-    pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "block";
     pantallaInfoProducto.style.display = "none";
@@ -272,17 +204,11 @@ function clickEnPorCompus(num_campus){
     if(linkPantallaVentas.classList.contains("active")){
         linkPantallaVentas.classList.remove("active");
     }
-    if(linkPantallaCalificaciones.classList.contains("active")){
-        linkPantallaCalificaciones.classList.remove("active");
-    }
     if(linkPantallaPorCategoria.classList.contains("active")){
         linkPantallaPorCategoria.classList.remove("active");
     }
     if(linkPantallaVerTodo.classList.contains("active")){
         linkPantallaVerTodo.classList.remove("active");
-    }
-    if(linkPantallaMejorCalificado.classList.contains("active")){
-        linkPantallaMejorCalificado.classList.remove("active");
     }
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
@@ -292,7 +218,6 @@ function clickEnPorCompus(num_campus){
 function clickEnMisProductos(){
     //aparecer capa "mis productos" y desaparecer las otras
     pantallaPrincipalDiv.style.display = "none";
-    pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
@@ -310,9 +235,6 @@ function clickEnMisProductos(){
     if(linkPantallaVentas.classList.contains("active")){
         linkPantallaVentas.classList.remove("active");
     }
-    if(linkPantallaCalificaciones.classList.contains("active")){
-        linkPantallaCalificaciones.classList.remove("active");
-    }
     if(linkPantallaPorCampus.classList.contains("active")){
         linkPantallaPorCampus.classList.remove("active");
     }
@@ -321,9 +243,6 @@ function clickEnMisProductos(){
     }
     if(linkPantallaVerTodo.classList.contains("active")){
         linkPantallaVerTodo.classList.remove("active");
-    }
-    if(linkPantallaMejorCalificado.classList.contains("active")){
-        linkPantallaMejorCalificado.classList.add("active");
     }
     ActualizarMisProductos();
 }
@@ -342,7 +261,6 @@ $('#boton_movil_mostrar_barra').on('click',function(){
 //para ocultar o desocultar barra lateral en caso de cambio de tamaño de pantalla
 function mostrarInfoProducto(){
     pantallaPrincipalDiv.style.display = "none";
-    pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "block";
@@ -351,7 +269,6 @@ function mostrarInfoProducto(){
 }
 function mostrarPantallaBusqueda(){
     pantallaPrincipalDiv.style.display = "none";
-    pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
@@ -361,7 +278,6 @@ function mostrarPantallaBusqueda(){
 }
 function mostrarPantallaPerfil(id){
     pantallaPrincipalDiv.style.display = "none";
-    pantallaCalificacionesDiv.style.display = "none";
     pantallaVentasDiv.style.display = "none";
     pantallaVerTodo.style.display = "none";
     pantallaInfoProducto.style.display = "none";
