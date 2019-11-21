@@ -1,0 +1,27 @@
+.nosotros{
+  font-style: normal;
+  font-family: corbel;
+  font-size: 70px;
+}
+.equipo{
+  font-size: 30px;
+  font-family: corbel;
+}
+.integrantes{
+  font-size: 20px;
+  font-style: italic;
+  font-family: corbel;
+}
+.mision{
+  font-size: 20px;
+  font-style: oblique;
+  font-family: corbel;
+}
+.vision{
+  font-size: 20px;
+  font-family: corbel;
+}
+.marco{
+  border: 2px;
+  border-style: solid;
+}
