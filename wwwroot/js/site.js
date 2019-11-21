@@ -56,8 +56,12 @@ function subirFoto(id_producto){
         }).then(function(nombre_archivo){
            actualizarURLFoto(nombre_archivo,id_producto);
            spinner.style.display = "none";
+           alert("Producto publicado exitosamente");
            document.getElementById("formulario_publicar_producto").reset();
         });
+    }else{
+        alert("Producto publicado exitosamente");
+        document.getElementById("formulario_publicar_producto").reset();
     }
 }
 function actualizarURLFoto(name,id_producto){
