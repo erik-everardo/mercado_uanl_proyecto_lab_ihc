@@ -53,7 +53,12 @@ namespace mercado_uanl.Pages
                 totalEstrellas += comentario.NumeroEstrellas;
             }
 
-            return totalEstrellas / comentarios.Count;
+            if (comentarios.Count > 0)
+            {
+                return totalEstrellas / comentarios.Count;
+            }
+
+            return 0;
         }
     }
 }
