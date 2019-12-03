@@ -1,4 +1,5 @@
 @page
+@using Microsoft.EntityFrameworkCore
 @model mercado_uanl.Pages.ObtenerProductosPublicos
 
 @{
@@ -36,7 +37,11 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
+
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -54,7 +59,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -72,7 +80,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -90,7 +101,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -108,7 +122,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -126,7 +143,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -144,7 +164,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -162,7 +185,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -180,7 +206,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -198,7 +227,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -216,7 +248,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -234,7 +269,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -252,7 +290,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -270,7 +311,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
-                
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>
@@ -289,6 +333,10 @@ else if (Model.porCampus)
                     <h5 class="mb-5">@producto.Nombre</h5>
                     <p><strong>$@producto.Precio</strong></p>
                 </div>
+                @for (var i = 0; i < Model.PromedioDeProducto(producto.Id); i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
                 <div class="d-flex w-100 justify-content-start">
                     <div class="contenedor_imagen">
                         <img class="imagen-producto" src="@producto.UrlFoto"/>

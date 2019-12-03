@@ -198,5 +198,23 @@ namespace mercado_uanl.Pages
 
             return resultado;
         }
+
+        public int PromedioDeProducto(int idProducto)
+        {
+            List<Comentario> comentariosProducto =
+                contexto.Comentarios.Where(com => com.IdProducto.Equals(idProducto)).ToList();
+            int totalEstrellas = 0;
+            foreach (var comentario in comentariosProducto)
+            {
+                totalEstrellas += comentario.NumeroEstrellas;
+            }
+
+            if (comentariosProducto.Count > 0)
+            {
+                return totalEstrellas / comentariosProducto.Count;
+            }
+
+            return 0;
+        }
     }
 }

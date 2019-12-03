@@ -351,4 +351,5 @@ function clickEnEvaluaciones(){
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
     }
+    obtenerComentariosDeMisProductos();
 }
