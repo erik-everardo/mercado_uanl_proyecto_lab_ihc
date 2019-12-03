@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using mercado_uanl.Models;
@@ -26,6 +27,7 @@ namespace mercado_uanl.Pages
                 ProductosDelUsuario =
                     contexto.Productos.Where(producto => producto.IdUsuario.Equals(int.Parse(usuario))).ToList();
                 ProductosDelUsuario.Reverse();
+
                 if (recientes.Equals("true") && ProductosDelUsuario.Count >= 3)
                 {
                     Recientes = true;
@@ -39,6 +41,19 @@ namespace mercado_uanl.Pages
                 }
             }
             return Page();
+        }
+
+        public int ObtenerPromedioProducto(int idProducto)
+        {
+            List<Comentario> comentarios =
+                contexto.Comentarios.Where(com => com.IdProducto.Equals(idProducto)).ToList();
+            int totalEstrellas = 0;
+            foreach (var comentario in comentarios)
+            {
+                totalEstrellas += comentario.NumeroEstrellas;
+            }
+
+            return totalEstrellas / comentarios.Count;
         }
     }
 }

@@ -168,72 +168,72 @@ function obtenerInfoProducto(idProducto,desde){
     //15=>Electrodomesticos
     //16=>Libros y material escolar
     switch (desde) {
-        case 1: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdePrincipal:"true"},function(respuesta){
+        case 1: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdePrincipal:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto();
         });break;
-        case 2: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeVerTodo:"true"},function(respuesta){
+        case 2: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeVerTodo:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto();
         });break;
-        case 3: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeBusqueda:"true"},function(respuesta){
+        case 3: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeBusqueda:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 4: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeCU:"true"},function(respuesta){
+        case 4: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeCU:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 5: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeMederos:"true"},function(respuesta){
+        case 5: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeMederos:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 6: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeSalud:"true"},function(respuesta){
+        case 6: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeSalud:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 7:$.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeLinares:"true"},function(respuesta){
+        case 7:$.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeLinares:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 8: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeSH:"true"},function(respuesta){
+        case 8: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeSH:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 9: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeAgro:"true"},function(respuesta){
+        case 9: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeAgro:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 10: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeDulces:"true"},function(respuesta){
+        case 10: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeDulces:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 11: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeComidaRapida:"true"},function(respuesta){
+        case 11: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeComidaRapida:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 12: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdePostres:"true"},function(respuesta){
+        case 12: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdePostres:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 13: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeElectronica:"true"},function(respuesta){
+        case 13: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeElectronica:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 14: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeAccesorios:"true"},function(respuesta){
+        case 14: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeAccesorios:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 15: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeElectrodomesticos:"true"},function(respuesta){
+        case 15: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeElectrodomesticos:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
-        case 16: $.get("/MostrarInfoProducto",{idProducto:idProducto,DesdeLibros:"true"},function(respuesta){
+        case 16: $.post("/MostrarInfoProducto",{idProducto:idProducto,DesdeLibros:"true",__RequestVerificationToken:credencial.__RequestVerificationToken,idUsuario:credencial.usuario},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto()
         });break;
         //agregar aqui mas casos: desde pantallas de por calificacion y categoria
-        default: $.get("/MostrarInfoProducto",{idProducto:idProducto},function(respuesta){
+        default: $.post("/MostrarInfoProducto",{idProducto:idProducto},function(respuesta){
             pantallaInfoProducto.innerHTML = respuesta;
             mostrarInfoProducto();
         });break;
@@ -369,7 +369,9 @@ function guardarDescripcionUsuario(idUsuario,descripcion){
         IdUsuario: credencial.usuario,
         __RequestVerificationToken:credencial.__RequestVerificationToken
     };
-    $.post("/ModificarPerfil",aEnviar);
+    $.post("/ModificarPerfil",aEnviar,function(){
+        alert("Información actualizada");
+    });
 }
 function eliminarContacto(elementoDOM,id){
     console.log(elementoDOM);
@@ -415,17 +417,30 @@ function subirFotoPerfil(id_usuario){
         }).then(function(nombre_archivo){
             actualizarURLFotoPerfil(nombre_archivo,id_usuario);
             spinnerSubiendoFotoPerfil.style.display = "none";
-            setTimeout(function(){obtenerPerfil(credencial.usuario)},2000);
+            setTimeout(function(){obtenerPerfil(credencial.usuario),alert("Fotografía subida con éxito")},2000);
         });
+    }else{
+        alert("Debe seleccionar un archivo de foto");
     }
 }
 var numEstrellas;
 var _idProducto;
 function opinar(idProducto,estrellas,padreEstrella){
     var textoEstrellas = padreEstrella.lastElementChild;
-    textoEstrellas.innerText = estrellas.toString();
+    //textoEstrellas.innerText = estrellas.toString();
     numEstrellas = estrellas;
+    pintarEstrellas(numEstrellas);
     _idProducto = idProducto;
+    
+}
+var estrellasDOM = document.getElementsByClassName("estrella");
+function pintarEstrellas(num_estrellas){
+    for(var i=0;i<num_estrellas;i++){
+        estrellasDOM[i].style.color = "#FFD133";
+    }
+    for(var i=num_estrellas;i<estrellasDOM.length;i++){
+        estrellasDOM[i].style.color = "black";
+    }
 }
 function subirComentario(idProducto,estrellas,texto){
     //post a pagina "CalificarProducto
@@ -433,14 +448,26 @@ function subirComentario(idProducto,estrellas,texto){
         idProducto:idProducto,
         estrellas:estrellas,
         opinion:texto,
-        __RequestVerificationToken:credencial.__RequestVerificationToken
+        __RequestVerificationToken:credencial.__RequestVerificationToken,
+        idUsuario:credencial.usuario
     }
-    $.post("/CalificarProducto",aEnviar);
+    $.post("/CalificarProducto",aEnviar,function(){
+        alert("Opinión actualizada");
+    });
 }
 var espacioComentarios;
+var dioClicEnVerComentarios = false;
 function obtenerComentarios(idProducto){
+    dioClicEnVerComentarios = true;
+    document.getElementById("link_ver_comentarios").style.display = "none";
     $.get("/MostrarComentarios",{idProducto:idProducto}, function(res){
         espacioComentarios = document.getElementById("espacio_comentarios");
         espacioComentarios.innerHTML = res;
     });
+}
+
+function obtenerComentariosDeMisProductos(){
+    $.post("/Evaluacion",{idUsuario:credencial.usuario,__RequestVerificationToken:credencial.__RequestVerificationToken},function(respuesta){
+        pantallaEvaluaciones.innerHTML = respuesta;
+    })
 }

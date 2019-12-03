@@ -1,0 +1,23 @@
+﻿@page
+@model mercado_uanl.Pages.Evaluacion
+@{
+    Layout = null;
+}
+
+<div class="my-3">
+    <h4>Ultimos comentarios</h4>
+    @foreach (var comentario in Model.comentarios)
+    {
+        <div class="grupo">
+            <div class="encabezado-comentario">@Model.productos.Single(prod => prod.Id.Equals(comentario.IdProducto)).Nombre</div>
+            <div>
+                @for (var i = 0; i < comentario.NumeroEstrellas; i++)
+                {
+                    <i  class="fas fa-star" style="color:#FFD133"></i>
+                }
+            </div>
+            <div>@comentario.Contenido</div>
+        </div>
+
+    }
+</div>

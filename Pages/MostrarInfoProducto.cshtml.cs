@@ -13,13 +13,19 @@ namespace mercado_uanl.Pages
         public bool DesdePrincipal, DesdeVerTodo, DesdeBusqueda, DesdeCU,DesdeMederos,DesdeSalud,DesdeLinares,DesdeSH,
             DesdeAgro,desdeDulces,desdeComidaRapida,desdePostres,desdeElectronica,desdeAccesorios,desdeElectrodomesticos, desdeLibros;
 
+        public int numEstrellas;
+        public string comentarioPropio;
+        public Comentario comentarioObj;
+        public bool yaOpino;
+
         public MostrarInfoProducto(DbContextApp contexto)
         {
             this.contexto = contexto;
+            yaOpino = false;
         }
         //veo de que pantalla vengo para saber a donde debe mandar boton azul (el que tiene la flecha)
         //agregar mas variables: desde categorias y calificacion
-        public void OnGet(string idProducto, 
+        public void OnPost(int idProducto, int idUsuario,
             string DesdePrincipal="false", 
             string DesdeVerTodo="false", 
             string DesdeBusqueda="false",
@@ -55,7 +61,18 @@ namespace mercado_uanl.Pages
             this.desdeElectrodomesticos = DesdeElectrodomesticos == "true";
             this.desdeLibros = DesdeLibros == "true";
             
-            producto = contexto.Productos.Find(int.Parse(idProducto));
+            producto = contexto.Productos.Find(idProducto);
+
+            //ya opino
+            if (contexto.Comentarios.Any(con => con.IdProducto.Equals(idProducto) && con.IdUsuario.Equals(idUsuario)))
+            {
+                comentarioObj = contexto.Comentarios.Single(con =>
+                    con.IdProducto.Equals(idProducto) && con.IdUsuario.Equals(idUsuario));
+                yaOpino = true;
+                numEstrellas = comentarioObj.NumeroEstrellas;
+                comentarioPropio = comentarioObj.Contenido;
+            }
+            
         }
 
         public string ObtenerVendedorPorId(int id)
@@ -71,11 +88,6 @@ namespace mercado_uanl.Pages
         public bool VerYaOpino(int idUsuario,int idProducto)
         {
             return contexto.Comentarios.Any(com => com.IdProducto.Equals(idProducto) && com.IdUsuario.Equals(idUsuario));
-        }
-
-        public Comentario ObtenerOpinionUsuario(int id, int idProducto)
-        {
-            return contexto.Comentarios.Single(com => com.IdUsuario.Equals(id) && com.IdProducto.Equals(idProducto));
         }
         public List<Comentario> ObtenerComentariosProducto(int IdProducto)
         {

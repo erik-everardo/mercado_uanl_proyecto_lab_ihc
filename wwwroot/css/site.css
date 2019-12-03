@@ -91,7 +91,7 @@ body {
 }
 
 /*divs dashboard*/
-#vender,#calificaciones,#ver_todo,#mejor_calificado,#por_categoria,#por_campus,#por_facultad,#info-producto{
+#vender,#calificaciones,#ver_todo,#mejor_calificado,#por_categoria,#por_campus,#por_facultad,#info-producto,#div-evaluacion{
   display: none;
 }
 #principal{
@@ -153,4 +153,7 @@ body {
 }
 #numero_estrellas{
   margin-left: 6px;
+}
+.encabezado-comentario{
+  font-weight: bold;
 }

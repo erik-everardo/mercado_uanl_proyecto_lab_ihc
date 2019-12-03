@@ -3,14 +3,21 @@
 @{
     Layout = null;
 }
-   @if (Model.comentarios.Count < 1)
+
+<div class="my-3">
+    @if (Model.comentarios.Count < 1)
     {
         <div class="alert alert-info">No hay comentarios</div>
     }
-@foreach (var comentario in Model.comentarios)
-{
-    <div class="comentario">
-        <a class="auto_comentario" href="#">@Model.ObtenerNombreUsuarioPorId(Model.ObtenerIdUsuarioPorIdProducto(comentario.IdProducto))</a>
-        <pre class="descripcion-producto-preformateado">@comentario.Contenido</pre>
-    </div>
-}
+    @foreach (var comentario in Model.comentarios)
+    {
+        for (var i = 0; i < comentario.NumeroEstrellas; i++)
+        {
+            <i  class="fas fa-star" style="color:#FFD133"></i>
+        }
+        <div class="comentario">
+            <a class="auto_comentario" href="#">@Model.ObtenerNombreUsuarioPorId(comentario.IdUsuario)</a>
+            <pre class="descripcion-producto-preformateado">@comentario.Contenido</pre>
+        </div>
+    }
+</div>

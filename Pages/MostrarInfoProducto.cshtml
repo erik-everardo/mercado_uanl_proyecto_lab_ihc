@@ -110,7 +110,7 @@
 <div class="grupo">
     <h4>Evaluación</h4>
     <div>Promedio: @Model.ObtenerPromedioCalificaciones(Model.ObtenerComentariosProducto(Model.producto.Id)) estrellas</div>
-    <a href="javascript:obtenerComentarios(@Model.producto.Id)">Ver comentarios</a>
+    <a href="javascript:obtenerComentarios(@Model.producto.Id)" id="link_ver_comentarios">Ver comentarios</a>
     <div id="espacio_comentarios"></div>
 </div>
 
@@ -123,23 +123,33 @@
     <div class="col grupo">
         <h4 class="my-4">Opinar</h4>
         <div class="form-group">
-            <div id="estrellas" class="my-2">
-                <i title="1 estrella" class="fas fa-star" onclick="opinar(@Model.producto.Id,1, this.parentNode)"></i>
-                <i title="2 estrellas" class="fas fa-star" onclick="opinar(@Model.producto.Id,2, this.parentNode)"></i>
-                <i title="3 estrellas" class="fas fa-star" onclick="opinar(@Model.producto.Id,3, this.parentNode)"></i>
-                <i title="4 estrellas" class="fas fa-star" onclick="opinar(@Model.producto.Id, 4, this.parentNode)"></i>
-                <i title="5 estrellas" class="fas fa-star" onclick="opinar(@Model.producto.Id, 5,this.parentNode)"></i>
-                @if (Model.VerYaOpino(Model.producto.IdUsuario,Model.producto.Id))
-                {
-                    <i id="numero_estrellas">@Model.ObtenerOpinionUsuario(@Model.producto.IdUsuario,@Model.producto.Id).NumeroEstrellas</i>
-                }
-                else
-                {
-                    <i id="numero_estrellas"></i>
-                }
-                
-            </div>
-            <textarea class="form-control" rows="10" placeholder="Opinión" id="texto_comentario"></textarea>
+            @if (Model.yaOpino)
+            {
+                <div id="estrellas" class="my-2">
+                    @for (var i = 0; i < Model.numEstrellas; i++)
+                    {
+                        <i  class="fas fa-star estrella" style="color:#FFD133" onclick="opinar(@Model.producto.Id,@i+1, this.parentNode)"></i>
+                    }
+                    @for (var i = Model.numEstrellas; i < 5; i++)
+                    {
+                        <i  class="fas fa-star estrella" style="color:black" onclick="opinar(@Model.producto.Id,@i+1, this.parentNode)"></i>
+                    }
+                </div>
+                <textarea class="form-control" rows="10" placeholder="Opinión" id="texto_comentario">@Model.comentarioPropio</textarea>
+            }
+            else
+            {
+                <div id="estrellas" class="my-2">
+                    <i title="1 estrella" style="color:#FFD133" class="fas fa-star estrella" onclick="opinar(@Model.producto.Id,1, this.parentNode)"></i>
+                    <i title="2 estrellas" class="fas fa-star estrella" onclick="opinar(@Model.producto.Id,2, this.parentNode)"></i>
+                    <i title="3 estrellas" class="fas fa-star estrella" onclick="opinar(@Model.producto.Id,3, this.parentNode)"></i>
+                    <i title="4 estrellas" class="fas fa-star estrella" onclick="opinar(@Model.producto.Id, 4, this.parentNode)"></i>
+                    <i title="5 estrellas" class="fas fa-star estrella" onclick="opinar(@Model.producto.Id, 5,this.parentNode)"></i>
+
+                </div>
+                <textarea class="form-control" rows="10" placeholder="Opinión" id="texto_comentario"></textarea>
+            }
+
             <div class="d-flex w-100 justify-content-end my-2">
                 <button class="btn btn-primary" id="btn_opinar" onclick="subirComentario(_idProducto,numEstrellas,$('#texto_comentario').val());">Opinar</button>
             </div>

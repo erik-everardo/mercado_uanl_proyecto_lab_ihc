@@ -5,6 +5,7 @@ var pantallaVerTodo = document.getElementById("ver_todo");
 var pantallaInfoProducto = document.getElementById("info-producto");
 var pantallaMisProductos = document.getElementById("mis_productos");
 var pantallaResultadosBusqueda = document.getElementById("div-resultados-busqueda");
+var pantallaEvaluaciones = document.getElementById("div-evaluacion");
 var linkPantallaPrincipal = document.getElementById("btn-principal");
 var linkPantallaVentas = document.getElementById("btn-vender");
 var linkPantallaVerTodo = document.getElementById("btn-ver-todo");
@@ -12,6 +13,7 @@ var linkPantallaMejorCalificado = document.getElementById("btn-mejor-calificado"
 var linkPantallaPorCategoria = document.getElementById("btn-por-categorias");
 var linkPantallaPorCampus = document.getElementById("btn-por-campus");
 var linkPantallaMisProductos = document.getElementById("btn-mis-productos");
+var linkPantallaEvaluaciones = document.getElementById("btn-evaluaciones");
 var sidebar = document.getElementById("sidebar");
 var main = document.getElementById("main-dashboard");
 var pantallaPerfil = document.getElementById("div-perfil");
@@ -34,6 +36,7 @@ $('#btn-calificaciones').on('click',function () {
     pantallaResultadosBusqueda.style.display = "none";
     pantallaPerfil.style.display = "none";
     pantallaInfoProducto.style.display = "none";
+    pantallaEvaluaciones.style.display = "none";
 
     //colocar el link como active
     if(linkPantallaPrincipal.classList.contains("active")){
@@ -51,6 +54,9 @@ $('#btn-calificaciones').on('click',function () {
     if(linkPantallaPorCategoria.classList.contains("active")){
         linkPantallaPorCategoria.classList.remove("active");
     }
+    if(linkPantallaEvaluaciones.classList.contains("active")){
+        linkPantallaEvaluaciones.classList.remove("active");
+    }
 });
 $('#btn-ver-todo').on('click',function(){
    clickEnVerTodo(); 
@@ -67,6 +73,7 @@ function clickEnPrincipal(){
     pantallaMisProductos.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
     pantallaPerfil.style.display = "none";
+    pantallaEvaluaciones.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPrincipal.classList.contains("active")){
@@ -87,6 +94,9 @@ function clickEnPrincipal(){
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
     }
+    if(linkPantallaEvaluaciones.classList.contains("active")){
+        linkPantallaEvaluaciones.classList.remove("active");
+    }
     obtenerProductosPublicosRecientes(credencial.usuario,1);
     obtenerProductosRecienPublicados();
 }
@@ -99,7 +109,8 @@ function clickEnVender(desdeRecienPublicados){
     pantallaMisProductos.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
     pantallaPerfil.style.display = "none";
-
+    pantallaEvaluaciones.style.display = "none";
+    
     //colocar el link como active
     if(!linkPantallaVentas.classList.contains("active")){
         linkPantallaVentas.classList.add("active");
@@ -119,6 +130,9 @@ function clickEnVender(desdeRecienPublicados){
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
     }
+    if(linkPantallaEvaluaciones.classList.contains("active")){
+        linkPantallaEvaluaciones.classList.remove("active");
+    }
     
 }
 function clickEnVerTodo(){
@@ -130,6 +144,7 @@ function clickEnVerTodo(){
     pantallaMisProductos.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
     pantallaPerfil.style.display = "none";
+    pantallaEvaluaciones.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaVerTodo.classList.contains("active")){
@@ -150,6 +165,9 @@ function clickEnVerTodo(){
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
     }
+    if(linkPantallaEvaluaciones.classList.contains("active")){
+        linkPantallaEvaluaciones.classList.remove("active");
+    }
     obtenerProductosPublicosRecientes(credencial.usuario,2);
 }
 function clickEnPorCategorias(cat){
@@ -163,6 +181,7 @@ function clickEnPorCategorias(cat){
     pantallaMisProductos.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
     pantallaPerfil.style.display = "none";
+    pantallaEvaluaciones.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPorCategoria.classList.contains("active")){
@@ -183,6 +202,9 @@ function clickEnPorCategorias(cat){
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
     }
+    if(linkPantallaEvaluaciones.classList.contains("active")){
+        linkPantallaEvaluaciones.classList.remove("active");
+    }
 }
 function clickEnPorCompus(num_campus){
     obtenerProductosPorCampus(num_campus);
@@ -193,6 +215,7 @@ function clickEnPorCompus(num_campus){
     pantallaMisProductos.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
     pantallaPerfil.style.display = "none";
+    pantallaEvaluaciones.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaPorCampus.classList.contains("active")){
@@ -213,6 +236,9 @@ function clickEnPorCompus(num_campus){
     if(linkPantallaMisProductos.classList.contains("active")){
         linkPantallaMisProductos.classList.remove("active");
     }
+    if(linkPantallaEvaluaciones.classList.contains("active")){
+        linkPantallaEvaluaciones.classList.remove("active");
+    }
     
 }
 function clickEnMisProductos(){
@@ -224,6 +250,7 @@ function clickEnMisProductos(){
     pantallaMisProductos.style.display = "block";
     pantallaResultadosBusqueda.style.display = "none";
     pantallaPerfil.style.display = "none";
+    pantallaEvaluaciones.style.display = "none";
 
     //colocar el link como active
     if(!linkPantallaMisProductos.classList.contains("active")){
@@ -243,6 +270,9 @@ function clickEnMisProductos(){
     }
     if(linkPantallaVerTodo.classList.contains("active")){
         linkPantallaVerTodo.classList.remove("active");
+    }
+    if(linkPantallaEvaluaciones.classList.contains("active")){
+        linkPantallaEvaluaciones.classList.remove("active");
     }
     ActualizarMisProductos();
 }
@@ -266,6 +296,7 @@ function mostrarInfoProducto(){
     pantallaInfoProducto.style.display = "block";
     pantallaResultadosBusqueda.style.display = "none";
     pantallaPerfil.style.display = "none";
+    pantallaEvaluaciones.style.display = "none";
 }
 function mostrarPantallaBusqueda(){
     pantallaPrincipalDiv.style.display = "none";
@@ -275,6 +306,7 @@ function mostrarPantallaBusqueda(){
     pantallaMisProductos.style.display = "none";
     pantallaPerfil.style.display = "none";
     pantallaResultadosBusqueda.style.display = "block";
+    pantallaEvaluaciones.style.display = "none";
 }
 function mostrarPantallaPerfil(id){
     pantallaPrincipalDiv.style.display = "none";
@@ -284,5 +316,39 @@ function mostrarPantallaPerfil(id){
     pantallaMisProductos.style.display = "none";
     pantallaResultadosBusqueda.style.display = "none";
     pantallaPerfil.style.display = "block";
+    pantallaEvaluaciones.style.display = "none";
     obtenerPerfil(id);
+}
+function clickEnEvaluaciones(){
+    pantallaPrincipalDiv.style.display = "none";
+    pantallaVentasDiv.style.display = "none";
+    pantallaVerTodo.style.display = "none";
+    pantallaInfoProducto.style.display = "none";
+    pantallaMisProductos.style.display = "none";
+    pantallaResultadosBusqueda.style.display = "none";
+    pantallaPerfil.style.display = "none";
+    pantallaEvaluaciones.style.display = "block";
+
+    //colocar el link como active
+    if(!linkPantallaEvaluaciones.classList.contains("active")){
+        linkPantallaEvaluaciones.classList.add("active");
+    }
+    if(linkPantallaPrincipal.classList.contains("active")){
+        linkPantallaPrincipal.classList.remove("active");
+    }
+    if(linkPantallaVentas.classList.contains("active")){
+        linkPantallaVentas.classList.remove("active");
+    }
+    if(linkPantallaPorCampus.classList.contains("active")){
+        linkPantallaPorCampus.classList.remove("active");
+    }
+    if(linkPantallaPorCategoria.classList.contains("active")){
+        linkPantallaPorCategoria.classList.remove("active");
+    }
+    if(linkPantallaVerTodo.classList.contains("active")){
+        linkPantallaVerTodo.classList.remove("active");
+    }
+    if(linkPantallaMisProductos.classList.contains("active")){
+        linkPantallaMisProductos.classList.remove("active");
+    }
 }
